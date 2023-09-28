@@ -1,0 +1,9 @@
+.barsContainer {
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .barsContainer {
+        display: block;
+    }
+}

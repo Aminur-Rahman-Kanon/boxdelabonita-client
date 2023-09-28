@@ -1,0 +1,21 @@
+.topbarPanelContainer {
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbarPanelItem {
+    margin: 5px;
+}
+
+.topbarPanelIcon {
+    size: 15px;
+    color: rgb(55, 55, 55);
+}
+
+
+.topbarPanelIcon:hover {
+    color: red;
+}

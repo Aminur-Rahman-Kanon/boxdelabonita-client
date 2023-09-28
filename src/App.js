@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Homepage from './Pages/Homepage/homepage';
+import Topbar from './Components/Topbar/topbar';
+import Sidedrawer from './Components/Sidedrawer/sidedrawer';
+import Backdrop from './Components/Backdrop/backdrop';
+import { disableScroll } from './Utilities/utilities';
 
 function App() {
+
+  const [sidedrawer, setSidedrawer] = useState(false);
+  const [backdrop, setBackdrop] = useState(false);
+
+  //This hook handles scroll disabalities on backdrop toggles
+  useEffect(() => {
+    if (backdrop) {
+      disableScroll();
+    }
+    else {
+      window.onscroll = () => {};
+    }
+  }, [backdrop])
+
+  const toggleSidedrawer = () => {
+    setSidedrawer(sidedrawer => !sidedrawer);
+    setBackdrop(backdrop => !backdrop);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
+      <Sidedrawer sidedrawer={sidedrawer}/>
+      <Topbar toggleSidedrawer={toggleSidedrawer} />
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+      </Routes>
     </div>
   );
 }

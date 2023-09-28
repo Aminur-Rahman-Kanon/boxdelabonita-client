@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+
+.banner-Container {
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    width: 100%;
+}
+
+.carousel-status {
+    display: none;
+}
+
+.banner-Item1-Container {
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#e37d00, #db7a03)
+}
+
+.banner-Item1-Inner {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, rgba(242,151,39,1) 0%, rgba(242,190,34,1) 50%, rgba(242,151,39,1) 100%);
+}
+
+.banner-Item-Inner-Details {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.banner-Item-Img-Container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-Item-Img {
+    width: 60%!important;
+}
+
+.banner-Item-Inner-Details {
+    width: 45%;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Belleza', sans-serif;
+}
+
+.banner-Item-Header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.banner-Item-H2 {
+    margin-right: 5px;
+    font-size: 35px;
+    font-weight: 500;
+    color: white;
+    text-align: left;
+    opacity: 0;
+    transform: rotate(180deg);    
+}
+
+.banner-Item-H2.animate-H2 {
+    animation: test1 0.4s ease forwards;
+}
+
+.banner-Item-H4 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(200px);
+}
+
+#reverse-H4 {
+    transform: translateX(-200px);
+}
+
+.banner-Item-H4.animate-H4 {
+    animation: test2 0.5s ease-out forwards;
+}
+
+.banner-Item-Btn {
+    width: 150px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(200px);
+}
+
+.banner-Item-Btn.animate-btn {
+    animation: test3 0.5s ease-in forwards;
+}
+
+.banner-Item-Btn:hover {
+    background-color: white;
+    color: #FF8D00;
+}
+
+.banner-Item2-Btn:hover {
+    background-color: white;
+    color: #65451F;
+}
+
+.banner-Item2-Container {
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#65451F, #765827);
+}
+
+.banner-Item2-Inner {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(270deg, #C8AE7D 0%, #EAC696 50%, #C8AE7D 100%);
+}
+
+.banner-Item3-Container {
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#810034, #6B011F);
+}
+
+.banner-Item3-Inner {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(270deg, #e1598e 0%, #C70039 50%, #e1598e 100%);
+}
+
+.banner-Item4-Container {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#d3d3d2, #989898);
+}
+
+.banner-Item4-Inner {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(270deg, #FFFAF4 0%, #F0F0F0 50%, #FFFAF4 100%);
+}
+
+@keyframes test1 {
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes test2 {
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes test3 {
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 996px) {
+    .banner-Item-Inner-Details {
+        padding: 20px;
+    }
+
+    .banner-Item-H2, .banner-Item4-H2 {
+        font-size: 30px;
+    }
+    
+    .banner-Item-H4, .banner-Item4-H4 {
+        font-size: 15px;
+    }
+
+    .banner-Item1-Inner, .banner-Item2-Inner, .banner-Item3-Inner, .banner-Item4-Inner {
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-Item-Inner-Details {
+        padding: 10px;
+    }
+
+    .banner-Item1-Container, .banner-Item2-Container, .banner-Item3-Container, .banner-Item4-Container {
+        padding: 40px 20px;
+    }
+
+    .banner-Item-H2 {
+        font-size: 22px;
+    }
+    
+    .banner-Item-H4, .banner-Item4-H4 {
+        font-size: 14px;
+    }
+
+    .banner-Item1-Btn, .banner-Item2-Btn, .banner-Item3-Btn, .banner-Item4-Btn {
+        height: 30px;
+    }
+    
+    .banner-Item-Btn {
+        width: 100%;
+        height: 30px;
+    }
+}
+
+@media (max-width: 518px) {
+    .banner-Item-H2, .banner-Item4-H2 {
+        font-size: 15px;
+        margin: 1px 0;
+    }
+
+    .banner-Item-H4, .banner-Item4-H4 {
+        font-size: 12px;
+        margin: 1px 0;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .banner-Item1-Container, .banner-Item2-Container, .banner-Item3-Container, .banner-Item4-Container {
+        padding: 30px 10px;
+    }
+
+    .banner-Item-H2, .banner-Item4-H2 {
+        font-size: 13px;
+    }
+
+    .banner-Item-H4, .banner-Item4-H4 {
+        font-size: 10px;
+    }
+
+    .banner-Item1-Btn, .banner-Item2-Btn, .banner-Item3-Btn, .banner-Item4-Btn {
+        width: 100%;
+        font-size: 12px;
+    }
+}

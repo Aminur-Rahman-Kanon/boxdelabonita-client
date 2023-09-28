@@ -1,0 +1,15 @@
+.backgroundContainer {
+    width: 35%;
+    display: flex;
+}
+
+.backgroundImg {
+    width: 100%;
+}
+
+
+@media (max-width: 767px) {
+    .backgroundContainer {
+        display: none;
+    }
+}

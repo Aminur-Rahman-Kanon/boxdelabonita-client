@@ -1,0 +1,34 @@
+.navbarContainer {
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarItems {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarItem {
+    margin: 5px;
+}
+
+.navbarLink {
+    text-decoration: none;
+    color: rgb(55, 55, 55);
+    font-size: 13px;
+}
+
+@media (max-width: 850px) {
+    .navbarItems {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
