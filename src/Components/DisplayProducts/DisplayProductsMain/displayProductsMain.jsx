@@ -58,10 +58,9 @@ const DisplayProducts = ({ productsType, row, theme }) => {
     
     if (products.length){
         displayProducts = products.slice(leftIndex, rightIndex).map(item => <DisplayProductContainer product={item}/>)
-        // displayProducts = products.map(item => <DisplayProductContainer product={item}/>)
     }
     else if (isLoading) {
-        displayProducts = Array.from(Array(3)).map(item => <LoadingContainer />)
+        displayProducts = Array.from(Array(3)).map((item, idx) => <LoadingContainer key={idx}/>)
     }
     else {
         displayProducts = <div className={styles.displayProducts}>

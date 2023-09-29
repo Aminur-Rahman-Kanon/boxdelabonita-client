@@ -18,6 +18,10 @@
     display: none;
 }
 
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 20px!important;
+}
+
 .banner-Item1-Container {
     width: 100%;
     padding: 50px;
@@ -240,6 +244,9 @@
 }
 
 @media (max-width: 768px) {
+    .swiper-button-next:after, .swiper-button-prev:after {
+        display: none;
+    }
     .banner-Item-Inner-Details {
         padding: 10px;
     }

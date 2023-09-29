@@ -6,6 +6,8 @@ import Topbar from './Components/Topbar/topbar';
 import Sidedrawer from './Components/Sidedrawer/sidedrawer';
 import Backdrop from './Components/Backdrop/backdrop';
 import { disableScroll } from './Utilities/utilities';
+import DisplayProduct from './Pages/DisplayProduct/displayProduct';
+import Footer from './Components/Footer/footer';
 
 function App() {
 
@@ -34,7 +36,9 @@ function App() {
       <Topbar toggleSidedrawer={toggleSidedrawer} />
       <Routes>
         <Route path='/' element={<Homepage />} />
+        <Route path='/product/:productId' element={<DisplayProduct />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

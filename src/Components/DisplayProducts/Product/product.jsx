@@ -7,7 +7,7 @@ const Product = ({product}) => {
     if (!product) return;
 
     return (
-        <Link to='' className={styles.product}>
+        <Link to={`/product/${product._id}`} className={styles.product}>
             <div className={styles.productImgContainer}>
                 <img src={product.img.others1} alt={product.title} className={styles.productImg} />
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './hotdealsProducts.module.css';
 import Product from '../Product/product';
-import Loading from '../Loading/loading';
+import LoadingContainer from '../../DisplayProducts/LoadingContainer/loadingContainer';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -34,7 +34,7 @@ const HotdealsProducts = () => {
         displayProducts = products.map(item => <Product key={item._id} product={item}/>)
     }
     else if (isLoading) {
-        displayProducts = Array.from(Array(9)).map((item, idx) => <Loading key={idx}/>)
+        displayProducts = Array.from(Array(8)).map((item, idx) => <LoadingContainer key={idx}/>)
     }
     else {
         displayProducts = <h3>Nothing to display</h3>
