@@ -36,7 +36,7 @@ function App() {
       <Topbar toggleSidedrawer={toggleSidedrawer} />
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/product/:productId' element={<DisplayProduct />} />
+        <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
       </Routes>
       <Footer />
     </div>

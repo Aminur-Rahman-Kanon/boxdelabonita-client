@@ -36,7 +36,6 @@ function Banner() {
                     slidesPerView={1}
                     navigation={true}
                     pagination={{ clickable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={(idx) => setCarouselItem(`banner-Item${idx.activeIndex+1}-Inner`)}>
                 <SwiperSlide>
                     <div className="banner-Item1-Container">

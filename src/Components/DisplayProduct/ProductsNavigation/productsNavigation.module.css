@@ -1,0 +1,16 @@
+.productsNavigation {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: lightgray;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.path {
+    text-transform: capitalize;
+    font-size: 13px;
+    margin: 5px;
+}

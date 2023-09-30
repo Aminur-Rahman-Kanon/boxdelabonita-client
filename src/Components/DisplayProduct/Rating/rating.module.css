@@ -1,0 +1,19 @@
+.ratingContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.star {
+    font-size: 15px;
+    margin-right: 2px;
+}
+
+.star.active {
+    color: green;
+}
+
+.star.inactive {
+    color: rgb(118, 118, 118);
+}

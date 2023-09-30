@@ -1,4 +1,5 @@
 .product {
+    text-decoration: none;
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
@@ -47,17 +48,19 @@
 
 .title {
     font-size: 1.5rem;
-    margin: 5px 0;
+    margin: 1px 0;
     display: block;
     text-transform: capitalize;
     text-align: left;
+    color: rgb(55, 55, 55);
 }
 
 .price {
     font-size: 1rem;
-    margin: 5px 0;
+    margin: 1px 0;
     display: block;
     text-align: left;
+    color: rgb(55, 55, 55);
 }
 
 @media (max-width: 767px) {

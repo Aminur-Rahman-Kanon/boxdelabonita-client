@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './product.module.css';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
     
     if (!product) return;
 
-    console.log(product);
-
     return (
-        <div className={styles.product}>
+        <Link to={`/bag/${product.category}/${product.title}`} className={styles.product}>
             <div className={styles.imgContainer}>
                 <img src={product.img.others1} alt={product.title} className={styles.img}/>
                 <div className={styles.discountContainer}>
@@ -21,7 +20,7 @@ const Product = ({ product }) => {
                 <s className={styles.price}>&#2547;{product.price.originalPrice}</s>
                 <span className={styles.price}>&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
             </div>
-        </div>
+        </Link>
     )
 }
 
