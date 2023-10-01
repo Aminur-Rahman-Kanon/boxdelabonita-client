@@ -32,6 +32,10 @@ const Product = ({ product }) => {
                     <div className={styles.titleContainer}>
                         <span className={styles.title}>{product.title}</span>
                     </div>
+                    <div className={styles.priceContainer}>
+                        <span className={styles.mainPrice}>&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
+                        <s className={styles.price}>&#2547;{product.price.originalPrice}</s>
+                    </div>
                     <div className={styles.ratingContainer}>
                         <Rating rating={product.rating}/>
                     </div>

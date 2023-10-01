@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './displayProduct.module.css';
 import { useParams } from 'react-router-dom';
-import RelatedProducts from '../../Components/RelatedProducts/relatedProducts';
+import RelatedProducts from '../../Components/DisplayProduct/RelatedProducts/RelatedProductMain/relatedProducts';
 import ProductsNavigation from '../../Components/DisplayProduct/ProductsNavigation/productsNavigation';
 import Product from '../../Components/DisplayProduct/Product/product';
+import Loader from '../../Components/DisplayProduct/Loader/loader';
 
 const DisplayProduct = () => {
 
@@ -11,16 +12,23 @@ const DisplayProduct = () => {
 
     const [product, setProduct] = useState({});
 
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
         if (productId){
+            setIsLoading(true);
             fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-product/${productId}`)
             .then(res => res.json())
             .then(data => {
                 if (data){
                     setProduct(data);
+                    setIsLoading(false);
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                setIsLoading(false);
+                console.log(err);
+            });
         }
     }, [])
 
@@ -29,12 +37,18 @@ const DisplayProduct = () => {
     if (Object.keys(product).length){
         displayProduct = <Product product={product}/>
     }
+    else if (isLoading){
+        displayProduct = <Loader />
+    }
+    else {
+        displayProduct = <h2>Nothing to display</h2>
+    }
 
     return (
         <div className={styles.displayProduct}>
             <ProductsNavigation />
             {displayProduct}
-            {/* <RelatedProducts product={categoryId} /> */}
+            <RelatedProducts category={categoryId} productId={productId}/>
         </div>
     )
 }

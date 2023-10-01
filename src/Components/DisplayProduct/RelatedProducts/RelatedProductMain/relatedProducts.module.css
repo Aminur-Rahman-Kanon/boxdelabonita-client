@@ -1,0 +1,28 @@
+.relatedProducts {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header1 {
+    margin: 10px 0;
+}
+
+.productDisplay {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .relatedProducts {
+        margin: 0;
+    }
+}

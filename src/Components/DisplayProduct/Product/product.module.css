@@ -72,7 +72,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 .stock {
@@ -91,7 +91,7 @@
 
 .titleContainer {
     width: 100%;
-    margin: 10px 0;
+    margin: 2px 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -101,6 +101,26 @@
     font-size: 1.3rem;
     font-weight: 500;
     color: rgb(70, 70, 70);
+}
+
+.priceContainer {
+    width: 100%;
+    margin: 2px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mainPrice {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+}
+
+.price {
+    font-size: 0.9rem;
+    display: block;
 }
 
 .ratingContainer {
@@ -170,7 +190,7 @@
     width: 48%;
     height: 35px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .btn:nth-of-type(1) {
@@ -197,7 +217,7 @@
     width: 100%;
     margin: 20px 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -258,5 +278,17 @@
 
     .sliderImageContainer {
         padding: 1px;
+    }
+
+    .informationContainer {
+        justify-content: center;
+    }
+
+    .information {
+        align-items: center;
+    }
+
+    .info {
+        text-align: center;
     }
 }
