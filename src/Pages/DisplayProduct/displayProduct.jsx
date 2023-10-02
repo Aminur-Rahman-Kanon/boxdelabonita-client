@@ -30,7 +30,7 @@ const DisplayProduct = () => {
                 console.log(err);
             });
         }
-    }, [])
+    }, [categoryId, productId])
 
     let displayProduct = null;
 
