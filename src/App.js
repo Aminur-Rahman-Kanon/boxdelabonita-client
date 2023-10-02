@@ -7,6 +7,7 @@ import Sidedrawer from './Components/Sidedrawer/sidedrawer';
 import Backdrop from './Components/Backdrop/backdrop';
 import { disableScroll } from './Utilities/utilities';
 import DisplayProduct from './Pages/DisplayProduct/displayProduct';
+import Category from './Pages/Category/CategoryMain/category';
 import Footer from './Components/Footer/footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   }, [backdrop])
 
   const toggleSidedrawer = () => {
+    console.log('foo');
     setSidedrawer(sidedrawer => !sidedrawer);
     setBackdrop(backdrop => !backdrop);
   }
@@ -36,6 +38,7 @@ function App() {
       <Topbar toggleSidedrawer={toggleSidedrawer} />
       <Routes>
         <Route path='/' element={<Homepage />} />
+        <Route path='/bag/:categoryId' element={<Category />} />
         <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
       </Routes>
       <Footer />

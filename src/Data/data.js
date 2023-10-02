@@ -15,7 +15,7 @@ export const category = [
     {id: 0, title: 'Shoulder Bag', img: bag1},
     {id: 1, title: 'Bucket Bag', img: bag2},
     {id: 2, title: 'Backpack', img: bag3},
-    {id: 3, title: 'Clutch', img: bag4},
+    {id: 3, title: 'Clutch Bag', img: bag4},
 ]
 
 // export const category = [
@@ -28,3 +28,15 @@ export const category = [
 //     {title: 'Shoulder Bag', img: shoulder},
 //     {title: 'Straw Bag', img: straw},
 // ]
+
+export const categories = [
+    'Backpack', 'Bucket Bag', 'Clutch Bag', 'Crossbody Bag', 'Designer Bag', 'Saddle Bag', 'Shoulder Bag', 'Shoulder Bag', 'Straw Bag', 'Belt & Sling Bag'
+]
+
+export const price = [
+    'Below 1000', '1000-2000', '3000-4000', '4000-5000', 'Over 5000'
+]
+
+export const color = [
+    'Black', 'White', 'Blue', 'Green'
+]

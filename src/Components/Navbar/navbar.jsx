@@ -7,16 +7,16 @@ function Navbar() {
         <nav className={styles.navbarContainer}>
             <ul className={styles.navbarItems}>
                 <li className={styles.navbarItem}>
-                    <Link to='/' className={styles.navbarLink}>HOME</Link>
+                    <a href='/' className={styles.navbarLink}>HOME</a>
                 </li>
                 <li className={styles.navbarItem}>
-                    <Link to="" className={styles.navbarLink}>SHOP</Link>
+                    <a href="" className={styles.navbarLink}>SHOP</a>
                 </li>
                 <li className={styles.navbarItem}>
-                    <Link to="" className={styles.navbarLink}>PRODUCT</Link>
+                    <a href='' className={styles.navbarLink}>PRODUCT</a>
                 </li>
                 <li className={styles.navbarItem}>
-                    <Link to="" className={styles.navbarLink}>ABOUT</Link>
+                    <a href="" className={styles.navbarLink}>ABOUT</a>
                 </li>
             </ul>
         </nav>

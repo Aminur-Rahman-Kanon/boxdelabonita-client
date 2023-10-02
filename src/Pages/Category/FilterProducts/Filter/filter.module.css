@@ -1,0 +1,20 @@
+.filterContainer {
+    position: relative;
+}
+
+.filterDisplay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.filterBtnContainer {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.filterBtn {
+    font-size: 14px;
+    color: rgb(77, 77, 77);
+}

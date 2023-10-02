@@ -3,7 +3,7 @@ import styles from './rating.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, align }) => {
 
     const activeRating = 5-rating;
     
@@ -19,7 +19,7 @@ const Rating = ({ rating }) => {
 
 
     return (
-        <div className={styles.ratingContainer}>
+        <div className={styles.ratingContainer} style={align === 'center' ? {justifyContent: 'center'} : {justifyContent: 'flex-start'}}>
             {ratingDisplay}
         </div>
     )

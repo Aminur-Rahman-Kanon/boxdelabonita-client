@@ -1,0 +1,27 @@
+.headingContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    position: relative;
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.heading::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    content: '';
+    width: 80px;
+    height: 3px;
+    background-color: #557A46;
+}

@@ -1,0 +1,37 @@
+.filterPrducts {
+    position: relative;
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 5px;
+    box-shadow: 0 0 12px 2px rgb(236, 236, 236);
+}
+
+.section1 {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section2 {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .filterPrducts {
+        width: 95%;
+    }
+
+    .section1 {
+        display: none;
+    }
+}
