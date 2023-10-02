@@ -5,16 +5,79 @@
 .filterDisplay {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 5px;
+    box-shadow: 0 0 12px 2px lightgray;
+    z-index: 400;
+}
+
+.filterDisplay.show {
+    display: flex;
+}
+
+.filter {
+    width: 100%;
+    padding: 5px;
+    height: 20px;
+    box-sizing: border-box;
+    margin: 5px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .filterBtnContainer {
     padding: 5px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterBtnIcon {
+    font-size: 14px;
+    color: gray;
+    margin-right: 5px;
 }
 
 .filterBtn {
     font-size: 14px;
     color: rgb(77, 77, 77);
+    cursor: pointer;
+}
+
+.label {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.filterCategory {
+    font-size: 13px;
+    border: none;
+    outline: none;
+}
+
+.btnContainer {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    width: 48%;
+    height: 25px;
+    font-size: 11px;
 }

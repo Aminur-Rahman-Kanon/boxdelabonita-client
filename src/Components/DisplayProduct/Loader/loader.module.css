@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     background-color: lightgray;
-    animation:  loader-effect 5s linear infinite;
+    animation:  loader-effect 4s linear infinite;
 }
 
 .sliderImgContainer:last-child {
@@ -58,7 +58,7 @@
     align-items: center;
     background-color: lightgray;
     border-radius: 2px;
-    animation:  loader-effect 5s linear infinite;
+    animation:  loader-effect 4s linear infinite;
 }
 
 .detailsContainer {
@@ -80,7 +80,7 @@
     justify-content: center;
     align-items: center;
     background-color: lightgray;
-    animation:  loader-effect 5s linear infinite;
+    animation:  loader-effect 4s linear infinite;
 }
 
 .productDetailsContainer:nth-of-type(4) {
@@ -94,7 +94,7 @@
 
 @keyframes loader-effect {
     0% {
-        background-color: rgb(237, 236, 236);
+        background-color: rgb(241, 241, 241);
     }
 
     50% {
@@ -102,7 +102,7 @@
     }
 
     100% {
-        background-color: rgb(237, 236, 236);
+        background-color: rgb(241, 241, 241);
     }
 }
 

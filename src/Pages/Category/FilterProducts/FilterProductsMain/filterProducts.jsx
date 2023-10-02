@@ -8,7 +8,7 @@ import SidePanel from '../SidePanel/sidePanel';
 import Backdrop from '../../../../Components/Backdrop/backdrop';
 import { disableScroll } from '../../../../Utilities/utilities';
 
-const FilterProducts = () => {
+const FilterProducts = ({ filtersApis }) => {
 
     const [sidePanel, setSidePanel] = useState(false);
 
@@ -40,7 +40,7 @@ const FilterProducts = () => {
                 <CategoryContainer />
             </div>
             <div className={styles.section2}>
-                <Filter />
+                <Filter filterApi={filtersApis} />
             </div>
         </div>
         </>

@@ -3,7 +3,7 @@ import styles from './category.module.css';
 import { useParams } from 'react-router-dom';
 import Heading from '../Heading/heading';
 import Product from '../Product/product';
-import Loader from '../../../Components/DisplayProduct/Loader/loader';
+import Loader from '../Loader/loader';
 import FilterProducts from '../FilterProducts/FilterProductsMain/filterProducts';
 
 const Category = () => {
@@ -14,21 +14,33 @@ const Category = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const [price, setPrice] = useState(0);
+
+    const [color, setColor] = useState('');
+
+    const [discount, setDiscount] = useState(false);
+
+    const [specialOffer, setSpecialOffer] = useState(false);
+
+    const filtersApi = {
+        setColor, setDiscount, setPrice, setSpecialOffer
+    }
+
     useEffect(() => {
         if (params.categoryId){
             setIsLoading(true);
-            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.length){
-                    setProduct(data);
-                    setIsLoading(false);
-                }
-            })
-            .catch(err => {
-                setIsLoading(false);
-                console.log(err);
-            });
+            // fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
+            // .then(res => res.json())
+            // .then(data => {
+            //     if (data.length){
+            //         setProduct(data);
+            //         setIsLoading(false);
+            //     }
+            // })
+            // .catch(err => {
+            //     setIsLoading(false);
+            //     console.log(err);
+            // });
         }
     }, [params])
 
@@ -49,7 +61,7 @@ const Category = () => {
     return (
         <div className={styles.categoryContainer}>
             <Heading heading={params.categoryId}/>
-            <FilterProducts />
+            <FilterProducts filtersApis={filtersApi} />
             <div className={styles.productDisplayContainer}>
                 {displayProduct}
             </div>
