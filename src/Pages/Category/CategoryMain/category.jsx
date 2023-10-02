@@ -17,7 +17,7 @@ const Category = () => {
     useEffect(() => {
         if (params.categoryId){
             setIsLoading(true);
-            fetch(`http://localhost:8080/fetch-products/${params.categoryId}`)
+            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
             .then(res => res.json())
             .then(data => {
                 if (data.length){
