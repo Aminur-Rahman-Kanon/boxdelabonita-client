@@ -6,6 +6,7 @@ import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
+    if(!product) return;
 
     return (
         <Link to={`/bag/${product.category}/${product.title}`} className={styles.productContainer}>

@@ -20,6 +20,7 @@ select {
     font-size: 13px;
 }
 
-.category {
-    /* box-sizing: border-box; */
+.category.actice {
+    color: #247a02;
 }
+
