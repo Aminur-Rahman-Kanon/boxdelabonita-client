@@ -19,7 +19,7 @@ const AddToBag = ({ product }) => {
             return console.log('invalid request');
         }
 
-        await fetch('http://https://boxdelabonita-server-13dd.onrender.com/add-item', {
+        await fetch('https://boxdelabonita-server-13dd.onrender.com/add-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

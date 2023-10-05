@@ -20,7 +20,7 @@ function App() {
   const [addItem, setAddItem] = useState(0);
 
   useEffect(() => {
-    fetch('http://https://boxdelabonita-server-13dd.onrender.com/init-app')
+    fetch('https://boxdelabonita-server-13dd.onrender.com/init-app')
     .then(res => res.json())
     .then(data => {
       if (data.user){

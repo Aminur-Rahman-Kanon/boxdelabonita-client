@@ -11,7 +11,7 @@ const CartContainer = () => {
     const [products, setProducts] = useState({});
 
     useEffect(() => {
-        fetch('http://https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
+        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
             if (data.data){
@@ -37,6 +37,9 @@ const CartContainer = () => {
                 </div>
             </div>
         </div>)
+    }
+    else{
+        displayCart = <h3 className={styles.defaultHeading}>No Product's yet</h3>
     }
 
     return (
