@@ -23,12 +23,15 @@ function App() {
     fetch('https://boxdelabonita-server-13dd.onrender.com/init-app')
     .then(res => res.json())
     .then(data => {
-      if (data.user){
-        setUser(data.user);
+      console.log(data);
+      if (data.deviceId){
+        setUser(data);
       }
     })
     .catch(err => console.log(err));
   }, []);
+
+  console.log(user);
 
   //This hook handles scroll disabalities on backdrop toggles
   useEffect(() => {

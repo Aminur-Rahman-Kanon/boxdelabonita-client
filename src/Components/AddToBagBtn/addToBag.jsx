@@ -8,11 +8,13 @@ import { toast } from 'react-toastify';
 const AddToBag = ({ product }) => {
     const context = useContext(ContextApi);
 
+    console.log(context);
+
     const [isLoading, setIsLoading] = useState(false);
     
     const submitHandler = async () => {
         setIsLoading(true);
-        const user = context.user ? context.user : null;
+        const user = context.user.deviceId ? context.user.deviceId : null;
 
         if (!user || !product.title){
             setIsLoading(false);

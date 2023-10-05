@@ -21,6 +21,7 @@ const Product = ({ product }) => {
 
     
     if (!product.title) return;
+    console.log(context);
 
     return (
         <>
