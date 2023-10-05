@@ -64,7 +64,7 @@ const Product = ({ product }) => {
                     </div>
                     <div className={styles.btnContainer}>
                         <div className={styles.btns}>
-                            <AddToBag product={product} />
+                            <AddToBag product={product} title={"Add to Bag"}/>
                         </div>
                         <div className={styles.btns}>
                             <button className={styles.btn}>Add To Wishlist</button>

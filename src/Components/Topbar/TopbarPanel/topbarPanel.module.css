@@ -34,6 +34,7 @@
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s ease-out;
+    z-index: 500;
 }
 
 .topbarPanelItem:nth-of-type(4):hover .cart {
@@ -52,6 +53,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .count {

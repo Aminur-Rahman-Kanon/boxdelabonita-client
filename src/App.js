@@ -10,7 +10,7 @@ import { disableScroll } from './Utilities/utilities';
 import DisplayProduct from './Pages/DisplayProduct/displayProduct';
 import Category from './Pages/Category/CategoryMain/category';
 import Footer from './Components/Footer/footer';
-
+import Cart from './Pages/Cart/cart';
 
 function App() {
 
@@ -58,6 +58,7 @@ function App() {
           <Route path='/' element={<Homepage />} />
           <Route path='/bag/:categoryId' element={<Category />} />
           <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
+          <Route path='/view-cart' element={<Cart />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>

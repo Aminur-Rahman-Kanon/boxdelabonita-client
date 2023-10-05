@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
-const RemoveBtn = ({ product }) => {
+const RemoveBtn = ({ product, title }) => {
 
     const context = useContext(ContextApi);
 
@@ -38,7 +38,7 @@ const RemoveBtn = ({ product }) => {
             {isLoading ?
                 <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.removeIcon} />
                 :
-                <span className={styles.removeBtn}>Remove</span>
+                <span className={styles.removeBtn}>{title}</span>
             }
         </button>
     )

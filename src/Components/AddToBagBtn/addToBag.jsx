@@ -5,11 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
-const AddToBag = ({ product }) => {
+const AddToBag = ({ product, title,  }) => {
+    
     const context = useContext(ContextApi);
-
-    console.log(context);
-
     const [isLoading, setIsLoading] = useState(false);
     
     const submitHandler = async () => {
@@ -50,7 +48,7 @@ const AddToBag = ({ product }) => {
                 isLoading ? 
                 <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.loader}/>
                 :
-                <span className={styles.btn}>Add to Bag</span>
+                <span className={styles.btn}>{title}</span>
             }
         </button>
         </>
