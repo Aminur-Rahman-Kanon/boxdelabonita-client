@@ -3,23 +3,7 @@ import ContextApi from '../../ContextApi/contextApi';
 import styles from './cartContainer.module.css';
 import RemoveBtn from '../../RemoveButton/removeBtn';
 
-const CartContainer = () => {
-
-    const context = useContext(ContextApi);
-    const toggleItem = context.addItem;
-
-    const [products, setProducts] = useState({});
-
-    useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
-        .then(res => res.json())
-        .then(data => {
-            if (data.data){
-                setProducts(data.data);
-            }
-        })
-        .catch(err => console.log(err));
-    }, [toggleItem]);
+const CartContainer = ({ products }) => {
 
     let displayCart = null;
 

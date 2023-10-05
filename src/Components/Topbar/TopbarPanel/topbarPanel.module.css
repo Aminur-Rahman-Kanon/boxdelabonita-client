@@ -40,3 +40,22 @@
     opacity: 1;
     max-height: 375px;
 }
+
+.productCount {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #4b7d37;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count {
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+}
