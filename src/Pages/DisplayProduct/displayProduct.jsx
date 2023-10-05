@@ -15,6 +15,7 @@ const DisplayProduct = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (productId){
             setIsLoading(true);
             fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-product/${productId}`)

@@ -24,20 +24,22 @@ const FilterProducts = ({ filters, filterValue }) => {
     }, [backdrop])
 
     const toggleSidePanel = () => {
-        setSidePanel(!sidePanel);
-        setBackdrop(!backdrop);
+        if (window.innerWidth <= 767){
+            setSidePanel(!sidePanel);
+            setBackdrop(!backdrop);
+        }
     }
 
     return (
         <>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidePanel}/>
         <div className={styles.filterPrducts}>
-            <SidePanel sidePanel={sidePanel} />
+            <SidePanel sidePanel={sidePanel} switchSidePanel={toggleSidePanel}/>
             <div className={styles.menuIconContainer}>
                 <FontAwesomeIcon icon={faList} className={styles.menuIcon} onClick={toggleSidePanel}/>
             </div>
             <div className={styles.section1}>
-                <CategoryContainer />
+                <CategoryContainer toggleSidePanel={toggleSidePanel}/>
             </div>
             <div className={styles.section2}>
                 <Filter filters={filters} filterValue={filterValue} />

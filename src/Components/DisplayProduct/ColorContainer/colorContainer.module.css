@@ -1,0 +1,27 @@
+.colorContainer {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border: 1px solid rgb(70, 70, 70);
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000004d;
+}
+
+.checkIcon {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}

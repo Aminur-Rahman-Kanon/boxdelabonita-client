@@ -1,0 +1,42 @@
+.topbarPanelContainer {
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbarPanelItem {
+    margin: 5px;
+}
+
+.topbarPanelItem:nth-of-type(4) {
+    position: relative;
+}
+
+.topbarPanelIcon {
+    size: 15px;
+    color: rgb(55, 55, 55);
+}
+
+
+.topbarPanelIcon:hover {
+    color: #4b7d37;
+}
+
+.cart {
+    width: 280px;
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    z-index: 100;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.topbarPanelItem:nth-of-type(4):hover .cart {
+    opacity: 1;
+    max-height: 375px;
+}

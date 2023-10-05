@@ -1,19 +1,31 @@
 import React from 'react';
 import styles from './categoryContainer.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Categories from '../Categories/categories';
 
-const CategoryContainer = () => {
+const CategoryContainer = ({ toggleSidePanel }) => {
+
+    const navigate = useNavigate();
+
     return (
         <div className={styles.categoryContainer}>
-            <Categories />
+            <Categories toggleSidePanel={toggleSidePanel} />
             <div className={styles.feauturedCategories}>
-                <Link to="/bag/popular-products" className={styles.featuredCategory}>Popular Products</Link>
-                <Link to="/bag/hot-deals" className={styles.featuredCategory}>Hot Deals</Link>
-                <Link to="/bag/new-arrivals" className={styles.featuredCategory}>New Arrivals</Link>
+                <div className={styles.featuredCategory} onClick={() => {
+                    toggleSidePanel();
+                    navigate('/bag/popular-products');
+                }}>Popular Products</div>
+                <div className={styles.featuredCategory} onClick={() => {
+                    toggleSidePanel();
+                    navigate('/bag/hot-deals')
+                }}>Hot Deals</div>
+                <div className={styles.featuredCategory} onClick={() => {
+                    toggleSidePanel();
+                    navigate('/bag/new-arrivals')
+                }}>New Arrivals</div>
             </div>
         </div>
     )
 }
 
-export default CategoryContainer
+export default CategoryContainer;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './topbar.module.css';
-import Logo from '../Logo/logo';
-import Navbar from '../Navbar/navbar';
+import Logo from '../../Logo/logo';
+import Navbar from '../../Navbar/navbar';
 import TopbarPanel from '../TopbarPanel/topbarPanel';
-import Drawtoogle from '../Drawtoggle/drawtoogle';
+import Drawtoogle from '../../Drawtoggle/drawtoogle';
 
 function Topbar({ toggleSidedrawer }) {
     return (

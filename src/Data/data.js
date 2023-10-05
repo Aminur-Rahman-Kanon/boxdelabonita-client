@@ -30,7 +30,7 @@ export const category = [
 // ]
 
 export const categories = [
-    'Backpack', 'Bucket Bag', 'Clutch Bag', 'Crossbody Bag', 'Designer Bag', 'Saddle Bag', 'Shoulder Bag', 'Shoulder Bag', 'Straw Bag', 'Belt & Sling Bag'
+    'Backpack', 'Bucket Bag', 'Clutch Bag', 'Crossbody Bag', 'Designer Bag', 'Saddle Bag', 'Shoulder Bag', 'Straw Bag', 'Belt & Sling Bag'
 ]
 
 export const prices = [

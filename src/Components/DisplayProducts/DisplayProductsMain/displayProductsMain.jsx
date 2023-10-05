@@ -28,7 +28,7 @@ const DisplayProducts = ({ productsType, row, theme }) => {
     const [screenWidth, setScreenWidth] = useState(null);
 
     useEffect(() => {
-        Aos.init({ duration: 2300 })
+        Aos.init({ duration: 2000 })
         setIsLoading(true);
         setScreenWidth(window.innerWidth);
         fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${productsType}`)

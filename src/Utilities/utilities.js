@@ -43,3 +43,8 @@ export const isElementInViewport = (el) => {
     clearTimeout(test);
     return timer;
   }
+
+
+  export const addToBag = () => {
+    
+  }

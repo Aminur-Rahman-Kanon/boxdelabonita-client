@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import ContextApi from '../../ContextApi/contextApi';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faClock } from '@fortawesome/free-solid-svg-icons';
+import AddToBag from '../../AddToBagBtn/addToBag';
+import { Bounce, Flip, Slide, ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ColorContainer from '../ColorContainer/colorContainer';
 
 const Product = ({ product }) => {
 
-    const [imgIdx, setImgIdx] = useState(Object.keys(product.img)[0]);
+    const context = useContext(ContextApi);
+
+    const [imgIdx, setImgIdx] = useState(null);
+
+    useEffect(() => {
+        setImgIdx(Object.keys(product.img)[0]);
+    }, [product])
 
     
     if (!product.title) return;
 
     return (
+        <>
+        <ToastContainer autoClose={1800} hideProgressBar={true} pauseOnHover theme='colored' style={{fontSize: '13px'}} transition={Slide}/>
         <div className={styles.product}>
             <div className={styles.imageSliderContainer}>
                 {Object.keys(product.img).map(item => <div key={item} className={imgIdx === item ? `${styles.sliderImageContainer} ${styles.activeImg}` : styles.sliderImageContainer}
@@ -34,7 +47,7 @@ const Product = ({ product }) => {
                     </div>
                     <div className={styles.priceContainer}>
                         <span className={styles.mainPrice}>&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
-                        <s className={styles.price}>&#2547;{product.price.originalPrice}</s>
+                        <s className={styles.price} style={product.price.discountedPrice > 0 ? {display:'block'} : {display: 'none'}}>&#2547;{product.price.originalPrice}</s>
                     </div>
                     <div className={styles.ratingContainer}>
                         <Rating rating={product.rating}/>
@@ -45,15 +58,16 @@ const Product = ({ product }) => {
                     <div className={styles.colorContainer}>
                         <span className={styles.colorHeader}>Color</span>
                         <div className={styles.colors}>
-                            {Object.values(product.color).map(color => <span key={color}
-                                                                            className={styles.color}
-                                                                            style={{backgroundColor: `${color}`}}
-                                                                            onClick={() => setImgIdx(color)}></span>)}
+                            {Object.values(product.color).map(color => <ColorContainer key={color} color={color} imgIdx={imgIdx} cb={setImgIdx}/>)}
                         </div>
                     </div>
                     <div className={styles.btnContainer}>
-                        <button className={styles.btn}>Add To Bag</button>
-                        <button className={styles.btn}>Add To Wishlist</button>
+                        <div className={styles.btns}>
+                            <AddToBag product={product} />
+                        </div>
+                        <div className={styles.btns}>
+                            <button className={styles.btn}>Add To Wishlist</button>
+                        </div>
                     </div>
                     <div className={styles.informationContainer}>
                         <div className={styles.information}>
@@ -72,6 +86,7 @@ const Product = ({ product }) => {
                 </div>
             </div>
         </div>
+        </>
     )
 };
 
