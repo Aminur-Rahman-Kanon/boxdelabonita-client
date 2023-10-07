@@ -11,7 +11,7 @@ const RemoveBtn = ({ product, title, cb }) => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        await fetch('http://localhost:8080/remove-single-item', {
+        await fetch('https://boxdelabonita-server-13dd.onrender.com/remove-single-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

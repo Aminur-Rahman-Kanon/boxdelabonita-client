@@ -18,7 +18,7 @@ const AddToBag = ({ product, title,  }) => {
             return toast.error('Failed');
         }
 
-        await fetch('http://localhost:8080/add-item', {
+        await fetch('https://boxdelabonita-server-13dd.onrender.com/add-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
