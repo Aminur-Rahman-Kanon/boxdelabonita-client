@@ -29,6 +29,7 @@ const HotdealsProducts = () => {
     }, [])
 
     let displayProducts = null;
+    console.log(products);
 
     if (products.length){
         displayProducts = products.map(item => <Product key={item._id} product={item}/>)

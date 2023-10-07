@@ -7,17 +7,18 @@ import AddToBag from '../../Components/AddToBagBtn/addToBag';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RemoveBtn from '../../Components/RemoveButton/removeBtn';
-
+import RemoveAllProductsBtn from '../../Components/RemoveAllProductsBtn/removeAllProductsBtn';
 
 function Cart() {
     const context = useContext(ContextApi);
     const toggleItem = context.addItem;
+    const deviceId = context.user ? context.user.deviceId : null;
 
     const [products, setProducts] = useState({});
     const [coupon, setCoupon] = useState('');
 
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
+        fetch('http://localhost:8080/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
             if (data.data){
@@ -50,17 +51,14 @@ function Cart() {
                     </div>
                     <div className={styles.quantityCount}>{item.length}</div>
                     <div className={styles.quantityBtn}>
-                        <RemoveBtn title={"-"} product={item[0]}/>
+                        <RemoveBtn title={"-"} product={item[0]} cb={context.setAddItem}/>
                     </div>
                 </div>
                 <div className={styles.cartItemElement}>
                     <span className={styles.subtotal}>&#2547;{item[0].price.originalPrice - item[0].price.discountedPrice}</span>
                 </div>
                 <div className={styles.cartItemElement}>
-                    {/* <button className={styles.removeBtn} onClick={() => removeItems(context, item[0])}>Remove</button> */}
-                    <div className={styles.removeBtn}>
-                        {/*remove btn*/}
-                    </div>
+                    <RemoveAllProductsBtn title={item[0].title} cb={context.setAddItem} />
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import styles from './cartContainer.module.css';
 import RemoveBtn from '../../RemoveButton/removeBtn';
 import { useNavigate } from 'react-router-dom';
 
-const CartContainer = ({ products }) => {
+const CartContainer = ({ products, toggleAddItem }) => {
 
     const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const CartContainer = ({ products }) => {
                 <span className={styles.subHeading}>{`${item.length} x ${item[0].price.originalPrice-item[0].price.discountedPrice}`}</span>
                 <span className={styles.subHeading}>Total: &#2547;{(item[0].price.originalPrice - item[0].price.discountedPrice) * item.length }</span>
                 <div className={styles.removeBtn}>
-                    <RemoveBtn product={item[0]} title={"Remove"}/>
+                    <RemoveBtn product={item[0]} title={"Remove"} cb={toggleAddItem} />
                 </div>
             </div>
         </div>)
@@ -34,8 +34,7 @@ const CartContainer = ({ products }) => {
                 {displayCart}
             </div>
             <div className={styles.actionContainer}>
-                <button className={styles.actionBtn}>Checkout Now
-                </button>
+                <button className={styles.actionBtn} onClick={() => navigate('/checkout')}>Checkout Now</button>
                 <button className={styles.actionBtn} onClick={() => navigate('/view-cart')}>View Cart
                 </button>
             </div>

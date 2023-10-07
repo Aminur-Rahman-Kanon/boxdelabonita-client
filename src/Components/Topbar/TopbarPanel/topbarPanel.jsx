@@ -10,11 +10,12 @@ function TopbarPanel() {
 
     const context = useContext(ContextApi);
     const toggleItem = context.addItem;
+    const toggleAddItem = context.setAddItem;
 
     const [products, setProducts] = useState({});
-    console.log(products);
+
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
+        fetch('http://localhost:8080/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
             if (data.data){
@@ -34,16 +35,16 @@ function TopbarPanel() {
             <div className={styles.topbarPanelItem}>
                 <FontAwesomeIcon icon={faUser} className={styles.topbarPanelIcon} />
             </div>
-            <div className={styles.topbarPanelItem}>
+            {/* <div className={styles.topbarPanelItem}>
                 <FontAwesomeIcon icon={faHeart} className={styles.topbarPanelIcon} />
-            </div>
+            </div> */}
             <div className={styles.topbarPanelItem}>
                 <FontAwesomeIcon icon={faShoppingBasket} className={styles.topbarPanelIcon} />
                 <div className={styles.productCount}>
                     <span className={styles.count}>{productCount}</span>
                 </div>
                 <div className={styles.cart}>
-                    <CartContainer products={products}/>
+                    <CartContainer products={products} toggleAddItem={toggleAddItem} />
                 </div>
             </div>
         </div>

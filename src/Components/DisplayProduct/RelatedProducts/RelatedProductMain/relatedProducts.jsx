@@ -16,7 +16,7 @@ const RelatedProducts = ({ category, productId }) => {
             }
         })
         .catch(err => console.log(err));
-    }, []);
+    }, [productId]);
 
     if (!product) return;
 

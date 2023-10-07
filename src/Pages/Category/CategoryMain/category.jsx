@@ -34,7 +34,6 @@ const Category = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         setIsLoading(true);
-        // fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
         fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
         .then(res => res.json())
         .then(data => {

@@ -14,6 +14,7 @@ const DisplayProduct = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    console.log(categoryId);
     useEffect(() => {
         window.scrollTo(0, 0);
         if (productId){

@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import styles from './removeBtn.module.css';
+import styles from './removeAllProducts.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
-const RemoveBtn = ({ product, title, cb }) => {
+const RemoveAllProductsBtn = ({ title, cb }) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
+    const submitHandler = async () => {
         setIsLoading(true);
-        await fetch('http://localhost:8080/remove-single-item', {
+        await fetch('http://localhost:8080/remove-all-products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ item: product.title })
+            body: JSON.stringify({ title })
         }).then(res => res.json())
         .then(data => {
             if (data.status === 'success'){
@@ -36,14 +35,15 @@ const RemoveBtn = ({ product, title, cb }) => {
     }
 
     return (
-        <button className={styles.removeBtnContainer} onClick={submitHandler}>
-            {isLoading ?
-                <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.removeIcon} />
+        <button className={styles.removeAllProductsBtn} onClick={submitHandler} disabled={!title}>
+            {
+                isLoading ? 
+                <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.spinner} />
                 :
-                <span className={styles.removeBtn}>{title}</span>
+                <span className={styles.btnTitle}>Remove</span>
             }
         </button>
     )
 }
 
-export default RemoveBtn;
+export default RemoveAllProductsBtn;

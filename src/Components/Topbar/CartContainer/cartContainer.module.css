@@ -111,19 +111,24 @@
 }
 
 .actionBtn:nth-of-type(1) {
-    border: 1px solid #4d53f6;
-    background-color: #4d53f6;
+    border: 1px solid #4b7d37;
+    background-color: #4b7d37;
     color: white;
 }
 
 .actionBtn:nth-of-type(1):hover {
-    background-color: #3e44f8;
+    background-color: #3b6a28;
 }
 
 .actionBtn:nth-of-type(2) {
-    border: 1px solid #4d53f6;
+    border: 1px solid #4b7d37;
     background-color: white;
-    color: #4d53f6;
+    color: #4b7d37;
+}
+
+.actionBtn:nth-of-type(2):hover {
+    background-color: #4b7d37;
+    color: white;
 }
 
 .actionBtn:disabled {
@@ -132,5 +137,5 @@
 }
 
 .actionBtn:nth-of-type(1):disabled:hover {
-    background-color: #4d53f6;
+    background-color: #4b7d37;
 }

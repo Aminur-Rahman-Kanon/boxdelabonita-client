@@ -19,9 +19,7 @@ const Product = ({ product }) => {
         setImgIdx(Object.keys(product.img)[0]);
     }, [product])
 
-    
     if (!product.title) return;
-    console.log(context);
 
     return (
         <>

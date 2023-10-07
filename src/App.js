@@ -11,6 +11,7 @@ import DisplayProduct from './Pages/DisplayProduct/displayProduct';
 import Category from './Pages/Category/CategoryMain/category';
 import Footer from './Components/Footer/footer';
 import Cart from './Pages/Cart/cart';
+import Checkout from './Pages/Checkout/checkout';
 
 function App() {
 
@@ -20,18 +21,17 @@ function App() {
   const [addItem, setAddItem] = useState(0);
 
   useEffect(() => {
-    fetch('https://boxdelabonita-server-13dd.onrender.com/init-app')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if (data.deviceId){
-        setUser(data);
-      }
-    })
-    .catch(err => console.log(err));
+    if (!user.deviceId){
+      fetch('http://localhost:8080/init-app')
+      .then(res => res.json())
+      .then(data => {
+        if (data.deviceId){
+          setUser(data);
+        }
+      })
+      .catch(err => console.log(err));
+    }
   }, []);
-
-  console.log(user);
 
   //This hook handles scroll disabalities on backdrop toggles
   useEffect(() => {
@@ -59,6 +59,7 @@ function App() {
           <Route path='/bag/:categoryId' element={<Category />} />
           <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
           <Route path='/view-cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>

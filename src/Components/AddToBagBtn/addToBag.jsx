@@ -12,33 +12,34 @@ const AddToBag = ({ product, title,  }) => {
     
     const submitHandler = async () => {
         setIsLoading(true);
-        const user = context.user.deviceId ? context.user.deviceId : null;
 
-        if (!user || !product.title){
+        if (!product.title){
             setIsLoading(false);
-            return console.log('invalid request');
+            return toast.error('Failed');
         }
 
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/add-item', {
+        await fetch('http://localhost:8080/add-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ user: user, product:product })
+            body: JSON.stringify({ product })
         }).then(res => res.json())
         .then(result => {
-            setIsLoading(false);
-            message();
-            context.setAddItem(addItem => addItem+1);
+            if (result.status === 'success'){
+                setIsLoading(false);
+                toast.success(`${product.title} added to cart`)
+                context.setAddItem(addItem => addItem+1);
+            }
+            else {
+                setIsLoading(false);
+                toast.success(`${result.status}`);
+            }
         })
         .catch(err => {
             setIsLoading(false);
-            console.log(err);
+            toast.error('Failed');
         });
-    }
-
-    const message = () => {
-        return toast.success(`${product.title} added to cart`)
     }
 
     return (

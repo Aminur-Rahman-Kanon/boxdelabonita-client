@@ -10,7 +10,7 @@
     margin: 5px;
 }
 
-.topbarPanelItem:nth-of-type(4) {
+.topbarPanelItem:nth-of-type(3) {
     position: relative;
 }
 
@@ -37,7 +37,7 @@
     z-index: 500;
 }
 
-.topbarPanelItem:nth-of-type(4):hover .cart {
+.topbarPanelItem:nth-of-type(3):hover .cart {
     opacity: 1;
     max-height: 375px;
 }
