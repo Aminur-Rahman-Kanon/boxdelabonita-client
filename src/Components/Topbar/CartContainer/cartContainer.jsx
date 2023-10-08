@@ -1,11 +1,8 @@
 import React from 'react';
 import styles from './cartContainer.module.css';
 import RemoveBtn from '../../RemoveButton/removeBtn';
-import { useNavigate } from 'react-router-dom';
 
 const CartContainer = ({ products, toggleAddItem }) => {
-
-    const navigate = useNavigate();
 
     let displayCart = null;
 
@@ -34,8 +31,8 @@ const CartContainer = ({ products, toggleAddItem }) => {
                 {displayCart}
             </div>
             <div className={styles.actionContainer}>
-                <button className={styles.actionBtn} onClick={() => navigate('/checkout')}>Checkout Now</button>
-                <button className={styles.actionBtn} onClick={() => navigate('/view-cart')}>View Cart
+                <button className={styles.actionBtn} onClick={() => window.location.assign('/checkout')}>Checkout Now</button>
+                <button className={styles.actionBtn} onClick={() => window.location.assign('/view-cart')}>View Cart
                 </button>
             </div>
         </div>

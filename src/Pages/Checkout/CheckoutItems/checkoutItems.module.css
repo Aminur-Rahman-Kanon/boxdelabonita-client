@@ -19,16 +19,16 @@
 }
 
 .checkoutItemsH3 {
-    font-size: 15px;
-    color: #4d53f6;
-    margin-left: 20px;
+    font-size: 17px;
+    color: #4b7d37;
+    margin: 20px 0 20px 30px;
 }
 
 .checkoutItems {
     width: 100%;
-    max-height: 400px;
+    max-height: 320px;
     overflow-y: scroll;
-    padding: 10px 20px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -38,10 +38,11 @@
 
 .checkoutItems::-webkit-scrollbar {
     background-color: white;
+    width: 5px;
 }
 
 .checkoutItems::-webkit-scrollbar-thumb {
-    color: #4d53f6;
+    color: #4b7d37;
 }
 
 .checkoutItem {
@@ -53,8 +54,8 @@
 }
 
 .checkoutImgContainer {
-    height: 85px;
-    width: 85px;
+    height: 90px;
+    width: 90px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -67,15 +68,15 @@
 }
 
 .checkoutDetailsContainer {
-    width: 70%;
-    min-width: 200px;
+    /* width: 125px; */
     margin-left: 10px;
 }
 
 .checkoutP {
-    font-size: 11px;
+    font-size: 13px;
     margin: 0;
     margin-bottom: 5px;
+    text-align: left;
 }
 
 .hr {
@@ -117,10 +118,11 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: rgb(77, 77, 77);
+    letter-spacing: 1px;
 }
 
 .editOrders:hover {
-    color: #4d53f6;
+    color: #4b7d37;
 }
 
 @media (max-width: 932px) {

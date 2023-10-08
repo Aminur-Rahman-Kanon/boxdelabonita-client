@@ -3,13 +3,11 @@ import styles from './checkoutItems.module.css';
 
 function CheckoutItems({ items }) {
 
-    console.log(items);
-
     let displayCheckoutItems;
     let totalPrice = 0;
     if (Object.keys(items).length) {
         displayCheckoutItems = Object.values(items).map(item => {
-            totalPrice += item.length * item[0].price;
+            totalPrice += item.length * (item[0].price.originalPrice  - item[0].price.discountedPrice);
             return <div key={item[0]._id} className={styles.checkoutItem}>
                 <div className={styles.checkoutImgContainer}>
                     <img src={Object.values(item[0].img)[0]} alt={item[0].title} className={styles.checkoutImg} />
@@ -30,7 +28,7 @@ function CheckoutItems({ items }) {
         <div className={styles.checkoutItemsContainer}>
             <div className={styles.checkoutItemHeader}>
                 <h3 className={styles.checkoutItemsH3}>Order Summary</h3>
-                <span className={styles.editOrders} onClick={() => window.location.assign('/cart')}>(Edit)</span>
+                <span className={styles.editOrders} onClick={() => window.location.assign('/view-cart')}>(Edit)</span>
             </div>
             <div className={styles.outerBox}>
                 <div className={styles.checkoutItems}>
@@ -40,16 +38,16 @@ function CheckoutItems({ items }) {
             <div className={styles.outerBox}>
                 <div className={styles.totalContainer}>
                     <div className={styles.totalItems}>
-                        <span className={styles.totalItem}>Subtotal</span>
-                        <span className={styles.totalItem}>&pound;{totalPrice}</span>
+                        <span className={styles.totalItem}>Subtotal:</span>
+                        <span className={styles.totalItem}>&#2547;{totalPrice}</span>
                     </div>
                     <div className={styles.totalItems}>
-                        <span className={styles.totalItem}>Shipping</span>
-                        <span className={styles.totalItem}>&pound;{Object.keys(items).length ? 10 : 0}</span>
+                        <span className={styles.totalItem}>Shipping:</span>
+                        <span className={styles.totalItem}>&#2547;{Object.keys(items).length ? 10 : 0}</span>
                     </div>
                     <div className={styles.totalItems}>
-                        <span className={styles.totalItem}>Subtotal</span>
-                        <span className={styles.totalItem}>&pound;{Object.keys(items).length ? totalPrice + 10 : 0}</span>
+                        <span className={styles.totalItem}>Subtotal:</span>
+                        <span className={styles.totalItem}>&#2547;{Object.keys(items).length ? totalPrice + 10 : 0}</span>
                     </div>
                 </div>
             </div>
