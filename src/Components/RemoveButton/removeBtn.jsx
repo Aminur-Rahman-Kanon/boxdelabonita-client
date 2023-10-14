@@ -11,18 +11,19 @@ const RemoveBtn = ({ product, title, cb }) => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        const price = product.price.originalPrice - product.price.discountedPrice;
         await fetch('https://boxdelabonita-server-13dd.onrender.com/remove-single-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ item: product.title })
+            body: JSON.stringify({ item: product.title, price })
         }).then(res => res.json())
         .then(data => {
             if (data.status === 'success'){
                 cb(addItem => addItem -1);
                 setIsLoading(false);
-                return toast.success(`${title} removed`);
+                return toast.success(`${product.title} removed`);
             }
             else {
                 setIsLoading(false);

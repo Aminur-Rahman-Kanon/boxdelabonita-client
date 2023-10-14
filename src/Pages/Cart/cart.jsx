@@ -12,7 +12,6 @@ import RemoveAllProductsBtn from '../../Components/RemoveAllProductsBtn/removeAl
 function Cart() {
     const context = useContext(ContextApi);
     const toggleItem = context.addItem;
-    const deviceId = context.user ? context.user.deviceId : null;
 
     const [products, setProducts] = useState({});
     const [coupon, setCoupon] = useState('');
@@ -29,44 +28,59 @@ function Cart() {
     }, [toggleItem]);
 
     const navigate = useNavigate();
-
+    let subtotal = 0;
+    let cartDisplay = null;
     
-    const cartDisplay = Object.keys(products).length ? Object.values(products).map(item => {
-        // subtotal += item[0].price * item.length;
-        return <div key={item[0]._id} className={styles.cartItem}>
-            <div className={styles.cartItemImgContainerMain}>
-                <div className={styles.cartImgContainer}>
-                    <img src={Object.values(item[0].img)[0]} alt={item[0].title} className={styles.cartImg} />
-                </div>
-                <div className={styles.cartInfoContainer}>
-                    <p className={styles.cartTitle}>{item[0].title}</p>
-                    <p className={styles.cartTitle}>Item id: fghy22kl2</p>
-                    <p className={styles.cartTitle}>price: &pound;{item[0].price.originalPrice - item[0].price.discountedPrice}</p>
-                </div>
-            </div>
-            <div className={styles.cartItemElements}>
-                <div className={styles.cartItemElement}>
-                    <div className={styles.quantityBtn}>
-                        <AddToBag title={"+"} product={item[0]} />
+    if (products.product){
+        cartDisplay = Object.values(products.product).map(item => {
+            subtotal += (item[0].price.originalPrice - item[0].price.discountedPrice) * item.length;
+            return <div key={item[0]._id} className={styles.cartItem}>
+                <div className={styles.cartItemImgContainerMain}>
+                    <div className={styles.cartImgContainer}>
+                        <img src={Object.values(item[0].img)[0]} alt={item[0].title} className={styles.cartImg} />
                     </div>
-                    <div className={styles.quantityCount}>{item.length}</div>
-                    <div className={styles.quantityBtn}>
-                        <RemoveBtn title={"-"} product={item[0]} cb={context.setAddItem}/>
+                    <div className={styles.cartInfoContainer}>
+                        <p className={styles.cartTitle}>{item[0].title}</p>
+                        <p className={styles.cartTitle}>Item id: fghy22kl2</p>
+                        <p className={styles.cartTitle}>price: &pound;{item[0].price.originalPrice - item[0].price.discountedPrice}</p>
                     </div>
                 </div>
-                <div className={styles.cartItemElement}>
-                    <span className={styles.subtotal}>&#2547;{item[0].price.originalPrice - item[0].price.discountedPrice}</span>
+                <div className={styles.cartItemElements}>
+                    <div className={styles.cartItemElement}>
+                        <div className={styles.colorContainer}>
+                            {
+                                products.details ? products.details[item[0].title].color ? 
+                                    products.details[item[0].title].color.map((clr, idx) => <div key={idx} className={styles.colors} style={{backgroundColor: `${clr}`}}></div>)
+                                    :
+                                    <span>No colors</span>
+                                    :
+                                    <span>No colors</span>
+                            }
+                        </div>
+                    </div>
+                    <div className={styles.cartItemElement}>
+                        <div className={styles.quantityBtn}>
+                            <AddToBag title={"+"} product={item[0]} />
+                        </div>
+                        <div className={styles.quantityCount}>{item.length}</div>
+                        <div className={styles.quantityBtn}>
+                            <RemoveBtn title={"-"} product={item[0]} cb={context.setAddItem}/>
+                        </div>
+                    </div>
+                    <div className={styles.cartItemElement}>
+                        <span className={styles.subtotal}>&#2547;{item[0].price.originalPrice - item[0].price.discountedPrice}</span>
+                    </div>
+                    <div className={styles.cartItemElement}>
+                        <RemoveAllProductsBtn title={item[0].title} cb={context.setAddItem} />
+                    </div>
                 </div>
-                <div className={styles.cartItemElement}>
-                    <RemoveAllProductsBtn title={item[0].title} cb={context.setAddItem} />
-                </div>
-            </div>
+            </div>})
+    }
+    else {
+        cartDisplay = <div>
+            <h4 className={styles.cartH4}>No item in the cart</h4>
         </div>
-    })
-    :
-    <div>
-        <h4 className={styles.cartH4}>No item in the cart</h4>
-    </div>
+    }
 
     return (
         <>
@@ -76,6 +90,7 @@ function Cart() {
                 <div className={styles.cartItemContainer}>
                     <div className={styles.cartLabels}>
                         <div className={styles.cartLabel}>Product</div>
+                        <div className={styles.cartLabel}>Colors</div>
                         <div className={styles.cartLabel}>Quantity</div>
                         <div className={styles.cartLabel}>Subtotal</div>
                         <div className={styles.cartLabel}>Action</div>
@@ -97,7 +112,7 @@ function Cart() {
                     <div className={styles.totalContainer}>
                         <div className={styles.totalItems}>
                             <div className={styles.totalItem}>
-                                {/* <span className={styles.totalLabel}>Subtotal: &pound;{subtotal}</span> */}
+                                <span className={styles.totalLabel}>Subtotal: &#2547;{subtotal}</span>
                             </div>
                             <div className={styles.totalItem}>
                                 {/* <span className={styles.totalLabel}>Discount: &pound;{discount}</span> */}

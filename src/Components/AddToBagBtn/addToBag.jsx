@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
-const AddToBag = ({ product, title,  }) => {
+const AddToBag = ({ product, title, color }) => {
     
     const context = useContext(ContextApi);
     const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +23,7 @@ const AddToBag = ({ product, title,  }) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ product })
+            body: JSON.stringify({ product, color })
         }).then(res => res.json())
         .then(result => {
             if (result.status === 'success'){

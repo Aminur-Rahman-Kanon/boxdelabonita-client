@@ -18,12 +18,16 @@ function TopbarPanel() {
         fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
-            if (data.data){
-                setProducts(data.data);
+            if (data.data.product){
+                setProducts(data.data.product);
+            }
+            else {
+                setProducts({});
             }
         })
         .catch(err => console.log(err));
     }, [toggleItem]);
+
 
     const productCount = Object.keys(products).length ? Object.keys(products).length : 0
 

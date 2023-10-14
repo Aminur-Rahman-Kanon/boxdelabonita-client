@@ -12,6 +12,7 @@ import Category from './Pages/Category/CategoryMain/category';
 import Footer from './Components/Footer/footer';
 import Cart from './Pages/Cart/cart';
 import Checkout from './Pages/Checkout/checkout';
+import Messanger from './Components/Messanger/messanger';
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer}/>
         <Topbar toggleSidedrawer={toggleSidedrawer} />
+        <Messanger />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/bag/:categoryId' element={<Category />} />

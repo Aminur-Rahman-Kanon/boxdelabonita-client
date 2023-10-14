@@ -20,8 +20,8 @@ const Product = ({ product }) => {
                 </div>
                 <div className={styles.productDetailsContainer}>
                     <div className={styles.priceContainer}>
-                        <span className={styles.mainPrice}>	&#2547;{product.price.originalPrice}</span>
-                        <s className={styles.price}>&#2547;{product.price.originalPrice - product.price.discountedPrice}</s>
+                        <span className={styles.mainPrice}>	&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
+                        <s className={styles.price}>&#2547;{product.price.originalPrice}</s>
                     </div>
                     <div className={styles.actionBtns}>
                         <FontAwesomeIcon icon={faShoppingCart} className={styles.actionIcon} />

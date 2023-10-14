@@ -1,0 +1,29 @@
+.messangerContainer {
+    position: fixed;
+    top: 70%;
+    right: 5px;
+    z-index: 100;
+    width: 40px;
+}
+
+.messanger {
+    width: 100%;
+}
+
+.messangerContainer.animate {
+    animation: animate-messanger 1.5s ease forwards;
+}
+
+@keyframes animate-messanger {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: translateY(1);
+    }
+}
