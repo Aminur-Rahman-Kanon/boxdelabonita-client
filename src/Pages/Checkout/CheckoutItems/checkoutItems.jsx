@@ -15,7 +15,7 @@ function CheckoutItems({ items, deliveryCharge }) {
                 <div className={styles.checkoutDetailsContainer}>
                     <p className={styles.checkoutP}>{item[0].title}</p>
                     <p className={styles.checkoutP}>{item.length} x {item[0].price.originalPrice-item[0].price.discountedPrice}</p>
-                    <p className={styles.checkoutP}>&pound;{item.length * (item[0].price.originalPrice-item[0].price.discountedPrice)}</p>
+                    <p className={styles.checkoutP}>&#2547;{item.length * (item[0].price.originalPrice-item[0].price.discountedPrice)}</p>
                 </div>
             </div>
         })

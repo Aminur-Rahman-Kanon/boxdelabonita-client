@@ -13,7 +13,7 @@ const Orders = ({ user }) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: 'test@test.com' })
+            body: JSON.stringify({ email })
         })
         .then(res => res.json())
         .then(data => {
