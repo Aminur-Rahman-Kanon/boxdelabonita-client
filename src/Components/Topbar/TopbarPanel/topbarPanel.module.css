@@ -10,18 +10,34 @@
     margin: 5px;
 }
 
-.topbarPanelItem:nth-of-type(3) {
+.topbarPanelItem:nth-of-type(3), .topbarPanelItem:nth-of-type(2) {
     position: relative;
 }
 
 .topbarPanelIcon {
     size: 15px;
     color: rgb(55, 55, 55);
+    cursor: pointer;
 }
 
 
 .topbarPanelIcon:hover {
     color: #4b7d37;
+}
+
+.user {
+    width: 170px;
+    position: absolute;
+    top: 25px;
+    right: -38px;
+    z-index: 100;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 0 12px 2px lightgray;
+    z-index: 500;
+    border-radius: 5px;
 }
 
 .cart {
@@ -33,11 +49,17 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    box-shadow: 0 0 12px 2px lightgray;
     transition: all 0.3s ease-out;
     z-index: 500;
 }
 
 .topbarPanelItem:nth-of-type(3):hover .cart {
+    opacity: 1;
+    max-height: 375px;
+}
+
+.topbarPanelItem:nth-of-type(2):hover .user {
     opacity: 1;
     max-height: 375px;
 }

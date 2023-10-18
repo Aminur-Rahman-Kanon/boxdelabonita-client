@@ -160,7 +160,7 @@ function Checkout() {
                         <h3 className='place-order-details-h3'>Date</h3>
                         <p className='place-order-details-p'>{placeOrderDetails.date}</p>
                     </div>
-                    <div className='place-order-footer-column'>
+                    <div className='place-order-footer-column right-column'>
                         <h3 className='place-order-details-h3'>Order Id</h3>
                         <p className='place-order-details-p'>{placeOrderDetails.orderId}</p>
                     </div>
@@ -170,7 +170,7 @@ function Checkout() {
                         <h3 className='place-order-details-h3'>Shipping To</h3>
                         <p className='place-order-details-p'>{address}</p>
                     </div>
-                    <div className='place-order-footer-column'>
+                    <div className='place-order-footer-column right-column'>
                         <h3 className='place-order-details-h3'>Payment Method</h3>
                         <p className='place-order-details-p'>{paymentMethod}</p>
                     </div>

@@ -1,0 +1,50 @@
+.profileNavigationContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileNavigationItem {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #4b7d37;
+    color: white;
+    cursor: pointer;
+}
+
+.profileNavigationItem:hover {
+    background-color: #3c692a;
+}
+
+.profileNavigationItem:not(:last-child) {
+    margin-right: 10px;
+}
+
+.navigation {
+    display: block;
+    font-size: 13px;
+}
+
+.navigationIcon {
+    display: none;
+}
+
+@media (max-width: 550px) {
+    .profileNavigationItem {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .navigation {
+        display: none;
+    }
+    
+    .navigationIcon {
+        display: block;
+    }
+}

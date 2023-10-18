@@ -266,6 +266,14 @@
 
 .place-order-footer-column {
     margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.place-order-footer-column.right-column {
+    align-items: flex-end;
 }
 
 .place-order-btn {

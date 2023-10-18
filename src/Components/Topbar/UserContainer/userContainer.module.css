@@ -1,0 +1,53 @@
+.userContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userIconContainer {
+    width: 50%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userIcon {
+    width: 100%;
+}
+
+.userDetailsContainer {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userDetailsHeading3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.userDetailsLink {
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    color: rgb(45, 45, 45);
+    transition: all 0.2s ease;
+}
+
+.userDetailsLink:hover {
+    transform: scale(1.1);
+    color: #4b7d37;
+}

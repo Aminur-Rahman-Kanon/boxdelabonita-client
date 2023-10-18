@@ -1,0 +1,30 @@
+.avatarContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* box-shadow: 0 0 12px 1px lightgray;
+    border-radius: 5px; */
+}
+
+.avatarIconContainer {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 100%;
+}
+
+.avatarDetailsContainer {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

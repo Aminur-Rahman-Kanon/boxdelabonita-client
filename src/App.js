@@ -13,6 +13,7 @@ import Footer from './Components/Footer/footer';
 import Cart from './Pages/Cart/cart';
 import Checkout from './Pages/Checkout/checkout';
 import Messanger from './Components/Messanger/messanger';
+import ProfileMain from './Pages/Profile/ProfileMain/profileMain';
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
           <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
           <Route path='/view-cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/profile' element={<ProfileMain />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>

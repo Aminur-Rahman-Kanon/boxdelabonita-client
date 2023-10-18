@@ -1,0 +1,124 @@
+.ordersContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    align-items: center;
+}
+
+.displayOrderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.displayHeader {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.orderId {
+    display: block;
+    font-size: 18px;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.productContainer {
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.product {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.productImgContainer {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productImg {
+    width: 100%;
+}
+
+.productDetailsContainer {
+    width: auto;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.details {
+    font-size: 14px;
+    margin: 2px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.displayFooter {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footerItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.footerItem:nth-child(2) {
+    align-items: flex-end;
+}
+
+.footerHeading4 {
+    margin: 10px 0;
+}
+
+@media (max-width: 550px) {
+    .productImgContainer {
+        width: 100px;
+    }
+}
