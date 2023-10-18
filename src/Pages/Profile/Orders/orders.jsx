@@ -37,7 +37,7 @@ const Orders = ({ user }) => {
                 </div>
                 <div className={styles.productDetailsContainer}>
                     <span className={styles.details}>{item.title}</span>
-                    <div className={styles.details}>Color: <span className={styles.color} style={{backgroundColor: `${item.color[0]}`}}></span></div>
+                    <div className={styles.details}>Color: {item.color.map(clr => <span key={clr} className={styles.color} style={{backgroundColor: `${item.color[0]}`}}></span>)}</div>
                     <span className={styles.details}>Quantity: {item.quantity}</span>
                     <span className={styles.details}>Price: {item.price}</span>
                 </div>
