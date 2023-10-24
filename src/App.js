@@ -55,17 +55,17 @@ function App() {
     <div className="App">
       <ContextApi.Provider value={{user, addItem, setAddItem}}>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
-        {/* <Sidedrawer sidedrawer={sidedrawer}/> */}
-        {/* <Topbar toggleSidedrawer={toggleSidedrawer} /> */}
-        {/* <Messanger /> */}
+        <Sidedrawer sidedrawer={sidedrawer}/>
+        <Topbar toggleSidedrawer={toggleSidedrawer} />
+        <Messanger />
         <Routes>
-          {/* <Route path='/' element={<Homepage />} /> */}
-          <Route path='/' element={<UnderTesting />} />
-          {/* <Route path='/bag/:categoryId' element={<Category />} />
+          <Route path='/' element={<Homepage />} />
+          {/* <Route path='/' element={<UnderTesting />} /> */}
+          <Route path='/bag/:categoryId' element={<Category />} />
           <Route path='/bag/:categoryId/:productId' element={<DisplayProduct />} />
           <Route path='/view-cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/profile' element={<ProfileMain />} /> */}
+          <Route path='/profile' element={<ProfileMain />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>
