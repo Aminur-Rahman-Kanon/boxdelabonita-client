@@ -3,15 +3,14 @@ import styles from './userDetails.module.css';
 
 const UserDetails = ({ user }) => {
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [fullName, setFullName] = useState('');
+    // const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
     useEffect(() => {
         if (user.user){
-            setFirstName(user.user.firstName);
-            setLastName(user.user.lastName);
+            setFullName(user.user.name);
             setEmail(user.user.email);
             setPhone(user.user.phone);
         }
@@ -20,18 +19,18 @@ const UserDetails = ({ user }) => {
     const displayUserDetails = user ? <form className={styles.userDetailsContainer}>
         <div className={styles.formInputContainer}>
             <input type='text'
-                   value={firstName}
-                   placeholder='First Name'
-                   onChange={(e) => setFirstName(e.target.value)}
+                   value={fullName}
+                   placeholder='Full Name'
+                   onChange={(e) => setFullName(e.target.value)}
                    className={styles.formInput} />
         </div>
-        <div className={styles.formInputContainer}>
+        {/* <div className={styles.formInputContainer}>
             <input type='text'
                    value={lastName}
                    placeholder='Last Name'
                    onChange={(e) => setLastName(e.target.value)}
                    className={styles.formInput} />
-        </div>
+        </div> */}
         <div className={styles.formInputContainer}>
             <input type='email'
                    value={email}

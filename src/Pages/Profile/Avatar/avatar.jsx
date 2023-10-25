@@ -10,7 +10,7 @@ const Avatar = ({ user }) => {
             </div>
             <div className={styles.avatarDetailsContainer}>
                 <span>
-                    {user ? `${user.firstName} ${user.lastName}` : 'Guest'}
+                    {user ? user.name : 'Guest'}
                 </span>
             </div>
         </div>

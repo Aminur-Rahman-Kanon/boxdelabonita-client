@@ -48,6 +48,18 @@ function Checkout() {
                     totalPrice += item.price * item.quantity;
                 })
                 setTotalPrice(totalPrice);
+                if (data.data.user){
+                    setName(data.data.user.name);
+                    setAddress(data.data.user.address);
+                    setEmail(data.data.user.email);
+                    setPhone(data.data.user.phone);
+                    if (data.data.user.city){
+                        setCity(data.data.user.city);
+                    }
+                    if (data.data.user.area){
+                        setArea(data.data.user.area);
+                    }
+                }
             }
         })
         .catch(err => console.log(err))

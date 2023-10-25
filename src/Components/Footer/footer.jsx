@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './footer.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import bkash from '../../Assets/Others/bkash.png';
 import visa from '../../Assets/Others/visa.png';
@@ -50,13 +51,13 @@ const Footer = () => {
                 <div className={styles.topSectionContainer}>
                     <h2 className={styles.headerH2}>CATEGORY</h2>
                     <div className={styles.topSectionContainerItem}>
-                        <a href="/products/earring" className={styles.topSectionLink}>Bucket Bag</a>
-                        <a href="/products/necklace" className={styles.topSectionLink}>Clutch Bag</a>
-                        <a href="/products/bracelet" className={styles.topSectionLink}>Crossbody Bag</a>
-                        <a href="/products/fingerring" className={styles.topSectionLink}>Designer Bag</a>
-                        <a href="/products/toering" className={styles.topSectionLink}>Saddle Bag</a>
-                        <a href="/products/nepali" className={styles.topSectionLink}>Shoulder Bag</a>
-                        <a href="/products/other" className={styles.topSectionLink}>Staw Bag</a>
+                        <Link to="/bag/bucket bag" className={styles.topSectionLink}>Bucket Bag</Link>
+                        <Link to="/bag/clutch bag" className={styles.topSectionLink}>Clutch Bag</Link>
+                        <Link to="/bag/crossbody bag" className={styles.topSectionLink}>Crossbody Bag</Link>
+                        <Link to="/bag/designer bag" className={styles.topSectionLink}>Designer Bag</Link>
+                        <Link to="/bag/saddle bag" className={styles.topSectionLink}>Saddle Bag</Link>
+                        <Link to="/bag/shoulder bag" className={styles.topSectionLink}>Shoulder Bag</Link>
+                        <Link to="/bag/staw bag" className={styles.topSectionLink}>Staw Bag</Link>
                     </div>
                 </div>
             </div>

@@ -17,8 +17,8 @@
     width: 100%;
     margin: 20px auto;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 767px) {

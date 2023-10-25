@@ -48,8 +48,6 @@ const Category = () => {
         });
     }, [params.categoryId]);
 
-    console.log(product);
-
     useEffect(() => {
         let filteredItem = [];
         if (filter.price !== 'Please Select'){

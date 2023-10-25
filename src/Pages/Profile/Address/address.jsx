@@ -16,7 +16,7 @@ const Address = ({ user }) => {
             setCity(user.user.city);
             setArea(user.user.area);
         }
-    }, [])
+    }, [user])
 
     const areas = useMemo(() => {
         return city ? cities[city].map((item ,idx) => <option key={idx} className={styles.option}>{item}</option>) : <option className={styles.option}>Please Select</option>
@@ -32,7 +32,7 @@ const Address = ({ user }) => {
                        className={styles.formInput} />
             </div>
             <div className={styles.formInputContainer}>
-                <select value={city} className={styles.formSelect} onChange={(e) => setCity(e.target.value)}>
+                <select value={city ? city : 'Please Select'} className={styles.formSelect} onChange={(e) => setCity(e.target.value)}>
                     <option disabled>Please Select</option>
                     {cityOptions}
                 </select>

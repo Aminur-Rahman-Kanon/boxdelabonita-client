@@ -1,13 +1,15 @@
 .ordersContainer {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
     align-items: center;
 }
 
 .displayOrderContainer {
     width: 100%;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,9 +27,9 @@
 
 .orderId {
     display: block;
-    font-size: 18px;
-    margin: 5px 0;
-    font-weight: 500;
+    font-size: 15px;
+    margin: 1px 0;
+    /* font-weight: 500; */
 }
 
 .hr {
@@ -57,7 +59,7 @@
 }
 
 .productImgContainer {
-    width: 150px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;

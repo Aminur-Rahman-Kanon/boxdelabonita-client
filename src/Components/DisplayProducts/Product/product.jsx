@@ -9,7 +9,7 @@ const Product = ({product}) => {
     return (
         <Link to={`/bag/${product.category}/${product.title}`} className={styles.product}>
             <div className={styles.productImgContainer}>
-                <img src={product.img.others1} alt={product.title} className={styles.productImg} />
+                <img src={Object.values(product.img)[0]} alt={product.title} className={styles.productImg} />
             </div>
             <div className={styles.productDetailsContainer}>
                 <span className={styles.productTitle}>{product.title}</span>
