@@ -41,11 +41,12 @@ function Checkout() {
         .then(res => res.json())
         .then(data => {
             if (data.data){
+                console.log(data.data);
                 setProducts(data.data.product);
                 setUserDetails(data.data.details);
                 let totalPrice = 0;
                 Object.values(data.data.details).forEach(item => {
-                    totalPrice += item.price * item.quantity;
+                    totalPrice += item.price;
                 })
                 setTotalPrice(totalPrice);
                 if (data.data.user){
@@ -64,6 +65,8 @@ function Checkout() {
         })
         .catch(err => console.log(err))
     }, []);
+
+    console.log(totalPrice);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -228,7 +231,7 @@ function Checkout() {
                         <fieldset className={phoneValidity ? 'payment-form-filedset' : 'payment-form-filedset wrong-input'}>
                             <div className='flag-container'>
                                 <img src={flag} className='flag'/>
-                                <span className='country-code'>+880</span>
+                                <span className='country-code'>+88</span>
                             </div>
                             <input type='number'
                                    placeholder='Phone Number'
@@ -269,7 +272,7 @@ function Checkout() {
                 </div>
                 <div className='vertical-line'></div>
                 <div className='item-container'>
-                    <CheckoutItems items={products} deliveryCharge={deliveryCharge} />
+                    <CheckoutItems items={products} deliveryCharge={deliveryCharge} totalPrice={totalPrice} />
                 </div>
             </div>
         </section>

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import styles from './checkoutItems.module.css';
 
-function CheckoutItems({ items, deliveryCharge }) {
+function CheckoutItems({ items, deliveryCharge, totalPrice }) {
 
     let displayCheckoutItems;
-    let totalPrice = 0;
+    // let totalPrice = 0;
     if (Object.keys(items).length) {
         displayCheckoutItems = Object.values(items).map(item => {
-            totalPrice += item.length * (item[0].price.originalPrice  - item[0].price.discountedPrice);
+            // totalPrice += item.length * (item[0].price.originalPrice  - item[0].price.discountedPrice);
             return <div key={item[0]._id} className={styles.checkoutItem}>
                 <div className={styles.checkoutImgContainer}>
                     <img src={Object.values(item[0].img)[0]} alt={item[0].title} className={styles.checkoutImg} />
@@ -47,7 +47,7 @@ function CheckoutItems({ items, deliveryCharge }) {
                     </div>
                     <div className={styles.totalItems}>
                         <span className={styles.totalItem}>Subtotal:</span>
-                        <span className={styles.totalItem}>&#2547;{Object.keys(items).length ? totalPrice + deliveryCharge : 0}</span>
+                        <span className={styles.totalItem}>&#2547;{totalPrice + deliveryCharge}</span>
                     </div>
                 </div>
             </div>
