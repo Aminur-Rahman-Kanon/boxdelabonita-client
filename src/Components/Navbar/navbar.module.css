@@ -21,9 +21,36 @@
 }
 
 .navbarLink {
+    display: block;
     text-decoration: none;
     color: rgb(55, 55, 55);
     font-size: 13px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+.navbarLink:hover {
+    color: #4b7d37;
+}
+
+.navbarLink.active {
+    color: #4b7d37;
+}
+
+.shop {
+    display: none;
+}
+
+.category {
+    display: none;
+}
+
+.navbarItem:nth-child(2):hover .shop {
+    display: block;
+}
+
+.navbarItem:nth-child(3):hover .category {
+    display: block;
 }
 
 @media (max-width: 850px) {

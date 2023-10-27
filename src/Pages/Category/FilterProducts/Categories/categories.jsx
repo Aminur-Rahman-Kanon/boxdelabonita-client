@@ -17,9 +17,9 @@ const Categories = ({ toggleSidePanel }) => {
                     }} defaultValue="Select Category">
                 <option disabled className={styles.category}>Select Category</option>
                 {
-                    categories.map((cat, idx) => <option key={idx}
-                                                         className={params.categoryId === cat.toLowerCase() ? `${styles.category} ${styles.actice}` : styles.category}
-                                                         value={cat}>{cat}</option>)
+                    categories.map(cat => <option key={cat.id}
+                                                         className={params.categoryId === cat.title.toLowerCase() ? `${styles.category} ${styles.actice}` : styles.category}
+                                                         value={cat.title}>{cat.title}</option>)
                 }
             </select>
         </div>
