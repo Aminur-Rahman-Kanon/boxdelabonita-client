@@ -10,6 +10,7 @@
 }
 
 .productImgContainer {
+    position: relative;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -32,7 +33,7 @@
 
 .productTitle {
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: rgb(55, 55, 55);
     /* margin: 2px; */
     text-transform: capitalize;
@@ -40,9 +41,24 @@
 
 .productPrice {
     display: block;
-    font-size: 1.1rem;
-    color: rgb(55, 55, 55);
-    /* margin: 2px; */
+    font-size: 1rem;
+    /* color: rgb(55, 55, 55); */
+    color: green;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #db0c0c;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
 }
 
 @media (max-width: 767px) {

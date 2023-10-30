@@ -3,9 +3,9 @@ import ContextApi from '../../ContextApi/contextApi';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruck, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faTruck, faRotateLeft, faClock } from '@fortawesome/free-solid-svg-icons';
 import AddToBag from '../../AddToBagBtn/addToBag';
-import { Bounce, Flip, Slide, ToastContainer, Zoom } from 'react-toastify';
+import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ColorContainer from '../ColorContainer/colorContainer';
 
@@ -74,7 +74,7 @@ const Product = ({ product }) => {
                             <p className={styles.info}>Free Worldwide Shipping</p>
                         </div>
                         <div className={styles.information}>
-                            <FontAwesomeIcon icon={faTruck} className={styles.infoIcon}/>
+                            <FontAwesomeIcon icon={faRotateLeft} className={styles.infoIcon}/>
                             <p className={styles.info}>Easy 30 Days Returns</p>
                         </div>
                         <div className={styles.information}>

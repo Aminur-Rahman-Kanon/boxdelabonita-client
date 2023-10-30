@@ -10,7 +10,7 @@ const Products = ({ product }) => {
             </div>
             <div className={styles.detailsContainer}>
                 <span className={styles.title}>{product.title}</span>
-                <span className={styles.price}>&#2547;{product.price.originalPrice}</span>
+                <span className={styles.price}>&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
             </div>
         </Link>
     )

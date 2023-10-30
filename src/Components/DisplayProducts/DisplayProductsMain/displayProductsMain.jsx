@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './displayProductsMain.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import DisplayProductContainer from '../Product/product';
+import Product from '../Product/product';
 import LoadingContainer from '../LoadingContainer/loadingContainer';
 import BackgroundContainer from '../BackgroundContainer/backgroundContainer';
 import Aos from 'aos';
@@ -57,7 +57,7 @@ const DisplayProducts = ({ productsType, row, theme }) => {
     let displayProducts;
     
     if (products.length){
-        displayProducts = products.slice(leftIndex, rightIndex).map(item => <DisplayProductContainer key={item._id} product={item}/>)
+        displayProducts = products.slice(leftIndex, rightIndex).map(item => <Product key={item._id} product={item}/>)
     }
     else if (isLoading) {
         displayProducts = Array.from(Array(3)).map((item, idx) => <LoadingContainer key={idx}/>)
@@ -94,9 +94,6 @@ const DisplayProducts = ({ productsType, row, theme }) => {
                 <div className={styles.displayProductsContainer}>
                     <HeadingContainer type={productsType} row={row}/>
                     <div data-aos={row === 'normal' ? "fade-left" : "fade-right"} className={styles.displayProducts}>
-                        <div className={styles.displayProduct} id="display-product-container">
-                            {displayProducts}
-                        </div>
                         <div className={styles.arrowContainer}>
                             <button className={styles.arrowBtn}
                                     onClick={prevSlide}
@@ -108,6 +105,9 @@ const DisplayProducts = ({ productsType, row, theme }) => {
                                     disabled={slideCount+1 >= totalPage}>
                                 <FontAwesomeIcon icon={faChevronRight} className={styles.arrow}/>
                             </button>
+                        </div>
+                        <div className={styles.displayProduct} id="display-product-container">
+                            {displayProducts}
                         </div>
                     </div>
                 </div>
