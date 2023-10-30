@@ -17,7 +17,7 @@ function TopbarPanel() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
+        fetch('http://localhost:8080/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
                 data.data.deviceId ? setIsLoggedIn(true) : setIsLoggedIn(false);

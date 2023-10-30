@@ -16,8 +16,8 @@ const Product = ({product}) => {
             </div>
             <div className={styles.productDetailsContainer}>
                 <span className={styles.productTitle}>{product.title}</span>
-                <span className={styles.productPrice}>	&#2547;{product.price.originalPrice}</span>
-                <s className={styles.productPrice} style={{ color: 'red' }}>	&#2547;{product.price.originalPrice - product.price.discountedPrice}</s>
+                <span className={styles.productPrice}>	&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
+                <s className={styles.productPrice} style={{ color: 'red' }}>	&#2547;{product.price.originalPrice}</s>
             </div>
         </Link>
     )

@@ -15,7 +15,7 @@ const Footer = () => {
                     <h2 className={styles.headerH2}>CONTACT US</h2>
                     <div className={styles.topSectionContainerItem}>
                         <p className={styles.headerP}><strong>Head Office:</strong>&nbsp;82/12/1, North Jatrabari,  Dhaka 1204</p>
-                        <p className={styles.headerP}><strong>Phone: </strong>&nbsp;01911343436</p>
+                        <p className={styles.headerP}><strong>Phone: </strong>&nbsp;+8801911343436</p>
                         <p className={styles.headerP}><strong>Email: </strong>&nbsp;boxdelabonita@gmail.com</p>
                     </div>
 

@@ -6,6 +6,7 @@ import cat1 from '../Assets/Others/1.jpg';
 import cat2 from '../Assets/Others/2.jpg';
 import cat3 from '../Assets/Others/3.jpg';
 import cat4 from '../Assets/Others/4.jpg';
+import cat5 from '../Assets/Others/5.jpg';
 import backpack from '../Assets/bags/backpack.png';
 import beltBag from '../Assets/bags/belt bag.png';
 import bucket from '../Assets/bags/bucket bag.png';
@@ -21,6 +22,7 @@ export const shop = [
     {id: 1, title: 'New Arrivals', img: cat2},
     {id: 2, title: 'Trending', img: cat3},
     {id: 3, title: 'Most Popular', img: cat4},
+    {id: 4, title: 'All bags', img: cat5}
 ]
 
 export const category = [

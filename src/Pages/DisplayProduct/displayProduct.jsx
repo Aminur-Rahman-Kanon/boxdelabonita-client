@@ -18,7 +18,7 @@ const DisplayProduct = () => {
         window.scrollTo(0, 0);
         if (productId){
             setIsLoading(true);
-            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-product/${productId}`)
+            fetch(`http://localhost:8080/fetch-product/${productId}`)
             .then(res => res.json())
             .then(data => {
                 if (data){
