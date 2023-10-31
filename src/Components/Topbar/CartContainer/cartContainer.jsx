@@ -31,8 +31,8 @@ const CartContainer = ({ products, toggleAddItem }) => {
                 {displayCart}
             </div>
             <div className={styles.actionContainer}>
-                <button className={styles.actionBtn} onClick={() => window.location.assign('/checkout')}>Checkout Now</button>
-                <button className={styles.actionBtn} onClick={() => window.location.assign('/view-cart')}>View Cart
+                <button disabled={!Object.keys(products).length} className={styles.actionBtn} onClick={() => window.location.assign('/checkout')}>Checkout Now</button>
+                <button disabled={!Object.keys(products).length} className={styles.actionBtn} onClick={() => window.location.assign('/view-cart')}>View Cart
                 </button>
             </div>
         </div>

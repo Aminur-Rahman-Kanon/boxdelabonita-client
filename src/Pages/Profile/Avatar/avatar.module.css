@@ -28,3 +28,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.name {
+    display: block;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 500;
+}

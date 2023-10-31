@@ -5,7 +5,7 @@ function CheckoutItems({ items, deliveryCharge, totalPrice }) {
 
     let displayCheckoutItems;
     // let totalPrice = 0;
-    if (Object.keys(items).length) {
+    if (items && Object.keys(items).length) {
         displayCheckoutItems = Object.values(items).map(item => {
             // totalPrice += item.length * (item[0].price.originalPrice  - item[0].price.discountedPrice);
             return <div key={item[0]._id} className={styles.checkoutItem}>

@@ -139,3 +139,12 @@
 .actionBtn:nth-of-type(1):disabled:hover {
     background-color: #4b7d37;
 }
+
+.actionBtn:nth-of-type(2):disabled:hover {
+    background-color: white;
+    color: #4b7d37;
+}
+
+.defaultHeading {
+    text-align: center;
+}

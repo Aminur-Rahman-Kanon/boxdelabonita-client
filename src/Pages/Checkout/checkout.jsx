@@ -41,14 +41,18 @@ function Checkout() {
         .then(res => res.json())
         .then(data => {
             if (data.data){
-                console.log(data.data);
-                setProducts(data.data.product);
-                setUserDetails(data.data.details);
+                // console.log(data.data);
                 let totalPrice = 0;
-                Object.values(data.data.details).forEach(item => {
-                    totalPrice += item.price;
-                })
-                setTotalPrice(totalPrice);
+                if (data.data.product){
+                    setProducts(data.data.product);
+                }
+                if (data.data.details){
+                    Object.values(data.data.details).forEach(item => {
+                        totalPrice += item.price;
+                    })
+                    setTotalPrice(totalPrice);
+                    setUserDetails(data.data.details);
+                }
                 if (data.data.user){
                     setName(data.data.user.name);
                     setAddress(data.data.user.address);
@@ -63,10 +67,8 @@ function Checkout() {
                 }
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     }, []);
-
-    console.log(totalPrice);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -102,7 +104,7 @@ function Checkout() {
     }, [phone])
 
     useEffect(() => {
-        if (name && address && (email && emailValidity) && phone && city && area && paymentMethod){
+        if (name && address && (email && emailValidity) && phone && city && area && paymentMethod && Object.keys(products).length){
             setBtnDisable(false);
         }
         else {
@@ -117,7 +119,7 @@ function Checkout() {
         else {
             window.onscroll = () => {}
         }
-    }, [backdrop])
+    }, [backdrop]);
 
     let areaOption = null;
 

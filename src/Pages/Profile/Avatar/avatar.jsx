@@ -9,7 +9,7 @@ const Avatar = ({ user }) => {
                 <img src={avatar} alt="avatar" className={styles.avatar} />
             </div>
             <div className={styles.avatarDetailsContainer}>
-                <span>
+                <span className={styles.name}>
                     {user ? user.name : 'Guest'}
                 </span>
             </div>

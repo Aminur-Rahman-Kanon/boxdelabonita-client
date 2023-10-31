@@ -6,7 +6,6 @@ import Category from './Category/category';
 function Navbar() {
 
     const location = window.location.pathname;
-    console.log(location);
 
     return (
         <nav className={styles.navbarContainer}>
