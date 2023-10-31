@@ -15,7 +15,7 @@ const ProfileMain = () => {
     const [formType, setFormType] = useState('user-information');
 
     useEffect(() => {
-        fetch('http://localhost:8080/fetch-cart-item')
+        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
             if (data.data.deviceId){

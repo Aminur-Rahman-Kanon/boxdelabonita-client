@@ -14,7 +14,7 @@ const HotdealsProducts = () => {
     useEffect(() => {
         Aos.init({ duration: 2500 })
         setIsLoading(true);
-        fetch('http://localhost:8080/hotdeals-products')
+        fetch('https://boxdelabonita-server-13dd.onrender.com/hotdeals-products')
         .then(res => res.json())
         .then(data => {
             if (data.length){
