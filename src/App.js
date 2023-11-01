@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     if (!user.deviceId){
-      fetch('https://boxdelabonita-server-13dd.onrender.com/init-app')
+      fetch('http://localhost:8080/init-app')
       .then(res => res.json())
       .then(data => {
         if (data.deviceId){

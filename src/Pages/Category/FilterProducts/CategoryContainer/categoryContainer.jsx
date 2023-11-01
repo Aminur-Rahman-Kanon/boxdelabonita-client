@@ -9,7 +9,7 @@ const CategoryContainer = ({ toggleSidePanel }) => {
 
     return (
         <div className={styles.categoryContainer}>
-            <Categories toggleSidePanel={toggleSidePanel} />
+            {/* <Categories toggleSidePanel={toggleSidePanel} /> */}
             <div className={styles.feauturedCategories}>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
@@ -23,6 +23,14 @@ const CategoryContainer = ({ toggleSidePanel }) => {
                     toggleSidePanel();
                     navigate('/bag/new-arrivals')
                 }}>New Arrivals</div>
+                <div className={styles.featuredCategory} onClick={() => {
+                    toggleSidePanel();
+                    navigate('/bag/trending')
+                }}>Trending</div>
+                <div className={styles.featuredCategory} onClick={() => {
+                    toggleSidePanel();
+                    navigate('/bag/all-bags')
+                }}>All Bags</div>
             </div>
         </div>
     )

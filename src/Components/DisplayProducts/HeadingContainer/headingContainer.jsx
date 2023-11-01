@@ -3,7 +3,9 @@ import styles from './headingContainer.module.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-const HeadingContainer = ({ type, row }) => {
+const HeadingContainer = ({ type }) => {
+
+    console.log(type);
 
     let heading1 = null;
     let heading2 = null;
@@ -26,9 +28,9 @@ const HeadingContainer = ({ type, row }) => {
     }
 
     return (
-        <div data-aos={row === 'normal' ? "fade-right" : 'fade-left'} className={styles.headerContainer}>
+        <div className={styles.headerContainer}>
             <h2 className={styles.header2}>{heading1}</h2>
-            <h3 className={styles.header3}>{heading2}</h3>
+            {/* <h3 className={styles.header3}>{heading2}</h3> */}
         </div>
     )
 }

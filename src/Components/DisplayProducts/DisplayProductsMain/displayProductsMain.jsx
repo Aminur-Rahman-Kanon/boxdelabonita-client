@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Product from '../Product/product';
 import LoadingContainer from '../LoadingContainer/loadingContainer';
-import BackgroundContainer from '../BackgroundContainer/backgroundContainer';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import HeadingContainer from '../HeadingContainer/headingContainer';
 
-const DisplayProducts = ({ productsType, row, theme }) => {
+const DisplayProducts = ({ productsType }) => {
 
     const [products, setProducts] = useState([]);
 
@@ -17,9 +16,9 @@ const DisplayProducts = ({ productsType, row, theme }) => {
 
     const [slideCount, setSlideCount] = useState(0);
 
-    const totalPage = Math.ceil(products.length/3);
+    const totalPage = Math.ceil(products.length/6);
 
-    const itemPerSlide = 3;
+    const itemPerSlide = 6;
 
     let leftIndex = itemPerSlide*slideCount
 
@@ -31,7 +30,7 @@ const DisplayProducts = ({ productsType, row, theme }) => {
         Aos.init({ duration: 2000 })
         setIsLoading(true);
         setScreenWidth(window.innerWidth);
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${productsType}`)
+        fetch(`http://localhost:8080/fetch-products/${productsType}`)
         .then(res => res.json())
         .then(data => {
             if (data.length){
@@ -43,16 +42,7 @@ const DisplayProducts = ({ productsType, row, theme }) => {
             setIsLoading(false);
             console.log(err);
         });
-
-        window.addEventListener('resize', () => {
-            setScreenWidth(window.innerWidth);
-        })
     }, []);
-
-    if (screenWidth <= 767){
-        leftIndex = 0;
-        rightIndex = undefined
-    }
 
     let displayProducts;
     
@@ -88,27 +78,23 @@ const DisplayProducts = ({ productsType, row, theme }) => {
 
     return (
         <div className={styles.displayProductsMain}>
-            <div className={`${styles.backgroundContainer} ${styles[theme]}`}
-                 style={row === 'normal' ? {flexDirection: 'row'} : {flexDirection: 'row-reverse'}}>
-                <BackgroundContainer type={productsType} row={row} theme={theme} />
-                <div className={styles.displayProductsContainer}>
-                    <HeadingContainer type={productsType} row={row}/>
-                    <div data-aos={row === 'normal' ? "fade-left" : "fade-right"} className={styles.displayProducts}>
-                        <div className={styles.arrowContainer}>
-                            <button className={styles.arrowBtn}
-                                    onClick={prevSlide}
-                                    disabled={!slideCount}>
-                                <FontAwesomeIcon icon={faChevronLeft} className={styles.arrow}/>
-                            </button>
-                            <button className={styles.arrowBtn}
-                                    onClick={nextSlide}
-                                    disabled={slideCount+1 >= totalPage}>
-                                <FontAwesomeIcon icon={faChevronRight} className={styles.arrow}/>
-                            </button>
-                        </div>
-                        <div className={styles.displayProduct} id="display-product-container">
-                            {displayProducts}
-                        </div>
+            <div className={styles.displayProductsContainer}>
+                <HeadingContainer type={productsType}/>
+                <div className={styles.displayProducts}>
+                    <div className={styles.displayProduct} id="display-product-container">
+                        {displayProducts}
+                    </div>
+                    <div className={styles.arrowContainer}>
+                        <button className={styles.arrowBtn}
+                                onClick={prevSlide}
+                                disabled={!slideCount}>
+                            <FontAwesomeIcon icon={faChevronLeft} className={styles.arrow}/>
+                        </button>
+                        <button className={styles.arrowBtn}
+                                onClick={nextSlide}
+                                disabled={slideCount+1 >= totalPage}>
+                            <FontAwesomeIcon icon={faChevronRight} className={styles.arrow}/>
+                        </button>
                     </div>
                 </div>
             </div>

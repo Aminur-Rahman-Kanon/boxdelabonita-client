@@ -18,11 +18,11 @@ import shoudler from '../Assets/bags/shoulder bag.png';
 import straw from '../Assets/bags/straw bag.png';
 
 export const shop = [
-    {id: 0, title: 'Hot Deals', img: cat1},
-    {id: 1, title: 'New Arrivals', img: cat2},
-    {id: 2, title: 'Trending', img: cat3},
-    {id: 3, title: 'Most Popular', img: cat4},
-    {id: 4, title: 'All bags', img: cat5}
+    {id: 0, title: 'Hot Deals', img: cat1, route: 'hot-deals'},
+    {id: 1, title: 'New Arrivals', img: cat2, route: 'new-arrivals'},
+    {id: 2, title: 'Trending', img: cat3, route: 'trending'},
+    {id: 3, title: 'Most Popular', img: cat4, route: 'most-popular'},
+    {id: 4, title: 'All bags', img: cat5, route: 'all-bag'}
 ]
 
 export const category = [

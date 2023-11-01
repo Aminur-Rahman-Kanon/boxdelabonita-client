@@ -7,6 +7,7 @@ import CategoryContainer from '../CategoryContainer/categoryContainer';
 import SidePanel from '../SidePanel/sidePanel';
 import Backdrop from '../../../../Components/Backdrop/backdrop';
 import { disableScroll } from '../../../../Utilities/utilities';
+import Categories from '../Categories/categories';
 
 const FilterProducts = ({ filters, filterValue }) => {
 
@@ -38,10 +39,13 @@ const FilterProducts = ({ filters, filterValue }) => {
             <div className={styles.menuIconContainer}>
                 <FontAwesomeIcon icon={faList} className={styles.menuIcon} onClick={toggleSidePanel}/>
             </div>
-            <div className={styles.section1}>
+            <div className={styles.filterCategories}>
+                <Categories toggleSidePanel={toggleSidePanel}/>
+            </div>
+            <div className={styles.filterCategory}>
                 <CategoryContainer toggleSidePanel={toggleSidePanel}/>
             </div>
-            <div className={styles.section2}>
+            <div className={styles.filterProduct}>
                 <Filter filters={filters} filterValue={filterValue} />
             </div>
         </div>

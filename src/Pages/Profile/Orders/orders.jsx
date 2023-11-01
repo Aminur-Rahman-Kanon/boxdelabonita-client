@@ -7,7 +7,7 @@ const Orders = ({ user }) => {
 
     useEffect(() => {
         if (user.user){
-            fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-placed-orders', {
+            fetch('http://localhost:8080/fetch-placed-orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

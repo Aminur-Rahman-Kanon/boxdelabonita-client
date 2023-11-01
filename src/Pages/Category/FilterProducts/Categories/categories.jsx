@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './categories.module.css';
 import { categories } from '../../../../Data/data';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Categories = ({ toggleSidePanel }) => {
     

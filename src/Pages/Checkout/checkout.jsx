@@ -37,11 +37,10 @@ function Checkout() {
     const [placeOrderDetails, setPlaceOrderDetails] = useState(null);
 
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
+        fetch('http://localhost:8080/fetch-cart-item')
         .then(res => res.json())
         .then(data => {
             if (data.data){
-                // console.log(data.data);
                 let totalPrice = 0;
                 if (data.data.product){
                     setProducts(data.data.product);
@@ -132,7 +131,7 @@ function Checkout() {
         setBackdrop(true);
         setSpinner(true);
 
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/place-order', {
+        await fetch('http://localhost:8080/place-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
