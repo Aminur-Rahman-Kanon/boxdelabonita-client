@@ -102,10 +102,13 @@
 
 .paymentImg {
     width: 90px;
+    height: 40px;
     margin: 0 5px;
     background-color: white;
     padding: 5px;
     box-sizing: border-box;
+    object-fit: contain;
+    border-radius: 3px;
 }
 
 @media (max-width: 829px) {

@@ -50,7 +50,7 @@ const DisplayProducts = ({ productsType }) => {
         displayProducts = products.slice(leftIndex, rightIndex).map(item => <Product key={item._id} product={item}/>)
     }
     else if (isLoading) {
-        displayProducts = Array.from(Array(3)).map((item, idx) => <LoadingContainer key={idx}/>)
+        displayProducts = Array.from(Array(6)).map((item, idx) => <LoadingContainer key={idx}/>)
     }
     else {
         displayProducts = <div className={styles.displayProducts}>
@@ -81,7 +81,7 @@ const DisplayProducts = ({ productsType }) => {
             <div className={styles.displayProductsContainer}>
                 <HeadingContainer type={productsType}/>
                 <div className={styles.displayProducts}>
-                    <div className={styles.displayProduct} id="display-product-container">
+                    <div className={styles.displayProduct} style={!products.length && !isLoading ? {display: 'block'} : {display: 'grid'}} id="display-product-container">
                         {displayProducts}
                     </div>
                     <div className={styles.arrowContainer}>

@@ -11,8 +11,8 @@ function Homepage() {
             <Banner />
             <Category />
             <DisplayProducts productsType={"new-arrivals"}/>
+            <DisplayProducts productsType={"popular-products"}/>
             <DisplayProducts productsType={"hot-deals"}/>
-            {/* <HotdealsProducts /> */}
             <DisplayProducts productsType={"trending-products"}/>
         </div>
     )

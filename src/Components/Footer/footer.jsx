@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import bkash from '../../Assets/Others/bkash.png';
 import visa from '../../Assets/Others/visa.png';
+import cod from '../../Assets/Others/cod.png';
 
 const Footer = () => {
 
@@ -66,6 +67,7 @@ const Footer = () => {
                     <p className={styles.copyright}>Copyright &copy; 2023 Boxdelabonita</p>
                 </div>
                 <div className={styles.bottomSectionItem}>
+                    <img src={cod} alt="cash on delivery" className={styles.paymentImg}/>
                     <img src={bkash} alt="bikash" className={styles.paymentImg} />
                     <img src={visa} alt="master card" className={styles.paymentImg}/>
                 </div>
