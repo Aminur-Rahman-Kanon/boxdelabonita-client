@@ -10,9 +10,10 @@ function Homepage() {
         <div className={styles.homapageContainer}>
             <Banner />
             <Category />
-            <DisplayProducts productsType={"new-arrivals"} row={"normal"} theme={"yellow"}/>
-            <HotdealsProducts />
-            <DisplayProducts productsType={"trending-products"} row={"reverse"} theme={"red"}/>
+            <DisplayProducts productsType={"new-arrivals"}/>
+            <DisplayProducts productsType={"popular-products"}/>
+            <DisplayProducts productsType={"hot-deals"}/>
+            <DisplayProducts productsType={"trending-products"}/>
         </div>
     )
     }

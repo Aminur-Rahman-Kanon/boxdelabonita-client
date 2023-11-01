@@ -1,40 +1,21 @@
 .displayProductsMain {
     width: 100%;
-    margin: 50px auto;
+    margin: 20px auto;
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
-.backgroundContainer {
-    position: relative;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.backgroundContainer.yellow {
-    background: linear-gradient(180deg, #F6A500, #FFC605);
-}
-
-.backgroundContainer.red {
-    background: linear-gradient(180deg, #E98580, #FDD2BF);
-}
-
 .displayProductsContainer {
-    width: 70%;
-    height: inherit;
-    padding: 10px 20px;
+    width: 100%;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .displayProducts {
@@ -46,7 +27,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
     border-radius: 2px;
 }
@@ -56,6 +37,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    place-content: center;
     place-items: center;
     background-color: rgb(255, 255, 255);
 }
@@ -83,7 +65,7 @@
     /* padding: 10px;
     box-sizing: border-box; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -127,13 +109,9 @@
 }
 
 @media (max-width: 767px) {
-    .displayProductsMain {
+    /* .displayProductsMain {
         margin: 20px auto;
-    }
-    
-    .backgroundContainer {
-        padding: 10px;
-    }
+    } */
 
     .displayProductsContainer {
         width: 100%;
@@ -145,10 +123,7 @@
     }
 
     .displayProduct {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        place-items: center;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .arrowContainer {
@@ -157,13 +132,6 @@
 }
 
 @media (max-width: 500px) {
-    .backgroundContainer {
-        padding: 5px;
-    }
-
-    .displayProduct {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
     .displayProductsContainer {
         padding: 5px;

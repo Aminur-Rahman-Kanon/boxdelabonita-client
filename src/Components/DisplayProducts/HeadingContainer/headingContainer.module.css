@@ -1,21 +1,36 @@
 .headerContainer {
     width: 100%;
+    margin: 20px auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .header2 {
+    position: relative;
     margin: 5px 0;
-    font-size: 2rem;
-    color: white;
-    text-align: left;
+    font-size: 1.5rem;
+    /* color: white; */
+    /* text-align: left; */
+}
+
+.header2::after {
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 70%;
+    height: 1px;
+    background-color: green;
+    border-radius: 10px;
+    content: '';
+
 }
 
 .header3 {
     font-size: 1.1rem;
     text-align: left;
     margin: 5px 0;
-    color: white;
+    /* color: white; */
 }
