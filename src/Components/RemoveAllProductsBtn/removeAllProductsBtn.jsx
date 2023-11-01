@@ -10,7 +10,7 @@ const RemoveAllProductsBtn = ({ title, cb }) => {
 
     const submitHandler = async () => {
         setIsLoading(true);
-        await fetch('http://localhost:8080/remove-all-products', {
+        await fetch('https://boxdelabonita-server-13dd.onrender.com/remove-all-products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
