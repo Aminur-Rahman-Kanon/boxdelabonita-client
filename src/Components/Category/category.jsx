@@ -15,7 +15,9 @@ function Category() {
 
     return (
         <div className={styles.categoryContainer}>
-            {categoryDisplay}
+            <div className={styles.category}>
+                {categoryDisplay}
+            </div>
         </div>
     )
 }

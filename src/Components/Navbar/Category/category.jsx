@@ -5,7 +5,7 @@ import { categories } from '../../../Data/data';
 const Category = () => {
     return (
         <div className={styles.categoryMain}>
-            {categories.map(cat => <div className={styles.categories}>
+            {categories.map(cat => <div key={cat.id} className={styles.categories}>
                 <div className={styles.imgContainer}>
                     <img src={cat.img} alt={cat.title} className={styles.img}/>
                 </div>

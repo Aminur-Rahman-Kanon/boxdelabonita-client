@@ -26,8 +26,8 @@ const FilterProducts = ({ filters, filterValue }) => {
 
     const toggleSidePanel = () => {
         if (window.innerWidth <= 767){
-            setSidePanel(!sidePanel);
-            setBackdrop(!backdrop);
+            setSidePanel(sidePanel => !sidePanel);
+            setBackdrop(backdrop => !backdrop);
         }
     }
 
@@ -40,7 +40,7 @@ const FilterProducts = ({ filters, filterValue }) => {
                 <FontAwesomeIcon icon={faList} className={styles.menuIcon} onClick={toggleSidePanel}/>
             </div>
             <div className={styles.filterCategories}>
-                <Categories toggleSidePanel={toggleSidePanel}/>
+                <Categories switchPanel={toggleSidePanel}/>
             </div>
             <div className={styles.filterCategory}>
                 <CategoryContainer toggleSidePanel={toggleSidePanel}/>

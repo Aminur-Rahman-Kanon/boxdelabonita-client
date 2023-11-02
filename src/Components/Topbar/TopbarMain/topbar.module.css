@@ -1,11 +1,16 @@
 .topbarContainer {
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 500;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    box-shadow: 0 0 12px 1px lightgray;
 }
 
 @media (max-width: 850px) {
