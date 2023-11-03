@@ -12,7 +12,7 @@ const RemoveBtn = ({ product, title, cb }) => {
         e.preventDefault();
         setIsLoading(true);
         const price = product.price.originalPrice - product.price.discountedPrice;
-        await fetch('http://localhost:8080/remove-single-item', {
+        await fetch('https://boxdelabonita-server-13dd.onrender.com/remove-single-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
