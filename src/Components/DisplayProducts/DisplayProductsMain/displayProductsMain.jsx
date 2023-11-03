@@ -30,7 +30,7 @@ const DisplayProducts = ({ productsType }) => {
         Aos.init({ duration: 2000 })
         setIsLoading(true);
         setScreenWidth(window.innerWidth);
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${productsType}`)
+        fetch(`http://localhost:8080/fetch-products/${productsType}`)
         .then(res => res.json())
         .then(data => {
             if (data.length){

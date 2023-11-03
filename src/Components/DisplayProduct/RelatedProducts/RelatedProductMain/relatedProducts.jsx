@@ -7,7 +7,7 @@ const RelatedProducts = ({ category, productId }) => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-related-products/${category.toLowerCase()}`)
+        fetch(`http://localhost:8080/fetch-related-products/${category.toLowerCase()}`)
         .then(res => res.json())
         .then(data => {
             if (data.length){
