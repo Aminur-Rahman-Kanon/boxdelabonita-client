@@ -14,7 +14,7 @@ const HeadingContainer = ({ type }) => {
     if (type === 'new-arrivals'){
         heading1 = "New Arrivals";
     }
-    else if (type === 'trending-products'){
+    else if (type === 'trending'){
         heading1 = "Trending Products";
     }
     else if (type === 'hot-deals'){

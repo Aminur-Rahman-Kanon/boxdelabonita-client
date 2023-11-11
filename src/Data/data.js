@@ -27,7 +27,7 @@ export const shop = [
     {id: 1, title: 'New Arrivals', img: cat2, route: 'new-arrivals'},
     {id: 2, title: 'Trending', img: cat3, route: 'trending'},
     {id: 3, title: 'Most Popular', img: cat4, route: 'most-popular'},
-    {id: 4, title: 'All bags', img: cat5, route: 'all-bag'}
+    {id: 4, title: 'All bags', img: cat5, route: 'all-bags'}
 ]
 
 export const category = [
