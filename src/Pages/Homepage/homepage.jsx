@@ -13,7 +13,7 @@ function Homepage() {
             <DisplayProducts productsType={"new-arrivals"}/>
             <DisplayProducts productsType={"popular-products"}/>
             <DisplayProducts productsType={"hot-deals"}/>
-            <DisplayProducts productsType={"trending-products"}/>
+            <DisplayProducts productsType={"trending"}/>
         </div>
     )
     }
