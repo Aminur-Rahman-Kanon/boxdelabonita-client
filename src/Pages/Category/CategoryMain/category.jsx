@@ -37,8 +37,8 @@ const Category = () => {
         fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
         .then(res => res.json())
         .then(data => {
-            if (data.length){
-                setProduct(data);
+            if (data.data){
+                setProduct(data.data);
                 setIsLoading(false);
             }
         })

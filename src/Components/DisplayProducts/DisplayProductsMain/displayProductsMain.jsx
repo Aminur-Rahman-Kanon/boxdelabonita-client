@@ -33,8 +33,8 @@ const DisplayProducts = ({ productsType }) => {
         fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${productsType}`)
         .then(res => res.json())
         .then(data => {
-            if (data.length){
-                setProducts(data);
+            if (data.data){
+                setProducts(data.data);
                 setIsLoading(false);
             }
         })
