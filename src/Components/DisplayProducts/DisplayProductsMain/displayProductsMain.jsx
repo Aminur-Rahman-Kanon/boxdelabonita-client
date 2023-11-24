@@ -7,6 +7,7 @@ import LoadingContainer from '../LoadingContainer/loadingContainer';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import HeadingContainer from '../HeadingContainer/headingContainer';
+import SideBackground from '../SideBackground/sideBackground';
 
 const DisplayProducts = ({ productsType }) => {
 
@@ -61,41 +62,23 @@ const DisplayProducts = ({ productsType }) => {
 
     const nextSlide = () => {
         setSlideCount(slideCount+1);
-        animateProduct('display-product-container');
     }
 
     const prevSlide = () => {
         setSlideCount(slideCount-1);
-        animateProduct('display-product-container');
     }
 
-    const animateProduct = (id) => {
-        const element = document.getElementById(id);
-        element.className = `${styles.displayProduct} ${styles.animateProduct}`;
-        element.addEventListener('animationend', () => {
-            element.className = `${styles.displayProduct}`;
-        })
-    }
 
     return (
         <div className={styles.displayProductsMain}>
             <div className={styles.displayProductsContainer}>
                 <HeadingContainer type={productsType}/>
-                <div className={styles.displayProducts}>
-                    <div className={styles.displayProduct} style={!products.length && !isLoading ? {display: 'block'} : {display: 'grid'}} id="display-product-container">
-                        {displayProducts}
+                <div className={styles.displayContainer}>
+                    <div className={styles.sideBg}>
+                        <SideBackground content={productsType}/>
                     </div>
-                    <div className={styles.arrowContainer}>
-                        <button className={styles.arrowBtn}
-                                onClick={prevSlide}
-                                disabled={!slideCount}>
-                            <FontAwesomeIcon icon={faChevronLeft} className={styles.arrow}/>
-                        </button>
-                        <button className={styles.arrowBtn}
-                                onClick={nextSlide}
-                                disabled={slideCount+1 >= totalPage}>
-                            <FontAwesomeIcon icon={faChevronRight} className={styles.arrow}/>
-                        </button>
+                    <div className={styles.displayProduct}>
+                        {displayProducts}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,32 @@
+.sideBgImgContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideBgImg {
+    width: 100%;
+}
+
+.sideBgBtn {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    max-width: 200px;
+    height: 40px;
+    border: 1px solid lightgray;
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+    /* .sideBgImgContainer {
+        max-height: 400px;
+        overflow: hidden;
+    } */
+}
