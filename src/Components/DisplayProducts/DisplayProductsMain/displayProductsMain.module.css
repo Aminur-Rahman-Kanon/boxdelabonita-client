@@ -129,11 +129,6 @@
         padding: 10px;
     }
 
-    .sideBg {
-        max-height: 600px;
-        overflow: hidden;
-    }
-
     .displayContainer {
         grid-template-columns: 1fr;
         /* grid-template-rows: repeat(2, 1fr); */
