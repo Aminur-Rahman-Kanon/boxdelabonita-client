@@ -46,8 +46,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    place-content: center;
+    /* grid-template-rows: repeat(2, 1fr); */
+    place-content: baseline;
     place-items: center;
     gap: 5px;
     height: 100%;
@@ -136,7 +136,7 @@
 
     .displayContainer {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        /* grid-template-rows: repeat(2, 1fr); */
         place-items: baseline;
     }
 
