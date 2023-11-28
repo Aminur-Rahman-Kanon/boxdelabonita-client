@@ -14,6 +14,7 @@ const Product = ({ product }) => {
     const context = useContext(ContextApi);
 
     const [imgIdx, setImgIdx] = useState(null);
+    const [color, setColor] = useState('')
 
     useEffect(() => {
         setImgIdx(Object.keys(product.img)[0]);
@@ -53,32 +54,29 @@ const Product = ({ product }) => {
                     </div>
                     <div className={styles.productDetailsContainer}>
                         <div dangerouslySetInnerHTML={{__html: product.description}} />
-                        {/* <textarea value={product.description} className={styles.productDetails}/> */}
-                        {/* <p className={styles.productDetails}>{stringParser(product.description)}</p>
-                        <p>dsfflj<br/></p> */}
                     </div>
                     <div className={styles.colorContainer}>
                         <span className={styles.colorHeader}>Color</span>
                         <div className={styles.colors}>
-                            {Object.values(product.color).map(color => <ColorContainer key={color} color={color} imgIdx={imgIdx} cb={setImgIdx}/>)}
+                            {Object.values(product.color).map(clr => <ColorContainer key={clr} color={clr} imgIdx={color} cb={setColor}/>)}
                         </div>
                     </div>
                     <div className={styles.btnContainer}>
                         <div className={styles.btns}>
-                            <AddToBag product={product} title={"Add to Bag"} color={imgIdx} />
+                            <AddToBag product={product} title={"Add to Cart"} color={color} />
                         </div>
                         <div className={styles.btns}>
-                            <button className={styles.btn}>Add To Wishlist</button>
+                            <button className={styles.btn}>Quick Buy</button>
                         </div>
                     </div>
                     <div className={styles.informationContainer}>
                         <div className={styles.information}>
                             <FontAwesomeIcon icon={faTruck} className={styles.infoIcon}/>
-                            <p className={styles.info}>Free Worldwide Shipping</p>
+                            <p className={styles.info}>Easy Shipping</p>
                         </div>
                         <div className={styles.information}>
                             <FontAwesomeIcon icon={faRotateLeft} className={styles.infoIcon}/>
-                            <p className={styles.info}>Easy 30 Days Returns</p>
+                            <p className={styles.info}>Easy Returns</p>
                         </div>
                         <div className={styles.information}>
                             <FontAwesomeIcon icon={faClock} className={styles.infoIcon}/>
