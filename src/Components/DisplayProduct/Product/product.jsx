@@ -52,7 +52,10 @@ const Product = ({ product }) => {
                         <Rating rating={product.rating}/>
                     </div>
                     <div className={styles.productDetailsContainer}>
-                        <p className={styles.productDetails}>{product.description}</p>
+                        <div dangerouslySetInnerHTML={{__html: product.description}} />
+                        {/* <textarea value={product.description} className={styles.productDetails}/> */}
+                        {/* <p className={styles.productDetails}>{stringParser(product.description)}</p>
+                        <p>dsfflj<br/></p> */}
                     </div>
                     <div className={styles.colorContainer}>
                         <span className={styles.colorHeader}>Color</span>

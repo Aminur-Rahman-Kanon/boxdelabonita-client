@@ -144,6 +144,11 @@
 }
 
 .productDetails {
+    width: 100%;
+    min-height: 20px;
+    max-height: 200px;
+    resize: none;
+    overflow: hidden;
     text-align: left;
     font-size: 0.9rem;
     margin: 0;
