@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .displayProductsContainer {
@@ -19,10 +20,24 @@
 
 .displayProduct {
     width: 100%;
+    padding: 20px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    justify-content: center;
-    align-items: flex-start;
+    place-items: center;
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+    .displayProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .displayProduct {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
 }
