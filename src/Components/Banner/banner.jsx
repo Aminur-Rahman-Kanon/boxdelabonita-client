@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './banner.css';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import bag1 from '../../Assets/Banner/bags/bag1.png';
 import bag2 from '../../Assets/Banner/bags/bag2.png';
 import bag3 from '../../Assets/Banner/bags/bag3.png';
