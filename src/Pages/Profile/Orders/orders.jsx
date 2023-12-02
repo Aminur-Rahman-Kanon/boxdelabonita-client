@@ -24,6 +24,8 @@ const Orders = ({ user }) => {
         }
     }, [user]);
 
+    console.log(orders);
+
     const displayOrders = orders.length ? orders.map((items, idx) => <div key={idx} className={styles.displayOrderContainer}>
         <div className={styles.displayHeader}>
             <span className={styles.orderId}>Order Id: {items.orderInfo.orderId}</span>
