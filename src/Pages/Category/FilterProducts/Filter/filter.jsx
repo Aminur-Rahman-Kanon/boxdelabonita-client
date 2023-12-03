@@ -8,8 +8,6 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 const Filter = ({ filters, filterValue }) => {
 
-    const [showFilter, setShowFilter] = useState(false);
-
     const [backdrop, setBackdrop] = useState(false);
 
     useEffect(() => {
@@ -21,11 +19,6 @@ const Filter = ({ filters, filterValue }) => {
         }
     }, [backdrop])
 
-    const togglefilterPanel = () => {
-        setShowFilter(!showFilter);
-        // setBackdrop(!backdrop);
-    }
-
     const resetFilters = () => {
         filters({ price: 'Please Select', color: 'Please Select', discount: false, specialOffer: false, isFilter: false });
     }
@@ -36,9 +29,9 @@ const Filter = ({ filters, filterValue }) => {
         <div className={styles.filterContainer}>
             <div className={styles.filterBtnContainer}>
                 <FontAwesomeIcon icon={faFilter} className={styles.filterBtnIcon}/>
-                <span className={styles.filterBtn} onClick={togglefilterPanel}>Filter</span>
+                <span className={styles.filterBtn}>Filter</span>
             </div>
-            <div className={showFilter ? `${styles.filterDisplay} ${styles.show}` : styles.filterDisplay}>
+            <div className={styles.filterDisplay}>
                 <div className={styles.filter}>
                     <label htmlFor='price' className={styles.label}>Price</label>
                     <select className={styles.filterCategory} id='price' onChange={(e) => filters((filter) => ({...filter, price: e.target.value, isFilter: true}))} value={filterValue.price}>
@@ -77,7 +70,7 @@ const Filter = ({ filters, filterValue }) => {
                 </div>
                 <div className={styles.btnContainer}>
                     <button className={styles.btn} onClick={resetFilters}>Reset</button>
-                    <button className={styles.btn} onClick={ togglefilterPanel }>Close</button>
+                    {/* <button className={styles.btn}>Close</button> */}
                 </div>
             </div>
         </div>

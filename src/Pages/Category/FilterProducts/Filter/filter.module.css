@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.filterContainer:hover .filterDisplay {
+    display: flex;
+}
+
 .filterDisplay {
     position: absolute;
     top: 0;
@@ -18,10 +22,6 @@
     border-radius: 5px;
     box-shadow: 0 0 12px 2px lightgray;
     z-index: 400;
-}
-
-.filterDisplay.show {
-    display: flex;
 }
 
 .filter {
@@ -72,7 +72,7 @@
     box-sizing: border-box;
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 

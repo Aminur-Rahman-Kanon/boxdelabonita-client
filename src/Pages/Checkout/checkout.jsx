@@ -142,6 +142,7 @@ function Checkout() {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             setSpinner(false);
             setBackdrop(true);
             setPlaceOrderStatus(data.status);
@@ -149,6 +150,7 @@ function Checkout() {
             setModal(true);
         })
         .catch(err => {
+            console.log(err);
             setSpinner(false);
             setBackdrop(true);
             setPlaceOrderStatus('server error');
