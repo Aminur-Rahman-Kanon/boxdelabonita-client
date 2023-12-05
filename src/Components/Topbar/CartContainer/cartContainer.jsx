@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './cartContainer.module.css';
 import RemoveBtn from '../../RemoveButton/removeBtn';
+import { Link } from 'react-router-dom';
 
 const CartContainer = ({ products, toggleAddItem }) => {
 
@@ -31,9 +32,11 @@ const CartContainer = ({ products, toggleAddItem }) => {
                 {displayCart}
             </div>
             <div className={styles.actionContainer}>
-                <button disabled={!Object.keys(products).length} className={styles.actionBtn} onClick={() => window.location.assign('/checkout')}>Checkout Now</button>
+                {/* <button disabled={!Object.keys(products).length} className={styles.actionBtn} onClick={() => window.location.assign('/checkout')}>Checkout Now</button>
                 <button disabled={!Object.keys(products).length} className={styles.actionBtn} onClick={() => window.location.assign('/view-cart')}>View Cart
-                </button>
+                </button> */}
+                <Link to="checkout" className={styles.actionBtn}>Checkout</Link>
+                <Link to="/view-cart" className={styles.actionBtn}>View Cart</Link>
             </div>
         </div>
     )

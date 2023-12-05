@@ -29,8 +29,11 @@ const Orders = ({ user }) => {
     const displayOrders = orders.length ? orders.map((items, idx) => <div key={idx} className={styles.displayOrderContainer}>
         <div className={styles.displayHeader}>
             <span className={styles.orderId}>Order Id: {items.orderInfo.orderId}</span>
-            <span className={styles.orderId}>Purchase Date: {items.orderInfo.date}</span>
-            <span className={styles.orderId} style={{textTransform: 'capitalize'}}>Order Status: {items.orderInfo.orderStatus ? items.orderInfo.orderStatus : 'No information'}</span>
+            <span className={styles.orderId}>Purchase Date: {items.orderInfo.dateTime}</span>
+            <div className={styles.orderStatusContainer}>
+                <span className={styles.orderId} style={{textTransform: 'capitalize'}}>Order Status:</span>
+                <span className={`${styles.orderStatus} ${styles[items.orderInfo.orderStatus]}`}>{items.orderInfo.orderStatus ? items.orderInfo.orderStatus : 'No information'}</span>
+            </div>
         </div>
         <hr className={styles.hr}/>
         <div className={styles.productContainer}>
@@ -42,7 +45,8 @@ const Orders = ({ user }) => {
                     <span className={styles.details}>{item.title}</span>
                     <div className={styles.details}>Color: {item.color.map(clr => <span key={clr} className={styles.color} style={{backgroundColor: `${clr}`}}></span>)}</div>
                     <span className={styles.details}>Quantity: {item.quantity}</span>
-                    <span className={styles.details}>Price: {item.price}</span>
+                    <span className={styles.details}>Price: &#2547;{item.price}</span>
+                    <span className={styles.details}>Delivery Charge: &#2547;{items.orderInfo.deliveryCharge}</span>
                 </div>
             </div>)}
         </div>

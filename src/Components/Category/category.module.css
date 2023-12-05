@@ -82,4 +82,8 @@
         width: 150px;
         min-width: 100px;
     }
+
+    .categoryTitle {
+        font-size: 12px;
+    }
 }

@@ -1,0 +1,14 @@
+.bannerImgContainer {
+    width: 100%;
+    margin: 35px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bannerImg {
+    width: 100%;
+}
