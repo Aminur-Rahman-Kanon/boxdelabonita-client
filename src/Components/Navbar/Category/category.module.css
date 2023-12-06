@@ -53,11 +53,12 @@
 .heading {
     font-size: 13px;
     color: black;
+    text-align: center;
 }
 
 @media (max-width: 850px) {
     .categoryMain {
-        top: 1%;
+        top: 0;
         left: 100px;
         flex-direction: column;
         padding: 10px;

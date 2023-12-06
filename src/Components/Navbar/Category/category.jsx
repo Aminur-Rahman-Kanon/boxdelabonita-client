@@ -3,10 +3,10 @@ import styles from './category.module.css';
 import { categories } from '../../../Data/data';
 import { Link } from 'react-router-dom';
 
-const Category = () => {
+const Category = ({ toggleSidedrawer }) => {
     return (
         <div className={styles.categoryMain}>
-            {categories.map(cat => <Link to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories}>
+            {categories.map(cat => <Link to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories} onClick={() => toggleSidedrawer()}>
                 <div className={styles.imgContainer}>
                     <img src={cat.img} alt={cat.title} className={styles.img}/>
                 </div>

@@ -55,7 +55,7 @@ function App() {
     <div className="App">
       <ContextApi.Provider value={{user, addItem, setAddItem}}>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
-        <Sidedrawer sidedrawer={sidedrawer}/>
+        <Sidedrawer sidedrawer={sidedrawer} switchSidedrawer={toggleSidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />
         <Messanger />
         <Routes>

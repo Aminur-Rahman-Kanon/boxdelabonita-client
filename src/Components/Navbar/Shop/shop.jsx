@@ -3,12 +3,12 @@ import styles from './shop.module.css';
 import { shop } from '../../../Data/data';
 import { Link } from 'react-router-dom';
 
-const Shop = () => {
+const Shop = ({ toggleSidedrawer }) => {
 
     return (
         <div className={styles.shopContainer}>
             <div className={styles.shopCategoryContainer}>
-                {shop.map(cat => <Link to={`/bag/${cat.route}`} key={cat.id} className={styles.category}>
+                {shop.map(cat => <Link to={`/bag/${cat.route}`} key={cat.id} className={styles.category} onClick={() => toggleSidedrawer()}>
                     <div className={styles.imgContainer}>
                         <img src={cat.img} alt={cat.title} className={styles.img}/>
                     </div>

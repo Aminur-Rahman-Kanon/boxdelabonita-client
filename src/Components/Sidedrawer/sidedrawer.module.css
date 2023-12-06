@@ -8,18 +8,17 @@
     padding: 15px;
     box-sizing: border-box;
     background-color: white;
-    box-shadow: 0 0 12px 1px lightgray;
-    /* border: 1px solid lightgray; */
     border-radius: 0 5px 5px 0;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
     align-items: flex-start;
     transition: all 0.3s ease;
-    transform: translate(-100%);
+    transform: translate(-140%);
     z-index: 600;
 }
 
 .sidedrawerContainer.show {
     transform: translate(0);
+    box-shadow: 0 0 12px 1px lightgray;
 }
