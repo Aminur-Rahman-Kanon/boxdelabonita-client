@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './category.module.css';
 import { categories } from '../../../Data/data';
 import { Link } from 'react-router-dom';
+import ContextApi from '../../ContextApi/contextApi';
 
-const Category = ({ toggleSidedrawer }) => {
+const Category = () => {
+    
+    const context = useContext(ContextApi);
+    
+    const switchSidedrawer = () => {
+        if (window.innerWidth < 850){
+            context.toggleSidedrawer();
+        }
+    }
+
     return (
         <div className={styles.categoryMain}>
-            {categories.map(cat => <Link to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories} onClick={() => toggleSidedrawer()}>
+            {categories.map(cat => <Link to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories} onClick={switchSidedrawer}>
                 <div className={styles.imgContainer}>
                     <img src={cat.img} alt={cat.title} className={styles.img}/>
                 </div>

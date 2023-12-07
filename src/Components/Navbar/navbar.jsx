@@ -3,7 +3,7 @@ import styles from './navbar.module.css';
 import Shop from './Shop/shop';
 import Category from './Category/category';
 
-function Navbar({ toggleSidedrawer }) {
+function Navbar() {
 
     const location = window.location.pathname;
 
@@ -16,13 +16,13 @@ function Navbar({ toggleSidedrawer }) {
                 <li className={styles.navbarItem}>
                     <div className={styles.navbarLink}>SHOP</div>
                     <div className={styles.shop}>
-                        <Shop toggleSidedrawer={toggleSidedrawer} />
+                        <Shop />
                     </div>
                 </li>
                 <li className={styles.navbarItem}>
                     <div className={styles.navbarLink}>CATEGORY</div>
                     <div className={styles.category}>
-                        <Category toggleSidedrawer={toggleSidedrawer} />
+                        <Category />
                     </div>
                 </li>
                 <li className={styles.navbarItem}>

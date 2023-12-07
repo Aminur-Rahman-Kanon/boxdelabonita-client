@@ -3,11 +3,11 @@ import styles from './sidedrawer.module.css';
 import Logo from '../Logo/logo';
 import Navbar from '../Navbar/navbar';
 
-function Sidedrawer({ sidedrawer, switchSidedrawer }) {
+function Sidedrawer({ sidedrawer }) {
     return (
         <div className={sidedrawer ? `${styles.sidedrawerContainer} ${styles.show}` : styles.sidedrawerContainer}>
             <Logo />
-            <Navbar toggleSidedrawer={switchSidedrawer} />
+            <Navbar />
         </div>
     )
 }
