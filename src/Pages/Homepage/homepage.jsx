@@ -4,6 +4,7 @@ import Banner from '../../Components/Banner/banner';
 import Category from '../../Components/Category/category';
 import DisplayProducts from '../../Components/DisplayProducts/DisplayProductsMain/displayProductsMain';
 import AdditionalBanner from '../../Components/AdditionalBanner/additionalBanner';
+import Journal from '../../Components/Journal/journal';
 
 function Homepage() {
     return (
@@ -18,6 +19,7 @@ function Homepage() {
             <DisplayProducts productsType={"hot-deals"}/>
             <AdditionalBanner type={"trending"}/>
             <DisplayProducts productsType={"trending"}/>
+            <Journal />
         </div>
     )
     }
