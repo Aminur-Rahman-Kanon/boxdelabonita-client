@@ -27,22 +27,26 @@
 
 .journalHeading1 {
     color: #98e779;
+    margin: 5px 0;
 }
 
 .journalP {
     color: white;
+    margin: 5px 0;
+    font-weight: 500;
 }
 
 .btn {
     text-decoration: none;
     width: 200px;
     height: 40px;
-    margin: 20px 0;
+    margin: 30px 0;
     border: 1px solid #43af17;
     background-color: #43af17;
     border-radius: 5px;
     color: white;
     font-size: 13px;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
