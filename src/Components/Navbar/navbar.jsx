@@ -26,7 +26,7 @@ function Navbar() {
                     </div>
                 </li>
                 <li className={styles.navbarItem}>
-                    <a href="" className={styles.navbarLink}>ABOUT</a>
+                    <a href="/about" className={styles.navbarLink}>ABOUT</a>
                 </li>
             </ul>
         </nav>

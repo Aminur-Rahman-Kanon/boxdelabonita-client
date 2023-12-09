@@ -15,6 +15,7 @@ const Category = lazy(() => import('./Pages/Category/CategoryMain/category'));
 const Cart = lazy(() => import('./Pages/Cart/cart'));
 const Checkout = lazy(() => import('./Pages/Checkout/checkout'));
 const Profile = lazy(() => import('./Pages/Profile/ProfileMain/profileMain'));
+const About = lazy(() => import('./Pages/About/about'));
 
 function App() {
 
@@ -76,6 +77,9 @@ function App() {
           <Route path='/profile' element={<Suspense fallback={<div>Loading...</div>}>
             <Profile />
           </Suspense>} />
+          <Route path='/about' element={<Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>}/>
         </Routes>
         <Footer />
       </ContextApi.Provider>

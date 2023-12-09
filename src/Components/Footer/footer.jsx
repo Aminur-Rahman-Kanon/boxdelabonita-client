@@ -41,7 +41,7 @@ const Footer = () => {
                 <div className={styles.topSectionContainer}>
                     <h2 className={styles.headerH2}>ABOUT US</h2>
                     <div className={styles.topSectionContainerItem}>
-                        <a href="/about-us" className={styles.topSectionLink}>About Us</a>
+                        <a href="/about" className={styles.topSectionLink}>About Us</a>
                         <a href="" className={styles.topSectionLink}>FAQ</a>
                         <a href="" className={styles.topSectionLink}>Our Producers</a>
                         <a href="" className={styles.topSectionLink}>Sitemap</a>
