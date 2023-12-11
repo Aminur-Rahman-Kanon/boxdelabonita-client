@@ -11,6 +11,7 @@
 
 .galleryContainer {
     width: 100%;
+    margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-content: center;
@@ -24,6 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.gallery:nth-of-type(2), .gallery:nth-of-type(4), .gallery:nth-of-type(6) {
+    padding: 20px;
 }
 
 .galleryImg {
@@ -69,9 +74,275 @@
     line-height: 22px;
 }
 
+.aboutUsHeaderTitleContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.aboutUsHeaderTitleHeader {
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.aboutUsLink {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 20px;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.aboutUsLink::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, 15%);
+    height: 3px;
+    width: 0%;
+    background-color: white;
+    border-radius: 20px;
+    transition: all 0.3s ease-out;
+}
+
+.aboutUsLink:hover::before {
+    width: 100%;
+}
+
+.middlePartContainer {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middlePartHeader {
+    width: 45%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.middlePartH2 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.middlePartH4 {
+    margin: 2px;
+}
+
+.middlePartP {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 5px;
+    text-align: left;
+}
+
+.middlePartDetails {
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signatureContainer {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signatureItem {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature {
+    width: 150px;
+    height: 80px;
+}
+
+.middlePartImgContainer {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.middlePartImg {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+
+.bottomPartContainer {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomPartHeader {
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomPartHeading {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.bottomPartP {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.teamMemberContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamMember {
+    width: 90%;
+    margin: 35px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teamMember:nth-of-type(2) {
+    flex-flow: row-reverse;
+}
+
+.teamMemberImgContainer {
+    width: 40%;
+    min-width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outerDiv {
+    position: relative;
+    /* background-color: #79cf99d1; */
+    background-color: #A2C579;
+    width: 250px;
+    height: 250px;
+}
+
+.imgContainer {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px 5px #A2C579;
+}
+
+.imgContainer.item2 {
+    top: 15px;
+    right: 15px;
+    left: unset;
+}
+
+.teamImg {
+    width: 250px;
+}
+
+.teamMemberDetails {
+    width: 50%;
+    margin-left: 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamMemberDetails.details2 {
+    margin-left: unset;
+    margin-right: 30px;
+}
+
+.teamMemberDetailsH3 {
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.teamMemberDetailsH3::before {
+    position: absolute;
+    top: -20px;
+    left: -25px;
+    content: '“';
+    height: 30px;
+    width: 30px;
+    /* color: #e48353; */
+    color: #A2C579;
+    font-size: 50px;
+}
+
+.teamMemberDetailsP {
+    font-size: 13px;
+}
+
+@media (max-width: 992px) {
+    .middlePartContainer {
+        flex-flow: column-reverse;
+        margin: 20px auto;
+    }
+
+    .middlePartImgContainer, .middlePartHeader {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .bottomPartContainer, .bottomPartHeader, .middlePartDetails {
+        width: 100%;
+    }
+}
+
 @media (max-width: 950px) {
     .galleryContainer {
         grid-template-columns: repeat(2, 1fr);
+        margin: 10px auto;
     }
 
     .gallery:nth-of-type(3) {
@@ -81,9 +352,36 @@
     .gallery:nth-of-type(6) {
         order: 5;
     }
+
+    .middlePartContainer, .bottomPartContainer {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .signatureContainer {
+        margin: 15px auto;
+        margin-top: 20px;
+    }
+
 }
 
 @media (max-width: 767px) {
+    .teamMember, .teamMember:nth-of-type(2) {
+        width: 100%;
+        flex-flow: column;
+        margin: 10px auto;
+    }
+
+    .teamMemberDetails {
+        width: 100%;
+        margin-top: 50px;
+        margin-left: unset;
+    }
+
+    .teamMemberDetails.details2 {
+        margin-right: unset;
+    }
+
     .headerP {
         font-size: 13px;
         margin: 10px 0;
@@ -96,6 +394,14 @@
 }
 
 @media (max-width: 550px) {
+    .middlePartDetails {
+        width: 100%;
+    }
+
+    .bottomPartHeader {
+        padding: 10px;
+    }
+
     .galleryContainer {
         grid-template-columns: 1fr;
     }
@@ -106,5 +412,13 @@
 
     .gallery:nth-of-type(6) {
         order: unset;
+    }
+
+    .gallery:nth-of-type(2), .gallery:nth-of-type(4), .gallery:nth-of-type(6), .headerContainer, .bottomPartHeader {
+        padding: 0;
+    }
+
+    .middlePartP {
+        margin: 0;
     }
 }
