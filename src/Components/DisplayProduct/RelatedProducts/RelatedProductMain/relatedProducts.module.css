@@ -1,6 +1,6 @@
 .relatedProducts {
     width: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
@@ -16,13 +16,13 @@
 .productDisplay {
     width: 100%;
     margin: 20px auto;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 @media (max-width: 767px) {
     .relatedProducts {
-        margin: 0;
+        margin: 35px auto;
     }
 }

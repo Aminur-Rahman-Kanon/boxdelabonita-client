@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styles from './relatedProducts.module.css';
 import Products from '../Products/products';
+import ProductSlider from '../../../ProductSlider/productSlider';
 
 const RelatedProducts = ({ category, productId }) => {
 
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-related-products/${category.toLowerCase()}`)
+        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-related-products')
         .then(res => res.json())
         .then(data => {
-            if (data.length){
-                const filteredData = data.filter(item => item.title !== productId);
-                setProduct(filteredData);
+            if (data.data){
+                setProduct(data.data);
             }
         })
         .catch(err => console.log(err));
-        console.log('related product');
     }, [productId]);
 
     if (!product) return;
@@ -24,12 +23,7 @@ const RelatedProducts = ({ category, productId }) => {
     let displayProduct = null;
 
     if (product.length){
-        if (product.length > 4){
-            displayProduct = product.slice(0, 4).map(item => <Products key={item._id} product={item}/>)
-        }
-        else {
-            displayProduct = product.map(item => <Products key={item._id} product={item}/>)
-        }
+        displayProduct = product.map(item => <Products key={item._id} product={item}/>)
     }
     else {
         displayProduct = <h2>Nothing to display</h2>
@@ -39,7 +33,7 @@ const RelatedProducts = ({ category, productId }) => {
         <div className={styles.relatedProducts}>
             <h2 className={styles.header1}>Recommended for you</h2>
             <div className={styles.productDisplay}>
-                {displayProduct}
+                <ProductSlider products={displayProduct} />
             </div>
         </div>
     )

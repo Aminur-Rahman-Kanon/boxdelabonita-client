@@ -10,6 +10,7 @@ import { disableScroll } from './Utilities/utilities';
 import Footer from './Components/Footer/footer';
 import Messanger from './Components/Messanger/messanger';
 import UnderTesting from './Pages/UnderTesting/underTesting';
+import Spinner from './Components/Spinner/spinner';
 const DisplayProduct = lazy(() => import('./Pages/DisplayProduct/displayProduct'));
 const Category = lazy(() => import('./Pages/Category/CategoryMain/category'));
 const Cart = lazy(() => import('./Pages/Cart/cart'));
@@ -62,22 +63,22 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage />} />
           {/* <Route path='/' element={<UnderTesting />} /> */}
-          <Route path='/bag/:categoryId' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/bag/:categoryId' element={<Suspense fallback={<Spinner spinner={true} />}>
             <Category />
           </Suspense>} />
-          <Route path='/bag/:categoryId/:productId' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/bag/:categoryId/:productId' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <DisplayProduct />
           </Suspense>} />
-          <Route path='/view-cart' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/view-cart' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Cart />
           </Suspense>} />
-          <Route path='/checkout' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/checkout' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Checkout />
           </Suspense>} />
-          <Route path='/profile' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/profile' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Profile />
           </Suspense>} />
-          <Route path='/about' element={<Suspense fallback={<div>Loading...</div>}>
+          <Route path='/about' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
           </Suspense>}/>
         </Routes>
