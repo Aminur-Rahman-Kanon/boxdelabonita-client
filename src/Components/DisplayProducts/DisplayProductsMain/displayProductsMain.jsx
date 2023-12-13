@@ -20,7 +20,7 @@ const DisplayProducts = ({ productsType }) => {
         .then(res => res.json())
         .then(data => {
             if (data.data){
-                setProducts(data.data);
+                setProducts(data.data.product);
                 setIsLoading(false);
             }
         })
@@ -44,6 +44,8 @@ const DisplayProducts = ({ productsType }) => {
             <h3 className="display-products-h3">No Products to display</h3>
         </div>
     }
+
+    console.log(products);
 
     return (
         <div className="display-products-main">
