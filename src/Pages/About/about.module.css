@@ -33,7 +33,7 @@
 
 
 .gallery:nth-of-type(2), .gallery:nth-of-type(4), .gallery:nth-of-type(6) {
-    height: 100%;
+    /* height: 100%; */
     padding: 5px 15px;
 }
 
