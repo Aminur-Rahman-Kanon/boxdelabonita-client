@@ -220,7 +220,7 @@
 
 .couponBtn {
     width: 100px;
-    height: 32.7px;
+    height: 31.7px;
     border: 1px solid #4b7d37;
     background-color: #4b7d37;
     color: white;
@@ -268,7 +268,8 @@
 }
 
 .cartFooterImg {
-    width: 150px;
+    width: 70px;
+    margin: 2px;
 }
 
 .cartFooterBtn {

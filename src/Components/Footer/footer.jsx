@@ -30,11 +30,9 @@ const Footer = () => {
                 <div className={styles.topSectionContainer}>
                     <h2 className={styles.headerH2}>CUSTOMER SERVICES</h2>
                     <div className={styles.topSectionContainerItem}>
-                        <a href="" className={styles.topSectionLink}>Contact Us</a>
-                        <a href="" className={styles.topSectionLink}>Track Your Order</a>
+                        {/* <a href="" className={styles.topSectionLink}>Contact Us</a> */}
+                        <a href="/profile/track-order" className={styles.topSectionLink}>Track Your Order</a>
                         <a href="" className={styles.topSectionLink}>Product Care & Repair</a>
-                        <a href="" className={styles.topSectionLink}>Book and Appoinment</a>
-                        <a href="" className={styles.topSectionLink}>Frequently Asked Questions</a>
                         <a href="" className={styles.topSectionLink}>Shipping & Returns</a>
                     </div>
                 </div>
@@ -42,9 +40,7 @@ const Footer = () => {
                     <h2 className={styles.headerH2}>ABOUT US</h2>
                     <div className={styles.topSectionContainerItem}>
                         <a href="/about" className={styles.topSectionLink}>About Us</a>
-                        <a href="" className={styles.topSectionLink}>FAQ</a>
-                        <a href="" className={styles.topSectionLink}>Our Producers</a>
-                        <a href="" className={styles.topSectionLink}>Sitemap</a>
+                        {/* <a href="" className={styles.topSectionLink}>Sitemap</a> */}
                         <a href="" className={styles.topSectionLink}>Terms & Conditions</a>
                         <a href="" className={styles.topSectionLink}>Privacy Policy</a>
                     </div>

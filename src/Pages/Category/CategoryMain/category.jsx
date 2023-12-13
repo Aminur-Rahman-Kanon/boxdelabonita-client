@@ -5,12 +5,15 @@ import Heading from '../Heading/heading';
 import Product from '../Product/product';
 import Loader from '../Loader/loader';
 import FilterProducts from '../FilterProducts/FilterProductsMain/filterProducts';
+import ProductSlider from '../../../Components/ProductSlider/productSlider';
 
 const Category = () => {
 
     const params = useParams();
 
     const [product, setProduct] = useState([]);
+
+    const [otherProducts, setOtherProducts] = useState([]);
 
     const [filteredProduct, setFilteredProduct] = useState([]);
 
@@ -37,9 +40,12 @@ const Category = () => {
         fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
         .then(res => res.json())
         .then(data => {
-            if (data.data){
-                setProduct(data.data);
+            if (data.data.product){
+                setProduct(data.data.product);
                 setIsLoading(false);
+            }
+            if (data.data.others){
+                setOtherProducts(data.data.others);
             }
         })
         .catch(err => {
@@ -84,6 +90,7 @@ const Category = () => {
     if (!params.categoryId) return;
 
     let displayProduct = null;
+    let displayOtherProducts = [];
 
     if (product.length){
         if (filter.isFilter){
@@ -105,12 +112,22 @@ const Category = () => {
         displayProduct = <h2>Nothing to display</h2>
     }
 
+    if (otherProducts.length){
+        displayOtherProducts = otherProducts.map((item, idx) => <Product id={idx} product={item} />)
+    }
+
     return (
         <div className={styles.categoryContainer}>
             <Heading heading={params.categoryId}/>
             <FilterProducts filters={setFilter} filterValue={filterValue}/>
             <div className={styles.productDisplayContainer}>
                 {displayProduct}
+            </div>
+            <div className={styles.otherProductsContainer} style={otherProducts.length ? {display: 'flex'} : {display: 'none'}}>
+                <h2 className={styles.othersH2}>You May Also Like</h2>
+                <div className={styles.otherProducts}>
+                    <ProductSlider products={displayOtherProducts} />
+                </div>
             </div>
         </div>
     )

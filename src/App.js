@@ -78,6 +78,9 @@ function App() {
           <Route path='/profile' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Profile />
           </Suspense>} />
+          <Route path='/profile/:track' element={<Suspense fallback={<Spinner spinner={true}/>}>
+            <Profile />
+          </Suspense>} />
           <Route path='/about' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
           </Suspense>}/>

@@ -2,7 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import ContextApi from '../../Components/ContextApi/contextApi';
 import styles from './cart.module.css';
 import { useNavigate } from 'react-router-dom';
-import payment from '../../Assets/payment-method.png';
+import bkash from '../../Assets/Others/bkash.png';
+import visa from '../../Assets/Others/visa.png';
+import cod from '../../Assets/Others/cod.png';
 import AddToBag from '../../Components/AddToBagBtn/addToBag';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -125,7 +127,9 @@ function Cart() {
                 </div>
                 <div className={styles.cartFooterContainer}>
                     <div className={styles.cartFooterItem}>
-                        <img src={payment} alt="how to pay online" className={styles.cartFooterImg}/>
+                        <img src={visa} alt="master card" className={styles.cartFooterImg} />
+                        <img src={cod} alt="cash on delivery" className={styles.cartFooterImg} />
+                        <img src={bkash} alt="biksah" className={styles.cartFooterImg} />
                     </div>
                     <div className={styles.cartFooterItem}>
                         <button onClick={() => navigate(-1)} className={styles.cartFooterBtn} >Continue Shopping</button>

@@ -6,8 +6,11 @@ import UserDetails from "../UserDetails/userDetails";
 import Address from "../Address/address";
 import ChangePassword from "../ChangePassword/changePassword";
 import Orders from "../Orders/orders";
+import { useParams } from 'react-router-dom';
 
 const ProfileMain = () => {
+
+    const params = useParams();
 
     const [userData, setUserData] = useState({});
     const [loggedInUser, setLoggedInUser] = useState({});
@@ -15,6 +18,10 @@ const ProfileMain = () => {
     const [formType, setFormType] = useState('user-information');
 
     useEffect(() => {
+        if (params.track){
+            setFormType('orders')
+        }
+
         fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
         .then(res => res.json())
         .then(data => {

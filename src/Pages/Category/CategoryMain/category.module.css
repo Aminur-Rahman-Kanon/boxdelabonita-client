@@ -16,6 +16,24 @@
     place-items: center;
 }
 
+.otherProductsContainer {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.otherProducts {
+    width: 90%;
+    margin: 35px auto;
+}
+
+.othersH2 {
+    text-align: center;
+}
+
 @media (max-width: 767px) {
     .productDisplayContainer {
         width: 95%;
