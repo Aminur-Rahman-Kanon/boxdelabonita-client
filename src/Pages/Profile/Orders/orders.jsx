@@ -24,8 +24,6 @@ const Orders = ({ user }) => {
         }
     }, [user]);
 
-    console.log(orders);
-
     const displayOrders = orders.length ? orders.map((items, idx) => <div key={idx} className={styles.displayOrderContainer}>
         <div className={styles.displayHeader}>
             <span className={styles.orderId}>Order Id: {items.orderInfo.orderId}</span>
@@ -61,7 +59,7 @@ const Orders = ({ user }) => {
                 <span className={styles.details}>{items.customerInfo.name}</span>
                 <span className={styles.details}>{items.customerInfo.address}</span>
                 <span className={styles.details}>{items.customerInfo.city}</span>
-                <span className={styles.details}>{items.customerInfo.area}</span>
+                {/* <span className={styles.details}>{items.customerInfo.area}</span> */}
             </div>
         </div>
     </div>)

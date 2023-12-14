@@ -125,6 +125,22 @@
     color: #4b7d37;
 }
 
+.colors {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.color {
+    width: 15px;
+    height: 15px;
+    display: block;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin-right: 3px;
+}
+
 @media (max-width: 932px) {
     .checkoutItems, .totalContainer {
         padding: 10px;

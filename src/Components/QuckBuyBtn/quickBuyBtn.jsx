@@ -1,15 +1,13 @@
-import React, { useContext, useState } from 'react';
-import ContextApi from '../ContextApi/contextApi';
-import styles from './addToBag.module.css';
+import React, { useState } from 'react';
+import styles from './quickBuyBtn.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
-const AddToBag = ({ product, title, color }) => {
-    
-    const context = useContext(ContextApi);
+const QuickBuyBtn = ({ product, color }) => {
+
     const [isLoading, setIsLoading] = useState(false);
-    
+
     const submitHandler = async () => {
         setIsLoading(true);
 
@@ -34,7 +32,7 @@ const AddToBag = ({ product, title, color }) => {
             if (result.status === 'success'){
                 setIsLoading(false);
                 toast.success(`${product.title} added to cart`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize'}})
-                context.setAddItem(addItem => addItem+1);
+                return window.location.assign('/checkout');
             }
             else {
                 setIsLoading(false);
@@ -48,17 +46,10 @@ const AddToBag = ({ product, title, color }) => {
     }
 
     return (
-        <>
-        <button className={styles.addToBagBtn} onClick={submitHandler}>
-            {
-                isLoading ? 
-                <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.loader}/>
-                :
-                <span className={styles.btn}>{title}</span>
-            }
-        </button>
-        </>
+        <div className={styles.quickButBtn} onClick={submitHandler}>
+            {isLoading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : <span>Quick Buy</span>}
+        </div>
     )
 }
 
-export default AddToBag;
+export default QuickBuyBtn;

@@ -2,25 +2,23 @@ import React, { useEffect, useMemo, useState } from 'react';
 import styles from './address.module.css';
 import { cities } from '../../Checkout/Checkout-data/data';
 
-const cityOptions = Object.keys(cities).map((item, idx) => <option key={idx} className={styles.option}>{item}</option>)
-
 const Address = ({ user }) => {
 
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
-    const [area, setArea] = useState('');
+    // const [area, setArea] = useState('');
 
     useEffect(() => {
         if (user.user){
             setAddress(user.user.address);
             setCity(user.user.city);
-            setArea(user.user.area);
+            // setArea(user.user.area);
         }
     }, [user])
 
-    const areas = useMemo(() => {
-        return city ? cities[city].map((item ,idx) => <option key={idx} className={styles.option}>{item}</option>) : <option className={styles.option}>Please Select</option>
-    }, [city]);
+    // const areas = useMemo(() => {
+    //     return city ? cities[city].map((item ,idx) => <option key={idx} className={styles.option}>{item}</option>) : <option className={styles.option}>Please Select</option>
+    // }, [city]);
 
     return (
         <form className={styles.addressContainer}>
@@ -34,15 +32,16 @@ const Address = ({ user }) => {
             <div className={styles.formInputContainer}>
                 <select value={city ? city : 'Please Select'} className={styles.formSelect} onChange={(e) => setCity(e.target.value)}>
                     <option disabled>Please Select</option>
-                    {cityOptions}
+                    <option>Inside Dhaka</option>
+                    <option>Outside Dhaka</option>
                 </select>
             </div>
-            <div className={styles.formInputContainer}>
+            {/* <div className={styles.formInputContainer}>
                 <select value={area} className={styles.formSelect} onChange={(e) => setArea(e.target.value)}>
                     <option disabled>Please Select</option>
                         {areas}
                 </select>
-            </div>
+            </div> */}
             <button className={styles.btn}>Apply Changes</button>
         </form>
     )

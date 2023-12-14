@@ -45,8 +45,6 @@ const DisplayProducts = ({ productsType }) => {
         </div>
     }
 
-    console.log(products);
-
     return (
         <div className="display-products-main">
             <div className="display-products-container">

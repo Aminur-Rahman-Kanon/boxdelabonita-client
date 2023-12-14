@@ -21,7 +21,6 @@ const DisplayProduct = () => {
             fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-product/${productId}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.data){
                     setProduct(data.data[0]);
                     setIsLoading(false);

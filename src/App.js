@@ -59,7 +59,7 @@ function App() {
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />
-        <Messanger />
+        {/* <Messanger /> */}
         <Routes>
           <Route path='/' element={<Homepage />} />
           {/* <Route path='/' element={<UnderTesting />} /> */}

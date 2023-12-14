@@ -8,6 +8,7 @@ import AddToBag from '../../AddToBagBtn/addToBag';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ColorContainer from '../ColorContainer/colorContainer';
+import QuickBuyBtn from '../../QuckBuyBtn/quickBuyBtn';
 
 const Product = ({ product }) => {
 
@@ -62,11 +63,11 @@ const Product = ({ product }) => {
                         </div>
                     </div>
                     <div className={styles.btnContainer}>
-                        <div className={styles.btns}>
+                        <div className={styles.btn1}>
                             <AddToBag product={product} title={"Add to Cart"} color={color} />
                         </div>
-                        <div className={styles.btns}>
-                            <button className={styles.btn}>Quick Buy</button>
+                        <div className={styles.btn2}>
+                            <QuickBuyBtn product={product} color={color} />
                         </div>
                     </div>
                     <div className={styles.informationContainer}>
