@@ -6,45 +6,83 @@ export const disableScroll = () => {
 }
 
 export const isElementInViewport = (el) => {
-    let timer = [];
     const element = document.querySelector(`.${el}`);
+    
+    if (element.id === 'item1'){
+        const headers = element.children[0].children[0].children;
+        const sideImg1 = element.children[0].children[1].children[0];
+        const sideImg2 = element.children[2].children[0].children[0];
 
-    const el1 = element.children[0].children[0].children;
-    const el2 = element.children[0].children[1];
-    const el3 = element.children[0].children[2];
+        let timer = [];
 
-    el2.className = 'banner-Item-H4';
-    el3.className = 'banner-Item-Btn';
+        for (let i=0; i<headers.length; i++){
+            headers[i].className = 'banner-Item2-H2';
+        }
 
-    for (let i=0; i<el1.length; i++) {
-        el1[i].className = 'banner-Item-H2';
+        sideImg1.className = 'banner-img2-side-img1';
+        sideImg2.className = 'banner-img2-side-img2';
 
+        for (let i=0; i<headers.length; i++){
+            timer[i] = setTimeout(() => {
+                headers[i].className = 'banner-Item2-H2 item2-animate-H2'
+            }, 1000 + i * 100)
+        }
+
+        headers[headers.length-1].addEventListener('animationend', () => {
+            sideImg1.className = 'banner-img2-side-img1 animate-side-img1'
+        })
+
+        sideImg1.addEventListener('animationend', () => {
+            sideImg2.className = 'banner-img2-side-img2 animate-side-img2'
+        })
+        return timer;
     }
     
-    for (let i=0; i<el1.length; i++) {
-        timer[i] = setTimeout(() => {
-            el1[i].className = 'banner-Item-H2 animate-H2'
-        }, 1000 + i * 100);
-
-        // el1[i].addEventListener('animationend', () => el1[i].className = 'banner-Item-H2 stable-H2')
-    }
-    let test;
-
-    if (el1[el1.length -1]){
-        el1[el1.length -1].addEventListener('animationend', () => {
-            test = setTimeout(() => {
-                el3.className = 'banner-Item-Btn animate-btn'
-            }, 500);
-
+    if (element.id === 'item2'){
+        let timer = [];
+        const el1 = element.children[0].children[0].children;
+        const el2 = element.children[0].children[1];
+        const el3 = element.children[0].children[2].children[0].children;
+        const el4 = element.children[0].children[3];
+        
+        el2.className = 'banner-Item-H4';
+        el4.className = 'banner-Item-Btn';
+        
+        for (let i=0; i<el1.length; i++) {
+            el1[i].className = 'banner-Item-H2';
+        }
+    
+        for (let i=0; i<el1.length; i++) {
+            timer[i] = setTimeout(() => {
+                el1[i].className = 'banner-Item-H2 animate-H2'
+            }, 1000 + i * 100);
+        }
+        
+        el1[el1.length-1].addEventListener('animationend', () => {
             el2.className = 'banner-Item-H4 animate-H4';
         })
-    }
-
-    clearTimeout(test);
-    return timer;
-  }
-
-
-  export const addToBag = () => {
+        
+        for (let i=0; i<el3.length; i++) {
+            el3[i].className = 'additional-list';
+        }
     
-  }
+        el2.addEventListener('animationend', () => {
+            for (let i=0; i<el3.length; i++){
+                el3[i].className = 'additional-list animate-list';
+            }
+        })
+    
+        if (window.innerWidth >= 768) {
+            el3[el3.length-1].addEventListener('animationend', () => {
+                el4.className = 'banner-Item-Btn animate-btn'
+            })
+        }
+        else {
+            el2.addEventListener('animationend', () => {
+                el4.className = 'banner-Item-Btn animate-btn'
+            })
+        }
+        
+        return timer;
+    }
+}
