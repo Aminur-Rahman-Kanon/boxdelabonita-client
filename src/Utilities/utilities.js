@@ -12,6 +12,7 @@ export const isElementInViewport = (el) => {
         const headers = element.children[0].children[0].children;
         const sideImg1 = element.children[0].children[1].children[0];
         const sideImg2 = element.children[2].children[0].children[0];
+        const link = element.children[2].children[1];
 
         let timer = [];
 
@@ -21,6 +22,7 @@ export const isElementInViewport = (el) => {
 
         sideImg1.className = 'banner-img2-side-img1';
         sideImg2.className = 'banner-img2-side-img2';
+        link.className = 'banner2-link';
 
         for (let i=0; i<headers.length; i++){
             timer[i] = setTimeout(() => {
@@ -35,6 +37,11 @@ export const isElementInViewport = (el) => {
         sideImg1.addEventListener('animationend', () => {
             sideImg2.className = 'banner-img2-side-img2 animate-side-img2'
         })
+
+        sideImg2.addEventListener('animationend', () => {
+            link.className = 'banner2-link animate-banner2-link';
+        })
+
         return timer;
     }
     
@@ -84,5 +91,37 @@ export const isElementInViewport = (el) => {
         }
         
         return timer;
+    }
+    if (element.id === 'item3'){
+        const headers = element.children[0].children[0].children[0].children;
+        const sideImg1 = element.children[0].children[0].children[1].children[0].children[0]
+        const sideImg2 = element.children[0].children[0].children[1].children[1].children[0]
+        const link = element.children[1].children[0];
+
+        let timer = [];
+
+        for (let i=0; i<headers.length; i++){
+            headers[i].className = 'banner-Item3-H2';
+        }
+        
+        sideImg1.className = 'banner3-side-img';
+        sideImg2.className = 'banner3-side-img';
+        link.className = 'banner3-link';
+
+        for (let i=0; i<headers.length; i++){
+            timer[i] = setTimeout(() => {
+                headers[i].className = 'banner-Item3-H2 animate-banner-Item3-H2';
+            }, 1000 + i * 100)
+                
+        }
+
+        headers[headers.length-1].addEventListener('animationend', () => {
+            sideImg1.className = 'banner3-side-img animate-banner3-side-img'
+            sideImg2.className = 'banner3-side-img animate-banner3-side-img'
+        })
+
+        sideImg2.addEventListener('animationend', () => {
+            link.className = 'banner3-link animate-banner3-link'
+        })
     }
 }
