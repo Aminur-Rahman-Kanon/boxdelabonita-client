@@ -125,3 +125,54 @@ export const isElementInViewport = (el) => {
         })
     }
 }
+
+export const addToCart = (product, color) => {
+    if (!product || !color) return 'invalid operation';
+
+    const cartObj = localStorage.getItem('cart');
+
+    
+    try {
+        const price = product.price.originalPrice - product.price.discountedPrice;
+        //if no item added to cart at all
+        if (cartObj === null) {
+            const cart = {};
+            const addedProduct = {
+                product,
+                quantity: 1,
+                color: [color],
+                price
+            }
+            cart[product.title] = addedProduct;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log(JSON.parse(localStorage.getItem('cart')));
+            return 'success';
+        }
+        //if item exist in the cart
+        else {
+            const products = JSON.parse(localStorage.getItem('cart'));
+            const existProduct = products.hasOwnProperty(product.title);
+            
+            //item exist in the cart
+            if (existProduct){
+                products[product.title].quantity = products[product.title].quantity + 1;
+                products[product.title].color.push(color);
+                localStorage.setItem('cart', JSON.stringify(products));
+                return 'success';
+            }
+            else {
+                const addedProduct = {
+                    product,
+                    quantity: 1,
+                    color: [color],
+                    price
+                }
+                products[product.title] = addedProduct;
+                localStorage.setItem('cart', JSON.stringify(products));
+                return 'success';
+            }
+        }
+    } catch (error) {
+        return 'failed';
+    }
+}

@@ -22,13 +22,12 @@ function Banner() {
 
     useEffect(() => {
         const timers = isElementInViewport(carouselItem);
-        console.log(timers);
 
-        // return () => {
-        //     if (timers.length) {
-        //         timers.forEach(timer => clearTimeout(timer));
-        //     }
-        // }
+        return () => {
+            if (timers !== undefined) {
+                timers.forEach(timer => clearTimeout(timer));
+            }
+        }
     }, [carouselItem]);
 
     return (

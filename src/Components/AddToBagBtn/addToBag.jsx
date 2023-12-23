@@ -4,6 +4,7 @@ import styles from './addToBag.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
+import { addToCart } from '../../Utilities/utilities';
 
 const AddToBag = ({ product, title, color }) => {
     
@@ -23,28 +24,17 @@ const AddToBag = ({ product, title, color }) => {
             return toast.info('Please Select a Color', {style: {backgroundColor: '#067FD0', textTransform: 'capitalize'}});
         }
 
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/add-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ product, color })
-        }).then(res => res.json())
-        .then(result => {
-            if (result.status === 'success'){
-                setIsLoading(false);
-                toast.success(`${product.title} added to cart`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize'}})
-                context.setAddItem(addItem => addItem+1);
-            }
-            else {
-                setIsLoading(false);
-                toast.success(`${result.status}`);
-            }
-        })
-        .catch(err => {
+        const status = addToCart(product, color);
+        
+        if (status === 'success'){
             setIsLoading(false);
-            toast.error('Failed', {style: {textTransform: 'capitalize'}});
-        });
+            toast.success(`${product.title} added to cart`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize'}})
+            context.setAddItem(addItem => addItem+1);
+        }
+        else {
+            setIsLoading(false);
+            toast.error(`${status}`);
+        }
     }
 
     return (
