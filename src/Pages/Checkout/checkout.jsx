@@ -26,7 +26,7 @@ function Checkout() {
     const [emailValidity, setEmailValidty] = useState(true)
     const [phone, setPhone] = useState('');
     const [phoneValidity, setPhoneValidity] = useState(true);
-    const [city, setCity] = useState('Select City');
+    const [city, setCity] = useState('Select Area');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [btnDisable, setBtnDisable] = useState(true);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -246,7 +246,7 @@ function Checkout() {
                         </fieldset>
                         <fieldset className='payment-form-filedset'>
                             <select className='payment-select' value={city} onChange={(e) => {
-                                if (e.target.value === 'Inside Dhaka'){
+                                if (e.target.value === 'Inside Dhaka ৳80'){
                                     setCity(e.target.value);
                                     setDeliveryCharge(80);
                                 }
@@ -255,9 +255,9 @@ function Checkout() {
                                     setDeliveryCharge(150);
                                 }
                             }}>
-                                <option disabled className='payment-option'>Select City</option>
-                                <option className='payment-option'>Inside Dhaka</option>
-                                <option className='payment-option'>Outside Dhaka</option>
+                                <option disabled className='payment-option'>Select Area</option>
+                                <option className='payment-option'>Inside Dhaka &#2547;80</option>
+                                <option className='payment-option'>Outside Dhaka &#2547;150</option>
                             </select>
                         </fieldset>
                         {/* <fieldset className='payment-form-filedset'>

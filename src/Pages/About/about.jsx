@@ -4,7 +4,6 @@ import a_1 from '../../Assets/about/1.jpg';
 import a_2 from '../../Assets/about/2.jpg';
 import a_3 from '../../Assets/about/3.jpg';
 import a_5 from '../../Assets/about/5.jpg';
-import admin from '../../Assets/about/admin.jpg';
 import signature1 from '../../Assets/about/signature1.png';
 import signature2 from '../../Assets/about/signature2.png';
 import about1 from '../../Assets/about/about_1.jpg';
