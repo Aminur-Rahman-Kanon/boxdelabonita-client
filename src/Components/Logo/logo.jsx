@@ -4,9 +4,9 @@ import logo from '../../Assets/Logo/logo.png';
 
 function Logo() {
     return (
-        <div className={styles.logoContainer}>
+        <a href="/" className={styles.logoContainer}>
             <img src={logo} alt="boxdelabonita" className={styles.logo}/>
-        </div>
+        </a>
     )
 }
 

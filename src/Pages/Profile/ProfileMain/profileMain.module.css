@@ -37,7 +37,7 @@
     width: 100%;
 }
 
-@media (max-width: 967px) {
+@media (max-width: 982px) {
     .profileMainContainer {
         flex-direction: column;
         align-items: center;
@@ -48,7 +48,7 @@
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 662px) {
     .panelContainer {
         width: 100%;
     }

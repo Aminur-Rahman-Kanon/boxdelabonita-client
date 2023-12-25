@@ -14,7 +14,6 @@ const ProfileMain = () => {
     const params = useParams();
 
     const [userData, setUserData] = useState([]);
-    const [loggedInUser, setLoggedInUser] = useState({});
 
     const [formType, setFormType] = useState('user-information');
 
@@ -37,7 +36,7 @@ const ProfileMain = () => {
     return (
         <div className={styles.profileMainContainer}>
             <div className={styles.avatarMain}>
-                <Avatar user={userData.user} />
+                <Avatar user={userData} />
             </div>
             <div className={styles.panelContainer}>
                 <div className={styles.panel}>

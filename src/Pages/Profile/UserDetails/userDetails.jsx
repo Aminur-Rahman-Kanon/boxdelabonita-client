@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from 'react';
 import styles from './userDetails.module.css';
 
 const UserDetails = ({ user }) => {
-
     const [fullName, setFullName] = useState('');
     // const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');

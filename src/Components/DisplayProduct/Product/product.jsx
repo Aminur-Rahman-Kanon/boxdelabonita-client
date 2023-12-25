@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import ContextApi from '../../ContextApi/contextApi';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,10 +8,9 @@ import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ColorContainer from '../ColorContainer/colorContainer';
 import QuickBuyBtn from '../../QuckBuyBtn/quickBuyBtn';
+import SoldOut from '../../SoldOut/soldOut';
 
 const Product = ({ product }) => {
-
-    const context = useContext(ContextApi);
 
     const [imgIdx, setImgIdx] = useState(null);
     const [color, setColor] = useState('')
@@ -36,6 +34,7 @@ const Product = ({ product }) => {
             <div className={styles.section2}>
                 <div className={styles.mainImageContainer}>
                     <img src={product.img[imgIdx]} alt={product.title} className={styles.mainImage}/>
+                    <SoldOut show={!product.stock}/>
                 </div>
                 <div className={styles.detailsContainer}>
                     <div className={styles.stockContainer}>
@@ -64,10 +63,10 @@ const Product = ({ product }) => {
                     </div>
                     <div className={styles.btnContainer}>
                         <div className={styles.btn1}>
-                            <AddToBag product={product} title={"Add to Cart"} color={color} />
+                            <AddToBag disable={product.stock} product={product} title={"Add to Cart"} color={color} />
                         </div>
                         <div className={styles.btn2}>
-                            <QuickBuyBtn product={product} color={color} />
+                            <QuickBuyBtn disable={product.stock} product={product} color={color} />
                         </div>
                     </div>
                     <div className={styles.informationContainer}>
@@ -81,7 +80,7 @@ const Product = ({ product }) => {
                         </div>
                         <div className={styles.information}>
                             <FontAwesomeIcon icon={faClock} className={styles.infoIcon}/>
-                            <p className={styles.info}>24/7 Customer Support</p>
+                            <p className={styles.info}>24/7 Support</p>
                         </div>
                     </div>
                 </div>

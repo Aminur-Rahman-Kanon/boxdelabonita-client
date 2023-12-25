@@ -5,7 +5,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import { addToCart } from '../../Utilities/utilities';
 
-const QuickBuyBtn = ({ product, color }) => {
+const QuickBuyBtn = ({ disable, product, color }) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -36,9 +36,9 @@ const QuickBuyBtn = ({ product, color }) => {
     }
 
     return (
-        <div className={styles.quickButBtn} onClick={submitHandler}>
+        <button disabled={!disable} className={styles.quickButBtn} onClick={submitHandler}>
             {isLoading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : <span>Quick Buy</span>}
-        </div>
+        </button>
     )
 }
 

@@ -42,13 +42,16 @@
 
 .sliderImage {
     width: 100%;
-    margin: 2px 0;
+    height: 100%;
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .mainImageContainer {
+    position: relative;
     width: 55%;
     margin: 0 5px;
-    padding: 10px;
     box-sizing: border-box;
     display: flex;
 }
@@ -219,16 +222,6 @@
     color: white;
 }
 
-/* .btn {
-    width: 100%;
-    height: 35px;
-    border: 1px solid lightgray;
-    border-radius: 2px;
-    background-color: white;
-    color: rgb(73, 73, 73);
-    cursor: pointer;
-} */
-
 .informationContainer {
     width: 100%;
     margin: 20px 0;
@@ -272,6 +265,7 @@
     
     .imageSliderContainer {
         width: 100%;
+        height: 230px;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
@@ -280,6 +274,11 @@
 
     .sliderImageContainer {
         min-width: 220px;
+    }
+
+    .sliderImage {
+        /* margin: 5px;
+        box-sizing: border-box; */
     }
 }
 
@@ -301,6 +300,7 @@
     .sliderImageContainer {
         padding: 1px;
         min-width: 167px;
+        height: 180px;
     }
 
     .informationContainer {
@@ -316,8 +316,22 @@
     }
 }
 
+@media (max-width: 650px) {
+    .sliderImageContainer {
+        height: 150px;
+    }
+}
+
+@media (max-width: 550px) {
+    .sliderImageContainer {
+        min-width: 145px;
+        height: 140px;
+    }
+}
+
 @media (max-width: 450px) {
     .sliderImageContainer {
         min-width: 105px;
+        height: 110px;
     }
 }

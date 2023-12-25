@@ -79,7 +79,7 @@ function Checkout() {
     }, [phone])
 
     useEffect(() => {
-        if (name && address && phone && city && paymentMethod && Object.keys(products).length){
+        if (name && address && phone && city !== 'Select Area' && paymentMethod && Object.keys(products).length){
             setBtnDisable(false);
         }
         else {

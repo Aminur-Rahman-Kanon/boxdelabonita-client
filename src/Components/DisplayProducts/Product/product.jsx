@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './product.module.css';
+import SoldOut from '../../SoldOut/soldOut';
 
 const Product = ({product}) => {
     
@@ -9,15 +10,16 @@ const Product = ({product}) => {
     return (
         <Link to={`/bag/${product.category}/${product.title}`} className={styles.product}>
             <div className={styles.productImgContainer}>
-                <img src={Object.values(product.img)[0]} alt={product.title} className={styles.productImg} />
-                <span className={styles.discount}>&#2547;{
+                <img src={Object.values(product.img)[0]} alt={product.title} className={styles.productImg} style={product.stock ? {filter: 'contrast(1)'} : {filter: 'contrast(0.4)'}}/>
+                <span className={styles.discount} style={product.price.discountedPrice ? {display: 'flex'} : {display: 'none'}}>&#2547;{
                     product.price.discountedPrice ? product.price.discountedPrice : 0} Off
                 </span>
+                <SoldOut show={!product.stock}/>
             </div>
             <div className={styles.productDetailsContainer}>
                 <span className={styles.productTitle}>{product.title}</span>
                 <span className={styles.productPrice}>	&#2547;{product.price.originalPrice - product.price.discountedPrice}</span>
-                <s className={styles.productPrice}>	&#2547;{product.price.originalPrice}</s>
+                <s className={styles.productPrice} style={product.price.discountedPrice ? {display: 'block'} : {display: 'none'}}>	&#2547;{product.price.originalPrice}</s>
             </div>
         </Link>
     )

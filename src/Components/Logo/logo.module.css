@@ -1,5 +1,6 @@
 .logoContainer {
-    width: 110px;
+    text-decoration: none;
+    width: 112px;
     padding: 5px;
     box-sizing: border-box;
     display: flex;

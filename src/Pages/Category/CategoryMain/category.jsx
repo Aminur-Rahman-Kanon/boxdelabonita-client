@@ -95,14 +95,14 @@ const Category = () => {
     if (product.length){
         if (filter.isFilter){
             if (filteredProduct.length){
-                displayProduct = filteredProduct.map(item => <Product key={item._id} product={item} />)
+                displayProduct = filteredProduct.map(item => <Product key={item._id} product={item} relatedProduct={false}/>)
             }
             else {
                 displayProduct = <h2>Nothing found</h2>
             }
         }
         else {
-            displayProduct = product.map(item => <Product key={item._id} product={item} />)
+            displayProduct = product.map(item => <Product key={item._id} product={item} relatedProduct={false} />)
         }
     }
     else if (isLoading){
@@ -113,7 +113,7 @@ const Category = () => {
     }
 
     if (otherProducts.length){
-        displayOtherProducts = otherProducts.map((item, idx) => <Product id={idx} product={item} />)
+        displayOtherProducts = otherProducts.map((item, idx) => <Product id={idx} product={item} relatedProduct={true} />)
     }
 
     return (

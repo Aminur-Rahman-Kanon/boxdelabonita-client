@@ -11,7 +11,7 @@ const ProductsNavigation = () => {
 
     if (path.length) {
         displayPath = [
-            <Link key={1} to={`/bag/all-bag`} className={styles.path}>{path[0]}</Link>,
+            <Link key={1} to={`/bag/all-bags`} className={styles.path}>{path[0]}</Link>,
             <Link key={2} to={`/bag/${path[1].toLowerCase()}`} className={styles.path}>{path[1]}</Link>,
             <span key={3} className={styles.path}>{path[2]}</span>
         ]

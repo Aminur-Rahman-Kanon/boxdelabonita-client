@@ -3,3 +3,8 @@
     all: inherit;
     border: none;
 }
+
+.addToBagBtn:disabled {
+    cursor: default;
+    opacity: 0.5;
+}

@@ -3,3 +3,8 @@
     all: inherit;
     border: none;
 }
+
+.quickButBtn:disabled {
+    cursor: default;
+    opacity: 0.5;
+}

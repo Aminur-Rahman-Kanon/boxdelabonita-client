@@ -6,7 +6,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import { addToCart } from '../../Utilities/utilities';
 
-const AddToBag = ({ product, title, color }) => {
+const AddToBag = ({ disable, product, title, color }) => {
     
     const context = useContext(ContextApi);
     const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +39,7 @@ const AddToBag = ({ product, title, color }) => {
 
     return (
         <>
-        <button className={styles.addToBagBtn} onClick={submitHandler}>
+        <button disabled={!disable} className={styles.addToBagBtn} onClick={submitHandler}>
             {
                 isLoading ? 
                 <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.loader}/>
