@@ -12,7 +12,32 @@
 
 @media (max-width: 950px) {
     .bannerImgContainer {
+        height: 550px;
         margin: 10px auto;
         background-attachment: unset;
+    }
+}
+
+@media (max-width: 767px) {
+    .bannerImgContainer {
+        height: 450px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bannerImgContainer {
+        height: 350px;
+    }
+}
+
+@media (max-width: 500px) {
+    .bannerImgContainer {
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .bannerImgContainer {
+        height: 250px;
     }
 }

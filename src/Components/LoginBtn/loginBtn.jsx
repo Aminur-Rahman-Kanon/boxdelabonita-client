@@ -18,7 +18,6 @@ const LoginBtn = ({ btnDisable, userInput }) => {
             },
             body: JSON.stringify({userInput})
         }).then(res => res.json()).then(data => {
-            console.log(data);
             setIsLoading(false);
             if (data.status === 'success'){
                 localStorage.setItem('user', JSON.stringify({ user: data.data }));
