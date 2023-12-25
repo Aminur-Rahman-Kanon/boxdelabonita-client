@@ -47,7 +47,7 @@ const UserContainer = () => {
                     <h3 className={styles.loginHeader}>Login to check your order's</h3>
                     <form className={styles.loginForm}>
                         <div className={styles.inputContainer}>
-                            <input type='text' className={styles.input} placeholder='Enter your Phone or email address' onChange={(e) => setUserInput(e.target.value)}/>
+                            <input type='text' className={styles.input} placeholder='Enter your phone number' onChange={(e) => setUserInput(e.target.value)}/>
                         </div>
                         <LoginBtn btnDisable={!userInput} userInput={userInput} />
                     </form>
