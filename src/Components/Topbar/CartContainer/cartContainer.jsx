@@ -23,7 +23,7 @@ const CartContainer = ({ products, toggleAddItem }) => {
         </div>)
     }
     else{
-        displayCart = <h3 className={styles.defaultHeading}>No Product's yet</h3>
+        displayCart = <h3 className={styles.defaultHeading}>Nothing in Cart</h3>
     }
 
     return (
