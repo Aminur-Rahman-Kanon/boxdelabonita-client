@@ -25,19 +25,6 @@ function App() {
   const [user, setUser] = useState({});
   const [addItem, setAddItem] = useState(0);
 
-  useEffect(() => {
-    if (!user.deviceId){
-      fetch('https://boxdelabonita-server-13dd.onrender.com/init-app')
-      .then(res => res.json())
-      .then(data => {
-        if (data.deviceId){
-          setUser(data);
-        }
-      })
-      .catch(err => console.log(err));
-    }
-  }, []);
-
   //This hook handles scroll disabalities on backdrop toggles
   useEffect(() => {
     if (backdrop) {
@@ -55,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <ContextApi.Provider value={{user, addItem, setAddItem, toggleSidedrawer}}>
+      <ContextApi.Provider value={{addItem, setAddItem, toggleSidedrawer}}>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />
