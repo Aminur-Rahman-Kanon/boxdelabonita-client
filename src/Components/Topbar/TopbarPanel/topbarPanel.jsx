@@ -6,6 +6,7 @@ import { faMagnifyingGlass, faShoppingBasket } from '@fortawesome/free-solid-svg
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 import CartContainer from '../CartContainer/cartContainer';
 import UserContainer from '../UserContainer/userContainer';
+import { fetchCartItem } from '../../../Utilities/utilities';
 
 function TopbarPanel() {
 
@@ -14,16 +15,10 @@ function TopbarPanel() {
     const toggleAddItem = context.setAddItem;
 
     const [products, setProducts] = useState({});
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
-        .then(res => res.json())
-        .then(data => {
-                data.data.deviceId ? setIsLoggedIn(true) : setIsLoggedIn(false);
-                data.data.product ? setProducts(data.data.product) : setProducts({});
-        })
-        .catch(err => console.log(err));
+        const product = fetchCartItem();
+        setProducts(product);
     }, [toggleItem]);
     
     const productCount = Object.keys(products).length ? Object.keys(products).length : 0
@@ -36,7 +31,7 @@ function TopbarPanel() {
             <div className={styles.topbarPanelItem}>
                 <FontAwesomeIcon icon={faUser} className={styles.topbarPanelIcon} />
                 <div className={styles.user}>
-                    <UserContainer isLoggedIn={isLoggedIn} />
+                    <UserContainer />
                 </div>
             </div>
             <div className={styles.topbarPanelItem}>

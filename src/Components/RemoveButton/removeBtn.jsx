@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './removeBtn.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { removeSingleItem } from '../../Utilities/utilities';
 import { toast } from 'react-toastify';
 
 const RemoveBtn = ({ product, title, cb }) => {
@@ -11,29 +12,16 @@ const RemoveBtn = ({ product, title, cb }) => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        const price = product.price.originalPrice - product.price.discountedPrice;
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/remove-single-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ item: product.title, price })
-        }).then(res => res.json())
-        .then(data => {
-            if (data.status === 'success'){
-                cb(addItem => addItem -1);
-                setIsLoading(false);
-                return toast.success(`${product.title} removed`);
-            }
-            else {
-                setIsLoading(false);
-                return toast.error(`Failed, try again`);
-            }
-        })
-        .catch(err => {
+        const status = removeSingleItem(product.title);
+        if (status === 'success'){
+            cb(addItem => addItem - 1);
             setIsLoading(false);
-            return toast.error('Something went wrong');
-        });
+            return toast.success(`${product.title} removed`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize', fontWeight: '600'}});
+        }
+        else {
+            setIsLoading(false);
+            return toast.error('Failed, try again', {style: {textTransform: 'capitalize', fontWeight: 600}});
+        }
     }
 
     return (

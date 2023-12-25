@@ -4,11 +4,11 @@ import a_1 from '../../Assets/about/1.jpg';
 import a_2 from '../../Assets/about/2.jpg';
 import a_3 from '../../Assets/about/3.jpg';
 import a_5 from '../../Assets/about/5.jpg';
-import signature1 from '../../Assets/about/signature1.png';
-import signature2 from '../../Assets/about/signature2.png';
 import about1 from '../../Assets/about/about_1.jpg';
 import about2 from '../../Assets/about/about_2.jpg';
-import about3 from '../../Assets/about/shawon.jpg';
+import about3 from '../../Assets/about/about_3.jpg';
+import person1 from '../../Assets/about/shawon.jpg';
+import person2 from '../../Assets/about/person2.jpg';
 
 const About = () => {
     return (
@@ -48,13 +48,13 @@ const About = () => {
                         <p className={styles.middlePartP}>Mollit ullamco magna eiusmod non sit cupidatat.Minim eu ipsum labore eu ad occaecat culpa.Irure fugiat anim ad dolore mollit ipsum non laboris ex nulla irure enim aute magna.Sunt ad in commodo non amet nulla id.Dolore labore sint anim ad officia.Sint ut consequat consequat tempor ullamco velit Lorem ex.Ea enim deserunt nisi voluptate ullamco duis laborum laboris est eu ex velit sunt dolore.Excepteur incididunt consequat amet pariatur nulla dolore commodo proident officia.Sunt dolore id quis incididunt enim non et est ullamco pariatur officia eiusmod.In commodo Lorem consectetur amet aliquip ex minim laboris.</p>
                         <div className={styles.signatureContainer}>
                             <div className={styles.signatureItem}>
-                                <img src={signature1} alt='karkhana' className={styles.signature} />
+                                <img src={person1} alt='karkhana' className={styles.signature} />
                                 <h4 className={styles.middlePartH4}>Person 1</h4>
                                 <p className={styles.middlePartP}>Co-Dounder</p>
                             </div>
 
                             <div className={styles.signatureItem}>
-                                <img src={signature2} alt='karkhana' className={styles.signature} />
+                                <img src={person2} alt='karkhana' className={styles.signature} />
                                 <h4 className={styles.middlePartH4}>Person 2</h4>
                                 <p className={styles.middlePartP}>Manager</p>
                             </div>

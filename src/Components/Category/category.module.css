@@ -77,6 +77,12 @@
     }
 }
 
+@media (max-width: 950px) {
+    .categoryContainer {
+        margin: 10px auto;
+    }
+}
+
 @media (max-width: 767px) {
     .categoryItem {
         width: 150px;

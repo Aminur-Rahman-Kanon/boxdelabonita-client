@@ -126,16 +126,26 @@ export const isElementInViewport = (el) => {
     }
 }
 
+export const fetchCartItem = () => {
+    const cart = localStorage.getItem('cart');
+
+    if (cart !== null){
+        const product = JSON.parse(localStorage.getItem('cart'));
+        return product;
+    }
+    else {
+        return {};
+    }
+};
+
 export const addToCart = (product, color) => {
     if (!product || !color) return 'invalid operation';
 
-    const cartObj = localStorage.getItem('cart');
-
-    
+    const cartObj = fetchCartItem();    
     try {
         const price = product.price.originalPrice - product.price.discountedPrice;
         //if no item added to cart at all
-        if (cartObj === null) {
+        if (!Object.keys(cartObj).length) {
             const cart = {};
             const addedProduct = {
                 product,
@@ -145,7 +155,6 @@ export const addToCart = (product, color) => {
             }
             cart[product.title] = addedProduct;
             localStorage.setItem('cart', JSON.stringify(cart));
-            console.log(JSON.parse(localStorage.getItem('cart')));
             return 'success';
         }
         //if item exist in the cart
@@ -174,5 +183,56 @@ export const addToCart = (product, color) => {
         }
     } catch (error) {
         return 'failed';
+    }
+}
+
+export const removeSingleItem = (title) => {
+    try {
+        const cartObj = fetchCartItem();
+        if (!Object.keys(cartObj).length) return 'cart empty';
+    
+        const productToRemove = cartObj[title];
+        if (!Object.keys(productToRemove).length) return 'not found';
+    
+        if (productToRemove.quantity === 1){
+            delete cartObj[title];
+            localStorage.setItem('cart', JSON.stringify(cartObj))
+            return 'success';
+        }
+        if (productToRemove.quantity > 1){
+            productToRemove.quantity = productToRemove.quantity - 1;
+            productToRemove.color.pop();
+            cartObj[title] = productToRemove;
+            localStorage.setItem('cart', JSON.stringify(cartObj));
+            return 'success';
+        }
+    } catch (error) {
+        return 'failed';
+    }
+}
+
+export const removeAllProducts = (title) => {
+    try {
+        const products = fetchCartItem();
+    
+        if (!Object.keys(products).length) return 'cart empty';
+        if (!products[title]) return 'not found';
+    
+        delete products[title];
+        localStorage.setItem('cart', JSON.stringify(products));
+        return 'success';
+    } catch (error) {
+        return 'failed';
+    }
+}
+
+export const fetchUser = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    
+    if (!user){
+        return [];
+    }
+    else {
+        return user.user;
     }
 }

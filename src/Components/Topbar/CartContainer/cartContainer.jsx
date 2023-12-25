@@ -8,16 +8,16 @@ const CartContainer = ({ products, toggleAddItem }) => {
     let displayCart = null;
 
     if (Object.keys(products).length){
-        displayCart = Object.values(products).map(item => <div key={item[0]._id} className={styles.displayCartItem}>
+        displayCart = Object.values(products).map(item => <div key={item.product._id} className={styles.displayCartItem}>
             <div className={styles.displayCartImgContainer}>
-                <img src={Object.values(item[0].img)[0]} alt={item[0].title} className={styles.displayCartImg} />
+                <img src={item.product.img[0]} alt={item.product.title} className={styles.displayCartImg} />
             </div>
             <div className={styles.displayCartDetailsContainer}>
-                <h4 className={styles.heading}>{item[0].title}</h4>
-                <span className={styles.subHeading}>{`${item.length} x ${item[0].price.originalPrice-item[0].price.discountedPrice}`}</span>
-                <span className={styles.subHeading}>Total: &#2547;{(item[0].price.originalPrice - item[0].price.discountedPrice) * item.length }</span>
+                <h4 className={styles.heading}>{item.product.title}</h4>
+                <span className={styles.subHeading}>{`${item.quantity} x`} &#2547;{`${item.price}`}</span>
+                <span className={styles.subHeading}>Total: &#2547;{item.price * item.quantity}</span>
                 <div className={styles.removeBtn}>
-                    <RemoveBtn product={item[0]} title={"Remove"} cb={toggleAddItem} />
+                    <RemoveBtn product={item.product} title={"Remove"} cb={toggleAddItem} />
                 </div>
             </div>
         </div>)

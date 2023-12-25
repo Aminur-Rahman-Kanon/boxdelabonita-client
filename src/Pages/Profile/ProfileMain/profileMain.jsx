@@ -7,31 +7,31 @@ import Address from "../Address/address";
 import ChangePassword from "../ChangePassword/changePassword";
 import Orders from "../Orders/orders";
 import { useParams } from 'react-router-dom';
+import { fetchUser } from "../../../Utilities/utilities";
 
 const ProfileMain = () => {
 
     const params = useParams();
 
-    const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState([]);
     const [loggedInUser, setLoggedInUser] = useState({});
 
     const [formType, setFormType] = useState('user-information');
 
     useEffect(() => {
-        if (params.track){
+        if (params.track && params.phone){
             setFormType('orders')
-        }
-
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
-        .then(res => res.json())
-        .then(data => {
-            if (data.data.deviceId){
+            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item/${params.phone}`)
+            .then(res => res.json())
+            .then(data => {
                 setUserData(data.data);
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+        const user = fetchUser();
+        setUserData(user);
     }, []);
 
     return (

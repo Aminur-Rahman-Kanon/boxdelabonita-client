@@ -16,24 +16,24 @@ const AddToBag = ({ product, title, color }) => {
 
         if (!product.title){
             setIsLoading(false);
-            return toast.error('Failed', {style: {textTransform: 'capitalize'}});
+            return toast.error('Failed', {style: {textTransform: 'capitalize', fontWeight: '600'}});
         }
 
         if (!color){
             setIsLoading(false);
-            return toast.info('Please Select a Color', {style: {backgroundColor: '#067FD0', textTransform: 'capitalize'}});
+            return toast.info('Please Select a Color', {style: {backgroundColor: '#067FD0', textTransform: 'capitalize', fontWeight: '600'}});
         }
 
         const status = addToCart(product, color);
         
         if (status === 'success'){
             setIsLoading(false);
-            toast.success(`${product.title} added to cart`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize'}})
+            toast.success(`${product.title} added to cart`, {style: {backgroundColor: '#4b7d37', textTransform: 'capitalize', fontWeight: '600'}})
             context.setAddItem(addItem => addItem+1);
         }
         else {
             setIsLoading(false);
-            toast.error(`${status}`);
+            toast.error(`${status}`, {style: {fontWeight: '600', textTransform: 'capitalize'}});
         }
     }
 

@@ -9,10 +9,10 @@ const UserDetails = ({ user }) => {
     const [phone, setPhone] = useState('');
 
     useEffect(() => {
-        if (user.user){
-            setFullName(user.user.name);
-            setEmail(user.user.email);
-            setPhone(user.user.phone);
+        if (user.length){
+            setFullName(user.at(-1).customerInfo.name);
+            setEmail(user.at(-1).customerInfo.email);
+            setPhone(user.at(-1).customerInfo.phone);
         }
     }, [user]);
 

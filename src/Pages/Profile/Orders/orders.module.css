@@ -7,6 +7,18 @@
     align-items: center;
 }
 
+.idContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.id {
+    font-size: 15px;
+    font-weight: 600;
+}
+
 .displayOrderContainer {
     width: 100%;
     margin-bottom: 10px;
@@ -150,6 +162,19 @@
 
 .footerHeading4 {
     margin: 10px 0;
+}
+
+.grandTotal {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.grandTotalPrice {
+    font-weight: 600;
 }
 
 @media (max-width: 550px) {

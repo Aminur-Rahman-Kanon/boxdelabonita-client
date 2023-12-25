@@ -9,13 +9,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../../Components/Modal/modal';
 import { disableScroll } from '../../Utilities/utilities';
-
-// const citiesOption = Object.keys(cities).map(item => <option key={item} className='payment-option'>{item}</option>)
+import { fetchCartItem } from '../../Utilities/utilities';
 
 function Checkout() {
 
     const [products, setProducts] = useState({});
-    const [userDetails, setUserDetails] = useState({});
     const [spinner, setSpinner] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
     const [modal, setModal] = useState(false);
@@ -36,41 +34,16 @@ function Checkout() {
     const [placeOrderDetails, setPlaceOrderDetails] = useState(null);
 
     useEffect(() => {
-        fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.data){
-                let totalPrice = 0;
-                if (data.data.product){
-                    setProducts(data.data.product);
-                }
-                if (data.data.details){
-                    Object.values(data.data.details).forEach(item => {
-                        totalPrice += item.price;
-                    })
-                    setTotalPrice(totalPrice);
-                    setUserDetails(data.data.details);
-                }
-                if (data.data.user){
-                    setName(data.data.user.name);
-                    setAddress(data.data.user.address);
-                    setEmail(data.data.user.email);
-                    setPhone(data.data.user.phone);
-                    if (data.data.user.city){
-                        setCity(data.data.user.city);
-                        if (data.data.user.city === 'Inside Dhaka'){
-                            setDeliveryCharge(80);
-                        }
-                        else if (data.data.user.city === "Outside Dhaka"){
-                            setDeliveryCharge(150);
-                        }
-                    }
-                }
-            }
-        })
-        .catch(err => console.log(err));
+        const product = fetchCartItem();
+        if (Object.keys(product).length){
+            let itemTotalPrice = 0;
+            Object.values(product).forEach(item => itemTotalPrice += (item.quantity * item.price))
+            setTotalPrice(totalPrice+ itemTotalPrice);
+        }
+        setProducts(product);
     }, []);
+
+    console.log(products);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -106,7 +79,7 @@ function Checkout() {
     }, [phone])
 
     useEffect(() => {
-        if (name && address && (email && emailValidity) && phone && city && paymentMethod && Object.keys(products).length){
+        if (name && address && phone && city && paymentMethod && Object.keys(products).length){
             setBtnDisable(false);
         }
         else {
@@ -123,12 +96,6 @@ function Checkout() {
         }
     }, [backdrop]);
 
-    // let areaOption = null;
-
-    // if (city !== 'Select City'){
-    //     areaOption = cities[city].map((item, idx) => <option key={idx} className='payment-option'>{item}</option>)
-    // }
-
     const submitHandler = async (e) => {
         e.preventDefault();
         setBackdrop(true);
@@ -140,7 +107,7 @@ function Checkout() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                name, address, email, phone, city, paymentMethod, totalPrice, deliveryCharge, userDetails
+                name, address, email, phone, city, paymentMethod, totalPrice, deliveryCharge, products
             })
         })
         .then(res => res.json())
@@ -150,6 +117,7 @@ function Checkout() {
             setPlaceOrderStatus(data.status);
             setPlaceOrderDetails(data.data)
             setModal(true);
+            localStorage.removeItem('cart');
         })
         .catch(err => {
             console.log(err);
@@ -196,7 +164,7 @@ function Checkout() {
                     </div>
                 </div>
             </div>
-            <button className='place-order-btn' onClick={() => window.location.assign('/profile/track')}>Done</button>
+            <button className='place-order-btn' onClick={() => window.location.assign(`/profile/track/${phone}`)}>Done</button>
         </div>
     }
 
@@ -260,12 +228,6 @@ function Checkout() {
                                 <option className='payment-option'>Outside Dhaka &#2547;150</option>
                             </select>
                         </fieldset>
-                        {/* <fieldset className='payment-form-filedset'>
-                            <select className='payment-select' value={area} onChange={(e) => setArea(e.target.value)}>
-                                <option className='payment-option'>Select Area</option>
-                                {areaOption}
-                            </select>
-                        </fieldset> */}
                         <section className='payment-method-main'>
                             <h3 className='payment-h3'>Payment Method</h3>
                             <div className='payment-form-group'>
@@ -287,7 +249,7 @@ function Checkout() {
                 </div>
                 <div className='vertical-line'></div>
                 <div className='item-container'>
-                    <CheckoutItems items={products} details={userDetails} deliveryCharge={deliveryCharge} totalPrice={totalPrice} />
+                    <CheckoutItems items={products} deliveryCharge={deliveryCharge} totalPrice={totalPrice} />
                 </div>
             </div>
         </section>

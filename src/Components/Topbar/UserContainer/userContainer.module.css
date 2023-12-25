@@ -35,7 +35,7 @@
 }
 
 .userDetailsHeading3 {
-    margin: 0;
+    margin: 10px 0;
     font-size: 16px;
 }
 
@@ -48,6 +48,62 @@
 }
 
 .userDetailsLink:hover {
-    transform: scale(1.1);
+    font-weight: 600;
     color: #4b7d37;
+}
+
+.loginContainer {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.loginHeader {
+    font-size: 13px;
+
+}
+
+.loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputContainer {
+    width: 100%;
+    border: 1px solid lightgray;
+}
+
+.input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    box-sizing: border-box;
+    color: rgb(83, 83, 83);
+}
+
+.logoutBtn {
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-color: #E0115F;
+    color: white;
+    border-radius: 3px;
+    margin: 10px auto;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background-color: #bc1756;
 }

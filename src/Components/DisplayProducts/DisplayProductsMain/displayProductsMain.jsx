@@ -28,7 +28,6 @@ const DisplayProducts = ({ productsType }) => {
             setIsLoading(false);
             console.log(err);
         });
-        console.log('display product main');
     }, []);
 
     let displayProducts;

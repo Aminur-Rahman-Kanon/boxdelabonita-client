@@ -152,13 +152,14 @@
 }
 
 .middlePartH4 {
-    margin: 2px;
+    margin: 0;
+    margin-top: 20px;
 }
 
 .middlePartP {
     font-size: 14px;
     line-height: 22px;
-    margin: 5px;
+    margin: 0;
     text-align: left;
 }
 
@@ -188,7 +189,6 @@
 
 .signature {
     width: 150px;
-    height: 80px;
 }
 
 .middlePartImgContainer {
@@ -310,6 +310,7 @@
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 1px;
+    color: #4b7d37;
 }
 
 .teamMemberDetailsH3::before {

@@ -4,30 +4,36 @@ import { cities } from '../../Checkout/Checkout-data/data';
 
 const Address = ({ user }) => {
 
-    const [address, setAddress] = useState('');
+    const [address, setAddress] = useState([]);
     const [city, setCity] = useState('');
-    // const [area, setArea] = useState('');
 
     useEffect(() => {
-        if (user.user){
-            setAddress(user.user.address);
-            setCity(user.user.city);
-            // setArea(user.user.area);
+        if (user.length){
+            const tmpAddress = [];
+            user.forEach(usr => {
+                tmpAddress.push(usr.customerInfo.address);
+            })
+            setAddress(tmpAddress);
+            // setCity(user.customerInfo.city);
         }
-    }, [user])
+    }, [user]);
 
-    // const areas = useMemo(() => {
-    //     return city ? cities[city].map((item ,idx) => <option key={idx} className={styles.option}>{item}</option>) : <option className={styles.option}>Please Select</option>
-    // }, [city]);
+    let displayAddress = 'No address';
+    if (address.length){
+        displayAddress = address.map(addr => <option>{addr}</option>)
+    }
 
     return (
         <form className={styles.addressContainer}>
             <div className={styles.formInputContainer}>
-                <input type='text'
+                <select className={styles.formSelect}>
+                    {displayAddress}
+                </select>
+                {/* <input type='text'
                        placeholder='Address'
                        value={address}
                        onChange={(e) => setAddress(e.target.value)}
-                       className={styles.formInput} />
+                       className={styles.formInput} /> */}
             </div>
             <div className={styles.formInputContainer}>
                 <select value={city ? city : 'Please Select'} className={styles.formSelect} onChange={(e) => setCity(e.target.value)}>
