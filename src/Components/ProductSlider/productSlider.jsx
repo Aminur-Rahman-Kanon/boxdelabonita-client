@@ -8,9 +8,9 @@ const ProductSlider = ({ products }) => {
 
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 350,
-        slidesToShow: products.length <= 3 ? products.length : 4,
+        slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 0,
         cssEase: 'linear',
@@ -19,20 +19,22 @@ const ProductSlider = ({ products }) => {
             {
               breakpoint: 1024,
               settings: {
-                slidesToShow: products.length < 3 ? products.length : 3,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 initialSlide: 3,
-                infinite: true,
-                dots: true
+                infinite: false,
+                dots: true,
+                swipeToSlide: true,
               }
             },
             {
               breakpoint: 767,
               settings: {
-                slidesToShow: products.length < 2 ? products.length : 2,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 2,
-                infinite: false
+                infinite: false,
+                swipeToSlide: true,
               }
             }
           ]

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './product.module.css';
 import SoldOut from '../../SoldOut/soldOut';
+import Rating from '../../DisplayProduct/Rating/rating';
 
 const Product = ({product}) => {
     
@@ -15,6 +16,12 @@ const Product = ({product}) => {
                     product.price.discountedPrice ? product.price.discountedPrice : 0} Off
                 </span>
                 <SoldOut show={!product.stock}/>
+            </div>
+            <div className={styles.ratingContainer}>
+                <Rating rating={product.rating} align={'center'}/>
+            </div>
+            <div className={styles.colorContainer}>
+                {product.color.map((clr, idx) => <span className={styles.color} style={{backgroundColor: `${clr}`}}></span>)}
             </div>
             <div className={styles.productDetailsContainer}>
                 <span className={styles.productTitle}>{product.title}</span>
