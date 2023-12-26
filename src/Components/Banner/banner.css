@@ -616,7 +616,7 @@
     .banner-item2-main-img-container {
         position: absolute;
         top: 50%;
-        right: 10%;
+        right: 5%;
         transform: translate(0, -50%);
         width: 40%;
     }
