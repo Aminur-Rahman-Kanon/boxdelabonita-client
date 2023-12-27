@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './filter.module.css';
 import { prices, color } from '../../../../Data/data';
-import Backdrop from '../../../../Components/Backdrop/backdrop';
-import { disableScroll } from '../../../../Utilities/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 const Filter = ({ filters, filterValue }) => {
-
-    const [backdrop, setBackdrop] = useState(false);
-
-    useEffect(() => {
-        if (backdrop) {
-          disableScroll();
-        }
-        else {
-          window.onscroll = () => {};
-        }
-    }, [backdrop])
 
     const resetFilters = () => {
         filters({ price: 'Please Select', color: 'Please Select', discount: false, specialOffer: false, isFilter: false });
@@ -25,7 +12,6 @@ const Filter = ({ filters, filterValue }) => {
 
     return (
         <>
-        {/* <Backdrop backdrop={backdrop} closeBackdrop={togglefilterPanel}/> */}
         <div className={styles.filterContainer}>
             <div className={styles.filterBtnContainer}>
                 <FontAwesomeIcon icon={faFilter} className={styles.filterBtnIcon}/>

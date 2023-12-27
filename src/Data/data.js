@@ -59,5 +59,5 @@ export const prices = [
 ]
 
 export const color = [
-    'Black', 'White', 'Blue', 'Green', 'Maroon'
+    'Black', 'White', 'Blue', 'Green', 'Maroon', 'Chocolate'
 ]

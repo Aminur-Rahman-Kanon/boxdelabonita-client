@@ -54,23 +54,35 @@ const Category = () => {
         });
     }, [params.categoryId]);
 
+    console.log(product);
+
     useEffect(() => {
+        //initialize empty array
         let filteredItem = [];
         if (filter.price !== 'Please Select'){
+            //looping through the products
             const filtered = product.filter(item => {
+                //calculating the actual price by deducting the discount amount
                 const totalPrice = item.price.originalPrice - item.price.discountedPrice;
+                //omiting the price range from user input by removing the '-' and convering to nunber
                 const priceRange = filter.price.split('-').map(item => Number(item));
+                //then checking if the product price fall between the price rannge
                 if (totalPrice >= priceRange[0] && totalPrice <= priceRange[1]){
+                    //if product price fall between the price range then return the product
                     return item
                 }
             });
+            //and pushing the product into the product array
             filteredItem.push(...filtered);
         }
         else {
+            //if price range is not selected then return the product array
             filteredItem = product;
         }
+        //if color is selected for filtering
         if (filter.color !== 'Please Select'){
-            const filtered = filteredItem.filter(item => Object.values(item.color).includes(filter.color.toLowerCase()))
+
+            const filtered = filteredItem.filter(item => item.color.includes(filter.color))
             filteredItem = [];
             filteredItem.push(...filtered);
         }

@@ -19,6 +19,7 @@ function Cart() {
     const [products, setProducts] = useState({});
     const [coupon, setCoupon] = useState('');
 
+    //this hook fetch cart item every time user add an item to the cart so we can display in the view cart page
     useEffect(() => {
         const product = fetchCartItem();
         setProducts(product);
@@ -30,7 +31,8 @@ function Cart() {
     
     if (Object.keys(products).length){
         cartDisplay = Object.values(products).map(item => {
-            // subtotal += (item[0].price.originalPrice - item[0].price.discountedPrice) * item.length;
+            //taking the item quantity and price and creating a subtotal amount
+            subtotal += item.quantity * item.price;
             return <div key={item.product._id} className={styles.cartItem}>
                 <div className={styles.cartItemImgContainerMain}>
                     <div className={styles.cartImgContainer}>
@@ -46,6 +48,7 @@ function Cart() {
                     <div className={styles.cartItemElement}>
                         <div className={styles.colorContainer}>
                             {
+                                //looping through the colors and displaying to the UI
                                 item.color.length ? 
                                     item.color.map((clr, idx) => <div key={idx} className={styles.colors} style={{backgroundColor: `${clr}`}}></div>)
                                     :
@@ -55,10 +58,12 @@ function Cart() {
                     </div>
                     <div className={styles.cartItemElement}>
                         <div className={styles.quantityBtn}>
-                            <AddToBag title={"+"} product={item.product} color={item.color[0]} />
+                            {/*buttn to add more items in the cart*/}
+                            <AddToBag disable={true} title={"+"} product={item.product} color={item.color[0]} />
                         </div>
                         <div className={styles.quantityCount}>{item.quantity}</div>
                         <div className={styles.quantityBtn}>
+                            {/*button to remove single item from the cart*/}
                             <RemoveBtn title={"-"} product={item.product} cb={context.setAddItem}/>
                         </div>
                     </div>
@@ -66,12 +71,14 @@ function Cart() {
                         <span className={styles.subtotal}>&#2547;{item.price}</span>
                     </div>
                     <div className={styles.cartItemElement}>
+                        {/*button to remove all same product*/}
                         <RemoveAllProductsBtn title={item.product.title} cb={context.setAddItem} />
                     </div>
                 </div>
             </div>})
     }
     else {
+        //if no item found in the cart
         cartDisplay = <div>
             <h4 className={styles.cartH4}>No item in the cart</h4>
         </div>

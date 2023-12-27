@@ -22,7 +22,6 @@ function App() {
 
   const [sidedrawer, setSidedrawer] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
-  const [user, setUser] = useState({});
   const [addItem, setAddItem] = useState(0);
 
   //This hook handles scroll disabalities on backdrop toggles
@@ -33,8 +32,9 @@ function App() {
     else {
       window.onscroll = () => {};
     }
-  }, [backdrop])
+  }, [backdrop]);
 
+  //this function toggles the sidedrawer on/off
   const toggleSidedrawer = () => {
     setSidedrawer(sidedrawer => !sidedrawer);
     setBackdrop(backdrop => !backdrop);
@@ -46,9 +46,11 @@ function App() {
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />
+        {/*this component should gives user ability to directly chat up with the admin through fb but not yet implemented*/}
         {/* <Messanger /> */}
         <Routes>
           <Route path='/' element={<Homepage />} />
+          {/*activate this route and disable all routes when needed undertaking major updates or critical works*/}
           {/* <Route path='/' element={<UnderTesting />} /> */}
           <Route path='/bag/:categoryId' element={<Suspense fallback={<Spinner spinner={true} />}>
             <Category />
