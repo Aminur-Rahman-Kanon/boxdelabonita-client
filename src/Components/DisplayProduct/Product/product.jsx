@@ -56,7 +56,7 @@ const Product = ({ product }) => {
                         <div dangerouslySetInnerHTML={{__html: product.description}} />
                     </div>
                     <div className={styles.colorContainer}>
-                        <span className={styles.colorHeader}>Color</span>
+                        <span className={styles.colorHeader}>Select a Color</span>
                         <div className={styles.colors}>
                             {Object.values(product.color).map(clr => <ColorContainer key={clr} color={clr} imgIdx={color} cb={setColor}/>)}
                         </div>

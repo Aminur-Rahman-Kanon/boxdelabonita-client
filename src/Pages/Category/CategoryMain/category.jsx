@@ -27,12 +27,12 @@ const Category = () => {
         isFilter: false
     })
 
-    const filterValue = {
-        price: filter.price,
-        color: filter.color,
-        discount: filter.discount,
-        specialOffer: filter.specialOffer
-    }
+    // const filterValue = {
+    //     price: filter.price,
+    //     color: filter.color,
+    //     discount: filter.discount,
+    //     specialOffer: filter.specialOffer
+    // }
 
     //this hook make a get request to the server and fetch the products that are requested through the 'params.categoryId' url param
     //this hook also return some other data that will be used as related products which we will store it to the otherProduct state variable
@@ -87,7 +87,7 @@ const Category = () => {
         //if color is selected for filtering
         if (filter.color !== 'Please Select'){
             //filtering the item color with the user input color
-            const filtered = filteredItem.filter(item => item.color.includes(filter.color));
+            const filtered = filteredItem.filter(item => item.color.includes(filter.color.toLowerCase()));
             //empty up the filteredItem array
             filteredItem = [];
             //and then push filtered items to the filteredItem array
@@ -162,7 +162,7 @@ const Category = () => {
     return (
         <div className={styles.categoryContainer}>
             <Heading heading={params.categoryId}/>
-            <FilterProducts filters={setFilter} filterValue={filterValue}/>
+            <FilterProducts filters={setFilter} filterValue={filter}/>
             <div className={styles.productDisplayContainer}>
                 {displayProduct}
             </div>
