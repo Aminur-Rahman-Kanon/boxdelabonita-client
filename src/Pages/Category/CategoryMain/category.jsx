@@ -34,6 +34,11 @@ const Category = () => {
         specialOffer: filter.specialOffer
     }
 
+    //this hook make a get request to the server and fetch the products that are requested through the 'params.categoryId' url param
+    //this hook also return some other data that will be used as related products which we will store it to the otherProduct state variable
+    //activate the spinner while fetching process is pending
+    //deactivate the spinner when fetching process is completed
+    //additionally, it scrolls to the top 
     useEffect(() => {
         window.scrollTo(0, 0);
         setIsLoading(true);
@@ -81,49 +86,75 @@ const Category = () => {
         }
         //if color is selected for filtering
         if (filter.color !== 'Please Select'){
-
-            const filtered = filteredItem.filter(item => item.color.includes(filter.color))
+            //filtering the item color with the user input color
+            const filtered = filteredItem.filter(item => item.color.includes(filter.color));
+            //empty up the filteredItem array
             filteredItem = [];
+            //and then push filtered items to the filteredItem array
             filteredItem.push(...filtered);
         }
+        //if discount is selected
         if (filter.discount){
+            //checking whether item has discount property or not
             const filtered = filteredItem.filter(item => item.price.discountedPrice > 0);
+            //empty up the filterdItem array
             filteredItem = [];
+            //and then push the filtered items to filteredItem array
             filteredItem.push(...filtered);
         }
+        //if special offer is selected
         if (filter.specialOffer){
+            //checking whether item has special offer property or not
             const filtered = filteredItem.filter(item => item.specialOffer === true);
+            //empty up the filteredItem array
             filteredItem = [];
+            //and then push the items to the filteredItem array
             filteredItem.push(...filtered);
         }
+        //finally, we store the filtered items to the filteredProducts state variable
+        //from where we can loop through the items and display those to the user
         setFilteredProduct(filteredItem);
     }, [filter])
     
+    //we are checking whether url contains the url param 'categoryId' or not
+    //if no categoryId in url param then we dont want the component to be rendered
     if (!params.categoryId) return;
 
+    //declaring a variable with a value null so we can later use this variable to show the product to the display
     let displayProduct = null;
-    let displayOtherProducts = [];
+    //declaring a variable with a value null so we can later use this variable to show the product to the display
+    let displayOtherProducts = null;
 
+    //if products array contains item
     if (product.length){
+        //if user select any of the filter property
         if (filter.isFilter){
+            //if filterProduct array contains item
             if (filteredProduct.length){
+                //then we loop through items and show those to the display
                 displayProduct = filteredProduct.map(item => <Product key={item._id} product={item} relatedProduct={false}/>)
             }
             else {
+                //otherwise show nothing found to the dsiplay
                 displayProduct = <h2>Nothing found</h2>
             }
         }
         else {
+            //if no filter properties are selected
             displayProduct = product.map(item => <Product key={item._id} product={item} relatedProduct={false} />)
         }
     }
+    //while the fetching process is pending
     else if (isLoading){
+        //then loop through and show some loader to the display
         displayProduct = Array.from(Array(6)).map((item, idx) => <Loader key={idx} />)
     }
     else {
+        //if data fetching is complete and no data found then this to the display
         displayProduct = <h2>Nothing to display</h2>
     }
 
+    //if otherProducts array contains data then show those to the display
     if (otherProducts.length){
         displayOtherProducts = otherProducts.map((item, idx) => <Product id={idx} product={item} relatedProduct={true} />)
     }

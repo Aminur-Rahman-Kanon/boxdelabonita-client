@@ -56,7 +56,6 @@ const Filter = ({ filters, filterValue }) => {
                 </div>
                 <div className={styles.btnContainer}>
                     <button className={styles.btn} onClick={resetFilters}>Reset</button>
-                    {/* <button className={styles.btn}>Close</button> */}
                 </div>
             </div>
         </div>
