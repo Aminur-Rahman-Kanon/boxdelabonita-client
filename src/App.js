@@ -28,7 +28,7 @@ function App() {
   const { isLoading, error, data } = useQuery({
     queryKey: ['fetchData'],
     queryFn: () =>
-      fetch('http://localhost:8080/fetch-all-products').then((res) => res.json()).then(data => {
+      fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-all-products').then((res) => res.json()).then(data => {
         if (data.data){
           return data.data;
         }
@@ -37,8 +37,6 @@ function App() {
         }
       }).catch(err => [])
   })
-
-  console.log(data);
 
   //This hook handles scroll disabalities on backdrop toggles
   useEffect(() => {
