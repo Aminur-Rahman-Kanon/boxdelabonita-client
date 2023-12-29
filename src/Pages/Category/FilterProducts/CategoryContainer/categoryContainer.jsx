@@ -13,23 +13,23 @@ const CategoryContainer = ({ toggleSidePanel }) => {
             <div className={styles.feauturedCategories}>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
-                    navigate('/bag/popular-products');
+                    navigate('/bag/popular products');
                 }}>Popular Products</div>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
-                    navigate('/bag/hot-deals')
+                    navigate('/bag/hot deals')
                 }}>Hot Deals</div>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
-                    navigate('/bag/new-arrivals')
+                    navigate('/bag/new arrivals')
                 }}>New Arrivals</div>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
-                    navigate('/bag/trending')
+                    navigate('/bag/trending products')
                 }}>Trending</div>
                 <div className={styles.featuredCategory} onClick={() => {
                     toggleSidePanel();
-                    navigate('/bag/all-bags')
+                    navigate('/bag/all bags')
                 }}>All Bags</div>
             </div>
         </div>

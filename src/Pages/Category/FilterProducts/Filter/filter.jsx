@@ -4,7 +4,7 @@ import { prices, color } from '../../../../Data/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-const Filter = ({ filters, filterValue }) => {
+const Filter = ({ filters, filterValues }) => {
 
     const resetFilters = () => {
         filters({ price: 'Please Select', color: 'Please Select', discount: false, specialOffer: false, isFilter: false });
@@ -20,7 +20,7 @@ const Filter = ({ filters, filterValue }) => {
             <div className={styles.filterDisplay}>
                 <div className={styles.filter}>
                     <label htmlFor='price' className={styles.label}>Price</label>
-                    <select className={styles.filterCategory} id='price' onChange={(e) => filters((filter) => ({...filter, price: e.target.value, isFilter: true}))} value={filterValue.price}>
+                    <select className={styles.filterCategory} id='price' onChange={(e) => filters((filter) => ({...filter, price: e.target.value, isFilter: true}))} value={filterValues.price}>
                         <option disabled>Please Select</option>
                         {
                             prices.map((item, idx) => <option key={idx} className={styles.filterOption} value={item}>&#2547;{`${item}`}</option>)
@@ -29,7 +29,7 @@ const Filter = ({ filters, filterValue }) => {
                 </div>
                 <div className={styles.filter}>
                     <label htmlFor='color' className={styles.label}>Color</label>
-                    <select className={styles.filterCategory} id='color' onChange={(e) => filters((filter) => ({...filter, color: e.target.value, isFilter: true}))} value={filterValue.color}>
+                    <select className={styles.filterCategory} id='color' onChange={(e) => filters((filter) => ({...filter, color: e.target.value, isFilter: true}))} value={filterValues.color}>
                     <option disabled>Please Select</option>
                         {
                             color.map((color, idx) => <option key={color} className={styles.filterOption}>{color}</option>)
@@ -41,8 +41,8 @@ const Filter = ({ filters, filterValue }) => {
                     <input type='checkbox'
                            className={styles.discounted}
                            id="discounted"
-                           value={filterValue.discount}
-                           checked={filterValue.discount}
+                           value={filterValues.discount}
+                           checked={filterValues.discount}
                            onChange={(e) => filters((filter) => ({...filter, discount: !filter.discount, isFilter: true}))} />
                 </div>
                 <div className={styles.filter}>
@@ -50,8 +50,8 @@ const Filter = ({ filters, filterValue }) => {
                     <input type='checkbox'
                            className={styles.discounted}
                            id='offer'
-                           checked={filterValue.specialOffer}
-                           value={filterValue.specialOffer}
+                           checked={filterValues.specialOffer}
+                           value={filterValues.specialOffer}
                            onChange={() => filters((filter) => ({...filter, specialOffer: !filter.specialOffer, isFilter: true}))} />
                 </div>
                 <div className={styles.btnContainer}>

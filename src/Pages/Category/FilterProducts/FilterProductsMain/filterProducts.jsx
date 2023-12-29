@@ -25,7 +25,7 @@ const FilterProducts = ({ filters, filterValue }) => {
     }, [backdrop])
 
     const toggleSidePanel = () => {
-        if (window.innerWidth <= 767){
+        if (window.innerWidth <= 800){
             setSidePanel(sidePanel => !sidePanel);
             setBackdrop(backdrop => !backdrop);
         }
@@ -46,7 +46,7 @@ const FilterProducts = ({ filters, filterValue }) => {
                 <CategoryContainer toggleSidePanel={toggleSidePanel}/>
             </div>
             <div className={styles.filterProduct}>
-                <Filter filters={filters} filterValue={filterValue} />
+                <Filter filters={filters} filterValues={filterValue} />
             </div>
         </div>
         </>

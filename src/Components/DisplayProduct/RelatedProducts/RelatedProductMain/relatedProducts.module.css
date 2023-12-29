@@ -16,9 +16,7 @@
 .productDisplay {
     width: 100%;
     margin: 20px auto;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    max-width: 1400px;
 }
 
 @media (max-width: 767px) {

@@ -11,16 +11,16 @@ const HeadingContainer = ({ type }) => {
         Aos.init({ duration: 2500 })
     }, []);
 
-    if (type === 'new-arrivals'){
+    if (type === 'new arrivals'){
         heading1 = "New Arrivals";
     }
-    else if (type === 'trending'){
+    else if (type === 'trending products'){
         heading1 = "Trending Products";
     }
-    else if (type === 'hot-deals'){
+    else if (type === 'hot deals'){
         heading1 = "Hot Deals";
     }
-    else if (type === 'popular-products'){
+    else if (type === 'popular products'){
         heading1 = "Most Popular";
     }
 

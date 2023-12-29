@@ -7,8 +7,6 @@ const Categories = ({ switchPanel }) => {
     
     const params = useParams();
 
-    const navigate = useNavigate();
-
     return (
         <div className={styles.categoriesContainer}>
             <select className={styles.categories} onChange={(e) => window.location.href = `/bag/${e.target.value.toLowerCase()}`} defaultValue="Select Category">

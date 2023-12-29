@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { category } from '../../Data/data';
 
 function Category() {
-    const categoryDisplay = category.map(item => <Link to={`/bag/${item.title.toLowerCase()}`} key={item.title} className={styles.categoryItem}>
+    const categoryDisplay = category.map(item => <Link to={`/bag/${item.route}`} key={item.title} className={styles.categoryItem}>
         <div className={styles.categoryImgContainer}>
             <img src={item.img} alt={item.title} className={styles.categoryImg} />
         </div>

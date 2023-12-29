@@ -12,13 +12,13 @@ function Homepage() {
             <Banner />
             <Category />
             <AdditionalBanner type={"newArrivals"}/>
-            <DisplayProducts productsType={"new-arrivals"}/>
+            <DisplayProducts productsType={"new arrivals"}/>
             <AdditionalBanner type={"casual"}/>
-            <DisplayProducts productsType={"popular-products"}/>
+            <DisplayProducts productsType={"popular products"}/>
             <AdditionalBanner type={"mostPopular"}/>
-            <DisplayProducts productsType={"hot-deals"}/>
+            <DisplayProducts productsType={"hot deals"}/>
             <AdditionalBanner type={"trending"}/>
-            <DisplayProducts productsType={"trending"}/>
+            <DisplayProducts productsType={"trending products"}/>
             <Journal />
         </div>
     )

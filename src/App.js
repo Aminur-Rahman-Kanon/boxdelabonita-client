@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { useQuery } from 'react-query';
 import ContextApi from './Components/ContextApi/contextApi';
 import Homepage from './Pages/Homepage/homepage';
 import Topbar from './Components/Topbar/TopbarMain/topbar';
@@ -24,6 +25,21 @@ function App() {
   const [backdrop, setBackdrop] = useState(false);
   const [addItem, setAddItem] = useState(0);
 
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['fetchData'],
+    queryFn: () =>
+      fetch('http://localhost:8080/fetch-all-products').then((res) => res.json()).then(data => {
+        if (data.data){
+          return data.data;
+        }
+        else {
+          return [];
+        }
+      }).catch(err => [])
+  })
+
+  console.log(data);
+
   //This hook handles scroll disabalities on backdrop toggles
   useEffect(() => {
     if (backdrop) {
@@ -42,7 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      <ContextApi.Provider value={{addItem, setAddItem, toggleSidedrawer}}>
+      <ContextApi.Provider value={{ product: { isLoading, data }, addItem, setAddItem, toggleSidedrawer}}>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />

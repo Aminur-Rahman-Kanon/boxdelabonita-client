@@ -18,6 +18,7 @@
 
 .display-product {
     width: 100%;
+    max-width: 1400px;
     padding: 20px;
     box-sizing: border-box;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import ContextApi from '../../Components/ContextApi/contextApi';
 import styles from './displayProduct.module.css';
 import { useParams } from 'react-router-dom';
 import RelatedProducts from '../../Components/DisplayProduct/RelatedProducts/RelatedProductMain/relatedProducts';
@@ -8,37 +9,37 @@ import Loader from '../../Components/DisplayProduct/Loader/loader';
 
 const DisplayProduct = () => {
 
+    const context = useContext(ContextApi);
+    
+    const products = context.product;
+
     const { categoryId, productId } = useParams();
 
     const [product, setProduct] = useState({});
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [relatedProducts, setRelatedProducts] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (productId){
-            setIsLoading(true);
-            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-product/${productId}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.data){
-                    setProduct(data.data[0]);
-                    setIsLoading(false);
+        if (products.data && productId){
+            const copiedItems = JSON.parse(JSON.stringify(products.data));
+            const itemIdx = copiedItems.findIndex(item => item.title === productId);
+            if (itemIdx >= 0){
+                const filteredItem = copiedItems.splice(itemIdx, 1);
+                if (filteredItem){
+                    setProduct(filteredItem[0]);
+                    setRelatedProducts(copiedItems);
                 }
-            })
-            .catch(err => {
-                setIsLoading(false);
-                console.log(err);
-            });
+            }
         }
-    }, [categoryId, productId])
+    }, [categoryId, productId, products.data])
 
     let displayProduct = null;
 
     if (Object.keys(product).length){
         displayProduct = <Product product={product}/>
     }
-    else if (isLoading){
+    else if (products.isLoading){
         displayProduct = <Loader />
     }
     else {
@@ -49,7 +50,7 @@ const DisplayProduct = () => {
         <div className={styles.displayProduct}>
             <ProductsNavigation />
             {displayProduct}
-            <RelatedProducts category={categoryId} productId={productId}/>
+            <RelatedProducts category={categoryId} productId={productId} products={relatedProducts}/>
         </div>
     )
 }

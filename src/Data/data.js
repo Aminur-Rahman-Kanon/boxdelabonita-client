@@ -22,24 +22,26 @@ import saddle from '../Assets/bags/saddle bag.png';
 import shoudler from '../Assets/bags/shoulder bag.png';
 import straw from '../Assets/bags/straw bag.png';
 
+export const subCategory = ['hot deals', 'new arrivals', 'trending products', 'popular products', 'all bags'];
+
 export const shop = [
-    {id: 0, title: 'Hot Deals', img: cat1, route: 'hot-deals'},
-    {id: 1, title: 'New Arrivals', img: cat2, route: 'new-arrivals'},
-    {id: 2, title: 'Trending', img: cat3, route: 'trending'},
-    {id: 3, title: 'Most Popular', img: cat4, route: 'popular-products'},
-    {id: 4, title: 'All bags', img: cat5, route: 'all-bags'}
+    {id: 0, title: 'Hot Deals', img: cat1, route: 'hot deals'},
+    {id: 1, title: 'New Arrivals', img: cat2, route: 'new arrivals'},
+    {id: 2, title: 'Trending', img: cat3, route: 'trending products'},
+    {id: 3, title: 'Most Popular', img: cat4, route: 'popular products'},
+    {id: 4, title: 'All bags', img: cat5, route: 'all bags'}
 ]
 
 export const category = [
-    {id: 0, title: 'Shoulder Bag', img: bag1},
-    {id: 1, title: 'Bucket Bag', img: bag2},
-    {id: 2, title: 'Backpack', img: bag3},
-    {id: 3, title: 'Clutch Bag', img: bag4},
-    {id: 4, title: 'Crossbody Bag', img: bag5},
-    {id: 5, title: 'Designer Bag', img: bag6},
-    {id: 6, title: 'Saddle Bag', img: bag7},
-    {id: 7, title: 'Belt & Sling Bag', img: bag8},
-    {id: 8, title: 'Straw Bag', img: bag9},
+    {id: 0, title: 'Shoulder Bag', img: bag1, route: 'shoulder bag'},
+    {id: 1, title: 'Bucket Bag', img: bag2, route: 'bucket bag'},
+    {id: 2, title: 'Backpack', img: bag3, route: 'backpack'},
+    {id: 3, title: 'Clutch Bag', img: bag4, route: 'clutch bag'},
+    {id: 4, title: 'Crossbody Bag', img: bag5, route: 'crossbody bag'},
+    {id: 5, title: 'Designer Bag', img: bag6, route: 'designer bag'},
+    {id: 6, title: 'Saddle Bag', img: bag7, route: 'saddle bag'},
+    {id: 7, title: 'Belt & Sling Bag', img: bag8, route: 'belt bag & sling bag'},
+    {id: 8, title: 'Straw Bag', img: bag9, route: 'straw bag'},
 ]
 
 export const categories = [

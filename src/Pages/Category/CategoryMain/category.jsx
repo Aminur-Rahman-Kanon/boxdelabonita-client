@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import ContextApi from '../../../Components/ContextApi/contextApi';
 import styles from './category.module.css';
 import { useParams } from 'react-router-dom';
 import Heading from '../Heading/heading';
@@ -6,8 +7,14 @@ import Product from '../Product/product';
 import Loader from '../Loader/loader';
 import FilterProducts from '../FilterProducts/FilterProductsMain/filterProducts';
 import ProductSlider from '../../../Components/ProductSlider/productSlider';
+import { subCategory } from '../../../Data/data';
+import NotFound from '../../../Components/NotFound/notFound';
 
 const Category = () => {
+
+    const context = useContext(ContextApi);
+
+    const products = context.product;
 
     const params = useParams();
 
@@ -17,7 +24,6 @@ const Category = () => {
 
     const [filteredProduct, setFilteredProduct] = useState([]);
 
-    const [isLoading, setIsLoading] = useState(false);
 
     const [filter, setFilter] = useState({
         price: 'Please Select',
@@ -27,39 +33,34 @@ const Category = () => {
         isFilter: false
     })
 
-    const filterValue = {
-        price: filter.price,
-        color: filter.color,
-        discount: filter.discount,
-        specialOffer: filter.specialOffer
-    }
+    // const filterValue = {
+    //     price: filter.price,
+    //     color: filter.color,
+    //     discount: filter.discount,
+    //     specialOffer: filter.specialOffer
+    // }
 
-    //this hook make a get request to the server and fetch the products that are requested through the 'params.categoryId' url param
-    //this hook also return some other data that will be used as related products which we will store it to the otherProduct state variable
-    //activate the spinner while fetching process is pending
-    //deactivate the spinner when fetching process is completed
+    //this hook filter products according to the params.categoryId and store values to the product state variable
     //additionally, it scrolls to the top 
     useEffect(() => {
         window.scrollTo(0, 0);
-        setIsLoading(true);
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${params.categoryId}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.data.product){
-                setProduct(data.data.product);
-                setIsLoading(false);
+        if (products.data && params.categoryId) {
+            if (subCategory.includes(params.categoryId)){
+                console.log(params.categoryId);
+                if (params.categoryId === 'all bags'){
+                    setProduct(products.data);
+                }
+                else {
+                    const filteredItem = products.data.filter(item => item.subCategory === params.categoryId);
+                    setProduct(filteredItem);
+                }
             }
-            if (data.data.others){
-                setOtherProducts(data.data.others);
+            else {
+                const filterdItem = products.data.filter(item => item.category === params.categoryId);
+                setProduct(filterdItem);
             }
-        })
-        .catch(err => {
-            setIsLoading(false);
-            console.log(err);
-        });
-    }, [params.categoryId]);
-
-    console.log(product);
+        }
+    }, [params.categoryId, products.data]);
 
     useEffect(() => {
         //initialize empty array
@@ -87,7 +88,7 @@ const Category = () => {
         //if color is selected for filtering
         if (filter.color !== 'Please Select'){
             //filtering the item color with the user input color
-            const filtered = filteredItem.filter(item => item.color.includes(filter.color));
+            const filtered = filteredItem.filter(item => item.color.includes(filter.color.toLowerCase()));
             //empty up the filteredItem array
             filteredItem = [];
             //and then push filtered items to the filteredItem array
@@ -145,13 +146,13 @@ const Category = () => {
         }
     }
     //while the fetching process is pending
-    else if (isLoading){
+    else if (products.isLoading){
         //then loop through and show some loader to the display
         displayProduct = Array.from(Array(6)).map((item, idx) => <Loader key={idx} />)
     }
     else {
         //if data fetching is complete and no data found then this to the display
-        displayProduct = <h2>Nothing to display</h2>
+        displayProduct = <NotFound text={"No Product Found"}/>
     }
 
     //if otherProducts array contains data then show those to the display
@@ -162,8 +163,8 @@ const Category = () => {
     return (
         <div className={styles.categoryContainer}>
             <Heading heading={params.categoryId}/>
-            <FilterProducts filters={setFilter} filterValue={filterValue}/>
-            <div className={styles.productDisplayContainer}>
+            <FilterProducts filters={setFilter} filterValue={filter}/>
+            <div className={styles.productDisplayContainer} style={!product.length ? {display: 'flex', justifyContent: 'center', alignItems: 'center'} : {display: 'grid'}}>
                 {displayProduct}
             </div>
             <div className={styles.otherProductsContainer} style={otherProducts.length ? {display: 'flex'} : {display: 'none'}}>

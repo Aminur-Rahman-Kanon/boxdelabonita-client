@@ -1,5 +1,6 @@
 .categoryContainer {
     width: 100%;
+    max-width: 1400px;
     margin: 30px auto;
     padding: 10px;
     box-sizing: border-box;

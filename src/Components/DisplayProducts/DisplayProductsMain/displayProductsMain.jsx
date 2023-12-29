@@ -1,41 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './displayProductsMain.css';
 import Product from '../Product/product';
 import LoadingContainer from '../LoadingContainer/loadingContainer';
-import Aos from 'aos';
 import 'aos/dist/aos.css';
 import HeadingContainer from '../HeadingContainer/headingContainer';
 import ProductSlider from '../../ProductSlider/productSlider';
+import ContextApi from '../../ContextApi/contextApi';
 
 const DisplayProducts = ({ productsType }) => {
 
-    const [products, setProducts] = useState([]);
+    const context = useContext(ContextApi);
 
-    const [isLoading, setIsLoading] = useState(false);
+    const products = context.product;
 
+    const [product, setrProduct] = useState([]);
+    
     useEffect(() => {
-        Aos.init({ duration: 2000 })
-        setIsLoading(true);
-        fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-products/${productsType}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.data){
-                setProducts(data.data.product);
-                setIsLoading(false);
-            }
-        })
-        .catch(err => {
-            setIsLoading(false);
-            console.log(err);
-        });
-    }, []);
+        if (productsType && products.data){
+            const filteredProducts = products.data.length ? products.data.filter(item => item.subCategory === productsType) : [];
+            setrProduct(filteredProducts);
+        }
+    }, [products]);
 
     let displayProducts;
     
-    if (products.length){
-        displayProducts = products.map(item => <Product key={item._id} product={item}/>)
+    if (product.length){
+        displayProducts = product.map(item => <Product key={item._id} product={item}/>)
     }
-    else if (isLoading) {
+    else if (products.isLoading) {
         displayProducts = Array.from(Array(6)).map((item, idx) => <LoadingContainer key={idx}/>)
     }
     else {
