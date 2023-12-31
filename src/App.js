@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="App">
-      <ContextApi.Provider value={{ product: { isLoading, data }, addItem, setAddItem, toggleSidedrawer}}>
+      <ContextApi.Provider value={{ product: { isLoading, data }, addItem, setAddItem, toggleSidedrawer }}>
         <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
         <Topbar toggleSidedrawer={toggleSidedrawer} />

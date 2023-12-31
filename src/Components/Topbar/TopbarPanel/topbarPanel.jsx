@@ -8,7 +8,7 @@ import CartContainer from '../CartContainer/cartContainer';
 import UserContainer from '../UserContainer/userContainer';
 import { fetchCartItem } from '../../../Utilities/utilities';
 
-function TopbarPanel() {
+function TopbarPanel({ toggleSearchbar }) {
 
     const context = useContext(ContextApi);
     const toggleItem = context.addItem;
@@ -25,7 +25,7 @@ function TopbarPanel() {
 
     return (
         <div className={styles.topbarPanelContainer}>
-            <div className={styles.topbarPanelItem}>
+            <div className={styles.topbarPanelItem} onClick={toggleSearchbar}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.topbarPanelIcon} />
             </div>
             <div className={styles.topbarPanelItem}>

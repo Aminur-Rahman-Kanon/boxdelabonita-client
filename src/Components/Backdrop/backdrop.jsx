@@ -7,7 +7,7 @@ const style = {
     top: '0',
     left: '0',
     zIndex: '300',
-    backgroundColor: '#ffffff8a'
+    backgroundColor: '#3838388a'
 }
 
 const Backdrop = ({ backdrop, closeBackdrop }) => {

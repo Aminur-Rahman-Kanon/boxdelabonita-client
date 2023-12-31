@@ -1,0 +1,96 @@
+.searchbarMain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 20px;
+    box-sizing: border-box;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in;
+    transform: translateY(-100%);
+}
+
+.searchbarMain.show {
+    transform: translateY(0);
+}
+
+.searchbarContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search {
+    width: 65%;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popularSearchContainer {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popularSearchLabel {
+    margin: 10px;
+}
+
+.popularSearchLink {
+    text-decoration: none;
+    color: #4b7d37;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.searchResultMain {
+    width: 100%;
+}
+
+.xBtnContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.x {
+    font-size: 13px;
+}
+
+@media (max-width: 950px) {
+    .searchbarMain {
+        padding: 20px;
+    }
+
+    .xBtnContainer {
+        display: flex;
+    }
+
+    .searchbarContainer {
+        flex-direction: column;
+    }
+
+    .topbarItemContainer, .popularSearchContainer {
+        display: none;
+    }
+
+    .logoContainer, .search {
+        width: 100%;
+        margin: 10px auto;
+    }
+}
