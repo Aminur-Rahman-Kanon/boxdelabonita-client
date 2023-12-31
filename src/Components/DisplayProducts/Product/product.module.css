@@ -1,12 +1,12 @@
 .product {
     text-decoration: none;
     width: 90%;
-    height: 90%;
+    /* height: 90%; */
     box-sizing: border-box;
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     box-shadow: 0 0 12px 1px lightgray;
     border-radius: 3px;
