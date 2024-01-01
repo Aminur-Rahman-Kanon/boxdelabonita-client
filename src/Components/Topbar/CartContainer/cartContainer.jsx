@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './cartContainer.module.css';
-import RemoveBtn from '../../RemoveButton/removeBtn';
+import RemoveBtn from '../../RemoveSingleItemButton/removeSingleItemBtn';
 import { Link } from 'react-router-dom';
 
 const CartContainer = ({ products, toggleAddItem }) => {

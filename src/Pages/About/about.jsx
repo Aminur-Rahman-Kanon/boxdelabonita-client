@@ -11,6 +11,7 @@ import person1 from '../../Assets/about/shawon.jpg';
 import person2 from '../../Assets/about/person2.jpg';
 
 const About = () => {
+    //this component should show some static data to the display and no logics or functions are needed.
     return (
         <div className={styles.aboutContainer}>
             <div className={styles.headerContainer}>

@@ -8,27 +8,45 @@ import cod from '../../Assets/Others/cod.png';
 import AddToBag from '../../Components/AddToBagBtn/addToBag';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RemoveBtn from '../../Components/RemoveButton/removeBtn';
+import RemoveBtn from '../../Components/RemoveSingleItemButton/removeSingleItemBtn';
 import RemoveAllProductsBtn from '../../Components/RemoveAllProductsBtn/removeAllProductsBtn';
 import { fetchCartItem } from '../../Utilities/utilities';
 
 function Cart() {
+    //calling useContext so we get the data from the contextApi served from the App component
     const context = useContext(ContextApi);
+
+    //Since we store the user added item to localStorage and adding item to localStorage doesn't rerender.
+    //that's why declare a counter variable "addItem" to App component and everytime user add or remove an item from the cart
+    //we increment or decrement the value so the App component rerender and so its child and we get the latest value from localStorage
     const toggleItem = context.addItem;
 
+    //declaring a object to store the items that was stored in localStorage so the item can be displayed.
     const [products, setProducts] = useState({});
+    
+    //decalring a variable so coupon code can be stored
     const [coupon, setCoupon] = useState('');
 
-    //this hook fetch cart item every time user add an item to the cart so we can display in the view cart page
+    //this hook fetch cart items every time user add or remove an item from the cart so we can display those in the cart page.
     useEffect(() => {
+        //extracting data from the localStorage and storing them.
         const product = fetchCartItem();
         setProducts(product);
     }, [toggleItem]);
 
+    //calling useNavigate to get the navigate object so user can be redirected as need.
     const navigate = useNavigate();
+
+    //assigning 0 initially and as the items in the products varible loop through
+    //we add each item's price with the value of this variable so we get a total price amount.
     let subtotal = 0;
+
+    //assigning null initially so we can later use this variable to:
+    //store the items that return from the products array map method or
+    //if there is no items in the products object then we leave it null so a "no item in the cart" text can be displayed.
     let cartDisplay = null;
     
+    //looping through the items of the products object
     if (Object.keys(products).length){
         cartDisplay = Object.values(products).map(item => {
             //taking the item quantity and price and creating a subtotal amount
@@ -78,7 +96,7 @@ function Cart() {
             </div>})
     }
     else {
-        //if no item found in the cart
+        //if no item found in the products object
         cartDisplay = <div>
             <h4 className={styles.cartH4}>No item in the cart</h4>
         </div>
@@ -116,12 +134,6 @@ function Cart() {
                             <div className={styles.totalItem}>
                                 <span className={styles.totalLabel}>Subtotal: &#2547;{subtotal}</span>
                             </div>
-                            <div className={styles.totalItem}>
-                                {/* <span className={styles.totalLabel}>Discount: &pound;{discount}</span> */}
-                            </div>
-                            <div className={styles.totalItem}>
-                                {/* <span className={styles.totalLabel} style={{fontWeight: '700', fontSize: '13px'}}>Total Price: &pound;{subtotal - discount}</span> */}
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,4 +154,4 @@ function Cart() {
     )
 }
 
-export default Cart
+export default Cart;

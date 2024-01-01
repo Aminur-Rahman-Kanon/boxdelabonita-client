@@ -21,7 +21,7 @@ const Product = ({product}) => {
                 <Rating rating={product.rating} align={'center'}/>
             </div>
             <div className={styles.colorContainer}>
-                {product.color.map((clr, idx) => <span className={styles.color} style={{backgroundColor: `${clr}`}}></span>)}
+                {product.color.map((clr, idx) => <span key={idx} className={styles.color} style={{backgroundColor: `${clr}`}}></span>)}
             </div>
             <div className={styles.productDetailsContainer}>
                 <span className={styles.productTitle}>{product.title}</span>

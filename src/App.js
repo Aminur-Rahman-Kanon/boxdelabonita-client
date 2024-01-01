@@ -11,6 +11,7 @@ import { disableScroll } from './Utilities/utilities';
 import Footer from './Components/Footer/footer';
 import Messanger from './Components/Messanger/messanger';
 import UnderTesting from './Pages/UnderTesting/underTesting';
+import DefaultRoute from './Pages/DefaultRoute/defaultRoute';
 import Spinner from './Components/Spinner/spinner';
 const DisplayProduct = lazy(() => import('./Pages/DisplayProduct/displayProduct'));
 const Category = lazy(() => import('./Pages/Category/CategoryMain/category'));
@@ -25,6 +26,7 @@ function App() {
   const [backdrop, setBackdrop] = useState(false);
   const [addItem, setAddItem] = useState(0);
 
+  //fetching data from server and storing into memory so the data can be served throught the app
   const { isLoading, error, data } = useQuery({
     queryKey: ['fetchData'],
     queryFn: () =>
@@ -38,7 +40,7 @@ function App() {
       }).catch(err => [])
   })
 
-  //This hook handles scroll disabalities on backdrop toggles
+  //This hook disable scrolls when backdrop is true so user cant scroll in y direction
   useEffect(() => {
     if (backdrop) {
       disableScroll();
@@ -48,7 +50,7 @@ function App() {
     }
   }, [backdrop]);
 
-  //this function toggles the sidedrawer on/off
+  //this function toggles the sidedrawer on/off so sidedrawer can be displayed or hidden
   const toggleSidedrawer = () => {
     setSidedrawer(sidedrawer => !sidedrawer);
     setBackdrop(backdrop => !backdrop);
@@ -87,6 +89,7 @@ function App() {
           <Route path='/about' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
           </Suspense>}/>
+          <Route path='*' element={<DefaultRoute />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>

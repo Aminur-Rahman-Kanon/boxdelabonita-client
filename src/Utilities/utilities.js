@@ -138,89 +138,157 @@ export const fetchCartItem = () => {
     }
 };
 
+//this function adds item to the cart/localStorage and take the following:
+//product: the actual item that needs to add
+//color: the color of the item
 export const addToCart = (product, color) => {
+    //firstly, if there is no item or no color is provided then we abort the process and return "invalid operation" text as status.
     if (!product || !color) return 'invalid operation';
 
+    //if the above is provided then we extract the items from the localStorage.
     const cartObj = fetchCartItem();    
+
+    //we start the add item process from here
     try {
+        //first we calculate the item's actual price
+        //because each item object has a price object containing the original and the discounted price
+        //we need to deduct the discounted price from the original price.
         const price = product.price.originalPrice - product.price.discountedPrice;
-        //if no item added to cart at all
+        //then we need to check if the "cartObj" extracted from the localStorage is empty or not
+        //if its empty then we simply add the item
+        //if not then we do the following:
+        //check if the item we want to add is exist or not
+        //if exist then we simply increment the item quantity and push the item color to the item color array. the item obj looks like this
+        //{
+            //title: item,
+            //quantity: 1,
+            //color: ['black']
+            //and some other information
+        //}
+        //else we add the item in the "cartObj" object
+
+        //this executes when cart is empty
         if (!Object.keys(cartObj).length) {
+            //decalring an empty object so we can add that to the cartObj
             const cart = {};
+
+            //constructing the item object meaning the actual item object to store
             const addedProduct = {
                 product,
                 quantity: 1,
                 color: [color],
                 price
             }
+
+            //adding the item to the cart object where the item title is the key and the addedProduct is the value
             cart[product.title] = addedProduct;
+
+            //saving the cart object as value with the "cart" as key to the localStorage.
             localStorage.setItem('cart', JSON.stringify(cart));
+            //return a success message
             return 'success';
         }
-        //if item exist in the cart
+        
+        //this executes when there is item in the cart
         else {
-            const products = JSON.parse(localStorage.getItem('cart'));
-            const existProduct = products.hasOwnProperty(product.title);
+            //check if similiar item exists or not
+            const existProduct = cartObj.hasOwnProperty(product.title);
             
-            //item exist in the cart
+            //this executes when similiar item exist in the cart
             if (existProduct){
-                products[product.title].quantity = products[product.title].quantity + 1;
-                products[product.title].color.push(color);
-                localStorage.setItem('cart', JSON.stringify(products));
+                //increment the item quantity
+                cartObj[product.title].quantity = cartObj[product.title].quantity + 1;
+                //pushing the item color to the item color array of cartObj object
+                cartObj[product.title].color.push(color);
+                //saving the updated value to localStorage.
+                localStorage.setItem('cart', JSON.stringify(cartObj));
+                //return a success message
                 return 'success';
             }
+
+            //this executes when cart is not empty and no similiar item found
             else {
+                //constructing the item object meaning the actual item object to store
                 const addedProduct = {
                     product,
                     quantity: 1,
                     color: [color],
                     price
                 }
-                products[product.title] = addedProduct;
-                localStorage.setItem('cart', JSON.stringify(products));
+                
+                //adding the item title as key and item object as value
+                cartObj[product.title] = addedProduct;
+                //saving the updated value as value and 'cart' as key to the localStorage
+                localStorage.setItem('cart', JSON.stringify(cartObj));
+                //return a success message
                 return 'success';
             }
         }
+    //if any of the operation avobe failed then we return a failed message
     } catch (error) {
         return 'failed';
     }
 }
 
+//this function removes a single item from the cart and takes the item title as argument
 export const removeSingleItem = (title) => {
+    //process starts from here
     try {
+        //first we extract the items from the localStorage
         const cartObj = fetchCartItem();
+        //if cart is empty then we abort the process.
         if (!Object.keys(cartObj).length) return 'cart empty';
-    
+        //extractng the the item from the 'cartObj' to remove
         const productToRemove = cartObj[title];
+        //if the item wasn't found in the 'cartObj' then we abort
         if (!Object.keys(productToRemove).length) return 'not found';
-    
+        //we first check the quantity of the item. if its a single item then remove the item from the 'carrtObj' completely
+        //otherwise we decrement the item quantity and remove the item color from the item color array.
+        //these executes when the item quantity is 1
         if (productToRemove.quantity === 1){
+            //remove the item from the 'cartObj'
             delete cartObj[title];
+            //update the localStorage
             localStorage.setItem('cart', JSON.stringify(cartObj))
+            //return a success message
             return 'success';
         }
+        //these executes when item quantity is more than 1
         if (productToRemove.quantity > 1){
+            //decrement the item quantity
             productToRemove.quantity = productToRemove.quantity - 1;
+            //remove the last item of the color array
             productToRemove.color.pop();
+            //updating the 'cartObj'
             cartObj[title] = productToRemove;
+            //updating the localStorage
             localStorage.setItem('cart', JSON.stringify(cartObj));
+            //return a success message
             return 'success';
         }
+    //if any of the process above fails then we abort and return a 'failed' message
     } catch (error) {
         return 'failed';
     }
 }
 
+//this function removes all similiar items from the cart and takes the item title as argument
 export const removeAllProducts = (title) => {
+    //process start from here
     try {
-        const products = fetchCartItem();
-    
-        if (!Object.keys(products).length) return 'cart empty';
-        if (!products[title]) return 'not found';
-    
-        delete products[title];
-        localStorage.setItem('cart', JSON.stringify(products));
+        //extract the items from the localStorage
+        const cartObj = fetchCartItem();
+        //if cartObj is empty then we abort
+        if (!Object.keys(cartObj).length) return 'cart empty';
+        //if no title is provided then we abort
+        if (!cartObj[title]) return 'not found';
+        //delete the item object from the cartObj object
+        delete cartObj[title];
+        //update the localStorage
+        localStorage.setItem('cart', JSON.stringify(cartObj));
+        //return a success message
         return 'success';
+    //if the process failed then return a failed message
     } catch (error) {
         return 'failed';
     }
