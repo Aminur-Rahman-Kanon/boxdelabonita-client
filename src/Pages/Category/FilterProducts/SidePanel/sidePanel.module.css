@@ -16,3 +16,10 @@
     box-sizing: border-box;
     z-index: 400;
 }
+
+.x {
+    font-size: 12px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}

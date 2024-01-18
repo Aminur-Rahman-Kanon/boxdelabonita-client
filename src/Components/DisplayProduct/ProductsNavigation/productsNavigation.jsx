@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './productsNavigation.module.css';
 import { useLocation, Link } from 'react-router-dom';
 
+//this component display the lexical path that an user visited
 const ProductsNavigation = () => {
 
     const location = useLocation();
@@ -15,17 +16,6 @@ const ProductsNavigation = () => {
             <Link key={2} to={`/bag/${path[1].toLowerCase()}`} className={styles.path}>{path[1]}</Link>,
             <span key={3} className={styles.path}>{path[2]}</span>
         ]
-        // displayPath = path.map((item, idx) => {
-        //     if (idx+1 === path.length){
-        //         return <span key={item} className={styles.path}>{item}</span>
-        //     }
-        //     else {
-        //         return <span key={idx}>
-        //             <span className={styles.path}>{item}</span>
-        //             <span className={styles.path}>&gt;</span>
-        //         </span>
-        //     }
-        // })
     }
 
     return (

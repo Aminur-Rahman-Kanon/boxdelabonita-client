@@ -20,21 +20,21 @@ const About = () => {
             </div>
             <div className={styles.galleryContainer}>
                 <div className={styles.gallery}>
-                    <img src={a_1} alt='boxdelabonita' className={styles.galleryImg}/>
+                    <img src={a_1} alt='boxdelabonita 1' className={styles.galleryImg}/>
                 </div>
                 <div className={styles.gallery}>
                     <h3 className={styles.galleryH3}>The Classic</h3>
                     <p className={styles.galleryP}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
                 <div className={styles.gallery}>
-                    <img src={a_2} alt='boxdelabonita' className={styles.galleryImg}/>
+                    <img src={a_2} alt='boxdelabonita 2' className={styles.galleryImg}/>
                 </div>
                 <div className={styles.gallery}>
                     <h3 className={styles.galleryH3}>The Modern</h3>
                     <p className={styles.galleryP}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
                 <div className={styles.gallery}>
-                    <img src={a_3} alt='boxdelabonita' className={styles.galleryImg}/>
+                    <img src={a_3} alt='boxdelabonita 3' className={styles.galleryImg}/>
                 </div>
                 <div className={styles.gallery}>
                     <h3 className={styles.galleryH3}>The Innovation</h3>
@@ -49,13 +49,13 @@ const About = () => {
                         <p className={styles.middlePartP}>Mollit ullamco magna eiusmod non sit cupidatat.Minim eu ipsum labore eu ad occaecat culpa.Irure fugiat anim ad dolore mollit ipsum non laboris ex nulla irure enim aute magna.Sunt ad in commodo non amet nulla id.Dolore labore sint anim ad officia.Sint ut consequat consequat tempor ullamco velit Lorem ex.Ea enim deserunt nisi voluptate ullamco duis laborum laboris est eu ex velit sunt dolore.Excepteur incididunt consequat amet pariatur nulla dolore commodo proident officia.Sunt dolore id quis incididunt enim non et est ullamco pariatur officia eiusmod.In commodo Lorem consectetur amet aliquip ex minim laboris.</p>
                         <div className={styles.signatureContainer}>
                             <div className={styles.signatureItem}>
-                                <img src={person1} alt='karkhana' className={styles.signature} />
+                                <img src={person1} alt='boxdelabonita co-founder' className={styles.signature} />
                                 <h4 className={styles.middlePartH4}>Person 1</h4>
-                                <p className={styles.middlePartP}>Co-Dounder</p>
+                                <p className={styles.middlePartP}>Co-Founder</p>
                             </div>
 
                             <div className={styles.signatureItem}>
-                                <img src={person2} alt='karkhana' className={styles.signature} />
+                                <img src={person2} alt='boxdelabonita manager' className={styles.signature} />
                                 <h4 className={styles.middlePartH4}>Person 2</h4>
                                 <p className={styles.middlePartP}>Manager</p>
                             </div>
@@ -64,7 +64,7 @@ const About = () => {
                 </div>
 
                 <div className={styles.middlePartImgContainer}>
-                    <img data-testid="about-us-intro-2" src={a_5} alt="karkhana" className={styles.middlePartImg} />
+                    <img data-testid="about-us-intro-2" src={a_5} alt="boxdelabonita story" className={styles.middlePartImg} />
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ const About = () => {
                         <div className={styles.teamMemberImgContainer}>
                             <div className={styles.outerDiv}>
                                 <div className={styles.imgContainer}>
-                                    <img data-testid="about-us-author-1" src={about1} alt="karkhana" className={styles.teamImg}/>
+                                    <img data-testid="about-us-author-1" src={about1} alt="boxdelabonita mission" className={styles.teamImg}/>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ const About = () => {
                         <div className={styles.teamMemberImgContainer}>
                             <div className={styles.outerDiv}>
                                 <div className={`${styles.imgContainer} ${styles.item2}`}>
-                                    <img data-testid="about-us-author-2" src={about2} alt="karkhana" className={styles.teamImg}/>
+                                    <img data-testid="about-us-author-2" src={about2} alt="boxdelabonita vision" className={styles.teamImg}/>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ const About = () => {
                         <div className={styles.teamMemberImgContainer}>
                             <div className={styles.outerDiv}>
                                 <div className={styles.imgContainer}>
-                                    <img data-testid="about-us-author-3" src={about3} alt="karkhana" className={styles.teamImg}/>
+                                    <img data-testid="about-us-author-3" src={about3} alt="boxdelabonita author" className={styles.teamImg}/>
                                 </div>
                             </div>
                         </div>

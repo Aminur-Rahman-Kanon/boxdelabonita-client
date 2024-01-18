@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './topbar.module.css';
 import Logo from '../../Logo/logo';
-import Navbar from '../../Navbar/navbar';
+import Navbar from '../../Navbar/NavbarMain/navbar';
 import TopbarPanel from '../TopbarPanel/topbarPanel';
 import Drawtoogle from '../../Drawtoggle/drawtoogle';
 import { ToastContainer, Slide } from 'react-toastify';
@@ -9,11 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from '../../Searchbar/SearchbarMain/searchbar';
 import Backdrop from '../../Backdrop/backdrop';
 
+//this component render the logo navbar and topbarpanel which contains the search, user and cart component
 function Topbar({ toggleSidedrawer }) {
-
+    //with this variable we control the visibility of searchbar component
     const [searchbar, setSearchbar] = useState(false);
+    //with this variable we control the visibility of backdrop component
     const [backdrop, setBackdrop] = useState(false);
-
+    //with this function we toggle the visibility of searchbar and backdrop component
+    //if searchbar is not displayed then it display the searchbar and opposite when its displayed
     const toggleSearchbar = () => {
         setSearchbar(!searchbar);
         setBackdrop(!backdrop);
@@ -27,7 +30,7 @@ function Topbar({ toggleSidedrawer }) {
             <Searchbar searchbar={searchbar} toggleSearchbar={toggleSearchbar} />
             <Drawtoogle toggleSidedrawer={toggleSidedrawer} />
             <div className={styles.topbarItem}>
-                <Logo />
+                <Logo width={'112px'}/>
             </div>
             <div className={styles.topbarItem}>
                 <Navbar />
@@ -40,4 +43,4 @@ function Topbar({ toggleSidedrawer }) {
     )
 }
 
-export default Topbar
+export default Topbar;

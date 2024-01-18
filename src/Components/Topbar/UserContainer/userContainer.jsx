@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom';
 import LoginBtn from '../../LoginBtn/loginBtn';
 import { fetchUser } from '../../../Utilities/utilities';
 
+//this component renders the link to profile page if logged in and
+//a form where an user enter their phone number to login
 const UserContainer = () => {
-
+    //storing the user input in userInput variable
     const [userInput, setUserInput] = useState('');
-
-    const [user, setUser] = useState('Guest');
-
+    //storing the user name user variable so we can diplay the name
+    const [user, setUser] = useState('');
+    //if user is logged in then we set isLoggedIn to true so we can conditionaly render the user information to the screen
+    //initially set to false meaning user not logged in so we can display the form where user can enter their information to login
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    //this hook runs on component mount and fetch the user information from context if the user in logged in
     useEffect(() => {
         const user = fetchUser();
         if (user.length){
@@ -20,7 +23,7 @@ const UserContainer = () => {
             setUser(user.at(-1).customerInfo.name)
         }
     }, []);
-
+    //this function logout the user by removing the user object from localStorage
     const logouthandler = () => {
         const user = fetchUser();
         if (user.length) {
@@ -47,7 +50,7 @@ const UserContainer = () => {
                     <h3 className={styles.loginHeader}>Login to check your order's</h3>
                     <form className={styles.loginForm}>
                         <div className={styles.inputContainer}>
-                            <input type='text' className={styles.input} placeholder='Enter your phone number' onChange={(e) => setUserInput(e.target.value)}/>
+                            <input data-testid='login-input' type='text' className={styles.input} placeholder='Enter your phone number' onChange={(e) => setUserInput(e.target.value)}/>
                         </div>
                         <LoginBtn btnDisable={!userInput} userInput={userInput} />
                     </form>

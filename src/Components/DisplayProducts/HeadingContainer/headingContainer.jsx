@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
 import styles from './headingContainer.module.css';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 
+//this component the category name of the products
 const HeadingContainer = ({ type }) => {
 
     let heading1 = null;
 
-    useEffect(() => {
-        Aos.init({ duration: 2500 })
-    }, []);
-
+    //conditionally display the name of the category
     if (type === 'new arrivals'){
         heading1 = "New Arrivals";
     }

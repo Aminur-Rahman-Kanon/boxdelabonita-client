@@ -7,6 +7,7 @@ import bkash from '../../Assets/Others/bkash.png';
 import visa from '../../Assets/Others/visa.png';
 import cod from '../../Assets/Others/cod.png';
 
+//this is the footer component
 const Footer = () => {
 
     return (
@@ -21,17 +22,16 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.socialLink}>
-                        <a data-testid="boxdelabonita-facebook" href="https://facebook.com/box.de.la.bonita" target="_blank" className={styles.socialLinkItem}><FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/></a>
-                        <a href="" className={styles.socialLinkItem}><FontAwesomeIcon icon={faTwitter} className={styles.socialLinkIcon}/></a>
-                        <a href="https://www.instagram.com/p/CzB1FKmviM_/" target="_blank" className={styles.socialLinkItem}><FontAwesomeIcon icon={faInstagram} className={styles.socialLinkIcon}/></a>
-                        <a href="" className={styles.socialLinkItem}><FontAwesomeIcon icon={faYoutube} className={styles.socialLinkIcon}/></a>
+                        <a data-testid="facebook" href="https://facebook.com/box.de.la.bonita" target="_blank" className={styles.socialLinkItem}><FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/></a>
+                        <a data-testid='twitter' href="" className={styles.socialLinkItem}><FontAwesomeIcon icon={faTwitter} className={styles.socialLinkIcon}/></a>
+                        <a data-testid='instagram' href="https://www.instagram.com/p/CzB1FKmviM_/" target="_blank" className={styles.socialLinkItem}><FontAwesomeIcon icon={faInstagram} className={styles.socialLinkIcon}/></a>
+                        {/* <a href="" className={styles.socialLinkItem}><FontAwesomeIcon icon={faYoutube} className={styles.socialLinkIcon}/></a> */}
                     </div>
                 </div>
                 <div className={styles.topSectionContainer}>
                     <h2 className={styles.headerH2}>CUSTOMER SERVICES</h2>
                     <div className={styles.topSectionContainerItem}>
-                        {/* <a href="" className={styles.topSectionLink}>Contact Us</a> */}
-                        <a href="/profile/track-order" className={styles.topSectionLink}>Track Your Order</a>
+                        <a href="/profile/track-order" className={styles.topSectionLink}>Track Your Orders</a>
                         <a href="" className={styles.topSectionLink}>Product Care & Repair</a>
                         <a href="" className={styles.topSectionLink}>Shipping & Returns</a>
                     </div>
@@ -54,7 +54,7 @@ const Footer = () => {
                         <Link to="/bag/designer bag" className={styles.topSectionLink}>Designer Bag</Link>
                         <Link to="/bag/saddle bag" className={styles.topSectionLink}>Saddle Bag</Link>
                         <Link to="/bag/shoulder bag" className={styles.topSectionLink}>Shoulder Bag</Link>
-                        <Link to="/bag/staw bag" className={styles.topSectionLink}>Staw Bag</Link>
+                        <Link to="/bag/straw bag" className={styles.topSectionLink}>Straw Bag</Link>
                     </div>
                 </div>
             </div>

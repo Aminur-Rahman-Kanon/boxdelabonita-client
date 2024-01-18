@@ -45,7 +45,7 @@ function CheckoutItems({ items, deliveryCharge, totalPrice }) {
                         <span className={styles.totalItem}>&#2547;{deliveryCharge}</span>
                     </div>
                     <div className={styles.totalItems}>
-                        <span className={styles.totalItem}>Subtotal:</span>
+                        <span className={styles.totalItem}>Total:</span>
                         <span className={styles.totalItem}>&#2547;{totalPrice + deliveryCharge}</span>
                     </div>
                 </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './product.module.css';
 import Rating from '../../../Components/DisplayProduct/Rating/rating';
 import { Link } from 'react-router-dom';
-import AddToBag from '../../../Components/AddToBagBtn/addToBag';
+import AddToBagBtn from '../../../Components/AddToBagBtn/addToBagBtn';
 import QuickBuyBtn from '../../../Components/QuckBuyBtn/quickBuyBtn';
 import outOfStock from '../../../Assets/Others/sold_out_2.png'
 import SoldOut from '../../../Components/SoldOut/soldOut';
@@ -31,7 +31,7 @@ const Product = ({ product, relatedProduct }) => {
                     </div>
                     <div className={styles.actionBtns} style={relatedProduct ? {display: 'none'} : {display: 'flex'}}>
                         <div className={styles.btn1}>
-                            <AddToBag disable={product.stock} title={'Add to Cart'} product={product} color={product.color[0]}/>
+                            <AddToBagBtn disable={product.stock} title={'Add to Cart'} product={product} color={product.color[0]}/>
                         </div>
                         <div className={styles.btn2}>
                             <QuickBuyBtn disable={product.stock} product={product} color={product.color[0]}/>

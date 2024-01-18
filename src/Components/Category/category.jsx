@@ -3,6 +3,7 @@ import styles from './category.module.css';
 import { Link } from 'react-router-dom';
 import { category } from '../../Data/data';
 
+//this component renders the links of all item's categories such as backpack, bucket bag, shoulder bag etc
 function Category() {
     const categoryDisplay = category.map(item => <Link to={`/bag/${item.route}`} key={item.title} className={styles.categoryItem}>
         <div className={styles.categoryImgContainer}>

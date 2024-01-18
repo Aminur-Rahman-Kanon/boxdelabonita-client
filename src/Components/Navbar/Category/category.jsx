@@ -16,7 +16,7 @@ const Category = () => {
 
     return (
         <div className={styles.categoryMain}>
-            {categories.map(cat => <Link to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories} onClick={switchSidedrawer}>
+            {categories.map(cat => <Link data-testid={`${cat.title}`} to={`/bag/${cat.title.toLowerCase()}`} key={cat.id} className={styles.categories} onClick={switchSidedrawer}>
                 <div className={styles.imgContainer}>
                     <img src={cat.img} alt={cat.title} className={styles.img}/>
                 </div>

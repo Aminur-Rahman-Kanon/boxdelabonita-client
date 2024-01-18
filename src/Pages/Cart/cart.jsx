@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import bkash from '../../Assets/Others/bkash.png';
 import visa from '../../Assets/Others/visa.png';
 import cod from '../../Assets/Others/cod.png';
-import AddToBag from '../../Components/AddToBagBtn/addToBag';
+import AddToBagBtn from '../../Components/AddToBagBtn/addToBagBtn';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RemoveBtn from '../../Components/RemoveSingleItemButton/removeSingleItemBtn';
+import RemoveBtn from '../../Components/RemoveSingleItemBtn/removeSingleItemBtn';
 import RemoveAllProductsBtn from '../../Components/RemoveAllProductsBtn/removeAllProductsBtn';
 import { fetchCartItem } from '../../Utilities/utilities';
 
@@ -59,7 +59,7 @@ function Cart() {
                     <div className={styles.cartInfoContainer}>
                         <p className={styles.cartTitle}>{item.product.title}</p>
                         <p className={styles.cartTitle}>Item id: fghy22kl2</p>
-                        <p className={styles.cartTitle}>price: &pound;{item.price * item.quantity}</p>
+                        <p className={styles.cartTitle}>price: &#2547;{item.price * item.quantity}</p>
                     </div>
                 </div>
                 <div className={styles.cartItemElements}>
@@ -77,7 +77,7 @@ function Cart() {
                     <div className={styles.cartItemElement}>
                         <div className={styles.quantityBtn}>
                             {/*buttn to add more items in the cart*/}
-                            <AddToBag disable={true} title={"+"} product={item.product} color={item.color[0]} />
+                            <AddToBagBtn disable={true} title={"+"} product={item.product} color={item.color[0]} />
                         </div>
                         <div className={styles.quantityCount}>{item.quantity}</div>
                         <div className={styles.quantityBtn}>
@@ -93,7 +93,8 @@ function Cart() {
                         <RemoveAllProductsBtn title={item.product.title} cb={context.setAddItem} />
                     </div>
                 </div>
-            </div>})
+            </div>
+            })
     }
     else {
         //if no item found in the products object
@@ -109,11 +110,11 @@ function Cart() {
             <div className={styles.cartContainer}>
                 <div className={styles.cartItemContainer}>
                     <div className={styles.cartLabels}>
-                        <div className={styles.cartLabel}>Product</div>
+                        <div className={styles.cartLabel}>Products</div>
                         <div className={styles.cartLabel}>Colors</div>
                         <div className={styles.cartLabel}>Quantity</div>
                         <div className={styles.cartLabel}>Subtotal</div>
-                        <div className={styles.cartLabel}>Action</div>
+                        <div className={styles.cartLabel}>Actions</div>
                     </div>
                     <div className={styles.cartItems}>
                         {cartDisplay}
@@ -123,6 +124,7 @@ function Cart() {
                     <div className={styles.couponContainer}>
                         <div className={styles.couponInputContainer}>
                             <input type='text'
+                                   data-testid='coupon-input'
                                    placeholder="Enter coupon code"
                                    className={styles.couponInput}
                                    onChange={(e) => setCoupon(e.target.value)} />
@@ -141,7 +143,7 @@ function Cart() {
                     <div className={styles.cartFooterItem}>
                         <img src={visa} alt="master card" className={styles.cartFooterImg} />
                         <img src={cod} alt="cash on delivery" className={styles.cartFooterImg} />
-                        <img src={bkash} alt="biksah" className={styles.cartFooterImg} />
+                        <img src={bkash} alt="bkash" className={styles.cartFooterImg} />
                     </div>
                     <div className={styles.cartFooterItem}>
                         <button onClick={() => navigate(-1)} className={styles.cartFooterBtn} >Continue Shopping</button>

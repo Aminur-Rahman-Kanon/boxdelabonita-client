@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './searchResult.module.css';
 import Product from '../../DisplayProducts/Product/product';
-
+//this component render the filtered items to the screen if product is passed from the searchbar component
 const SearchResult = ({ products, input }) => {
-    // if (!products.length && !input) return;
-
+    //if there is any product then we loop through products and store in this variable to display to the screen
+    //initially it sets to null
     let displayProducts = null;
-
+    //looping through the products
     if (products.length){
         displayProducts = products.map(item => <Product key={item._id} product={item}/>)
     }
@@ -27,4 +27,4 @@ const SearchResult = ({ products, input }) => {
     )
 }
 
-export default SearchResult
+export default SearchResult;

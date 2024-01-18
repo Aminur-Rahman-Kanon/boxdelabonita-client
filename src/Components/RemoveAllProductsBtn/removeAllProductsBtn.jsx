@@ -39,7 +39,7 @@ const RemoveAllProductsBtn = ({ title, cb }) => {
         <button className={styles.removeAllProductsBtn} onClick={submitHandler} disabled={!title}>
             {
                 isLoading ? 
-                <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.spinner} />
+                <FontAwesomeIcon data-testid='spinner' icon={faSpinner} spinPulse className={styles.spinner} />
                 :
                 <span className={styles.btnTitle}>Remove</span>
             }

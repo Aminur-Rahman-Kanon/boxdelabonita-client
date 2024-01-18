@@ -12,18 +12,28 @@ import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 
 function Banner() {
 
+    //initially we set banner-item1 in this state
+    //in onSlideChange api of swiper component change this state variable from banner-item1 to banner-item2 so on andso forth
+    //so we can pass the value of this variable to isElementInViewport api
     const [carouselItem, setCarouselItem] = useState('banner-Item1-Inner');
 
     useEffect(() => {
+        //in this hook
+        //isElementInViewport api takes the value from carouselItem which is the id of the inner slider component
+        //so we can make some animation of the elements of the banner-item*-inner component
+        //it return an timer id of setTimeOut api that we need to clear after each slide
+        //all this happens everytime the carouselItem state variable change
         const timers = isElementInViewport(carouselItem);
 
         return () => {
+            //after the animation completed of each slide we clear the timer that returns from isElementInViewport api
             if (timers !== undefined) {
                 timers.forEach(timer => clearTimeout(timer));
             }

@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './cartContainer.module.css';
-import RemoveBtn from '../../RemoveSingleItemButton/removeSingleItemBtn';
+import RemoveSingleBtn from '../../RemoveSingleItemBtn/removeSingleItemBtn';
 import { Link } from 'react-router-dom';
 
+//this component render the products that the user added to cart or render text 'Nothing in Cart'
+//and it takes the product object and toggleAdditem(see line 16 in TopbarPanel component) as props
 const CartContainer = ({ products, toggleAddItem }) => {
-
+    //if there is products then we loop through the products and store in displayCart variable to display to the screen
     let displayCart = null;
-
+    //looping through the products
     if (Object.keys(products).length){
         displayCart = Object.values(products).map(item => <div key={item.product._id} className={styles.displayCartItem}>
             <div className={styles.displayCartImgContainer}>
@@ -17,7 +19,7 @@ const CartContainer = ({ products, toggleAddItem }) => {
                 <span className={styles.subHeading}>{`${item.quantity} x`} &#2547;{`${item.price}`}</span>
                 <span className={styles.subHeading}>Total: &#2547;{item.price * item.quantity}</span>
                 <div className={styles.removeBtn}>
-                    <RemoveBtn product={item.product} title={"Remove"} cb={toggleAddItem} />
+                    <RemoveSingleBtn product={item.product} title={"Remove"} cb={toggleAddItem} />
                 </div>
             </div>
         </div>)

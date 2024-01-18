@@ -3,7 +3,8 @@ import styles from './relatedProducts.module.css';
 import Products from '../Products/products';
 import ProductSlider from '../../../ProductSlider/productSlider';
 
-const RelatedProducts = ({ products }) => {
+//this component renders all different categories of product except the product that an user visit
+const RelatedProducts = ({ products, header }) => {
 
     const [product, setProduct] = useState([]);
 
@@ -26,7 +27,7 @@ const RelatedProducts = ({ products }) => {
 
     return (
         <div className={styles.relatedProducts}>
-            <h2 className={styles.header1}>Recommended for you</h2>
+            <h2 className={styles.header1}>{header}</h2>
             <div className={styles.productDisplay}>
                 <ProductSlider products={displayProduct} />
             </div>

@@ -24,6 +24,9 @@ function App() {
 
   const [sidedrawer, setSidedrawer] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
+  //Since we store the user added products to the localStorage and adding item to localStorage doesn't rerender.
+  //that's why declare a counter variable "addItem" and everytime user add or remove an item from the cart
+  //we increment or decrement the value so the App component rerender and so its child and we get the latest value from localStorage
   const [addItem, setAddItem] = useState(0);
 
   //fetching data from server and storing into memory so the data can be served throught the app

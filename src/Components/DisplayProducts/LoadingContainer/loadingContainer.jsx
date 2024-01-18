@@ -3,6 +3,7 @@ import styles from './loadingContainer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
+//this component display a spinner while parent component load the products
 const LoadingContainer = () => {
     return (
         <div className={styles.loadingContainer}>

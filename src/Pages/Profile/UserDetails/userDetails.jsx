@@ -18,20 +18,15 @@ const UserDetails = ({ user }) => {
     const displayUserDetails = user ? <form className={styles.userDetailsContainer}>
         <div className={styles.formInputContainer}>
             <input type='text'
+                   data-testid='full-name'
                    value={fullName}
                    placeholder='Full Name'
                    onChange={(e) => setFullName(e.target.value)}
                    className={styles.formInput} />
         </div>
-        {/* <div className={styles.formInputContainer}>
-            <input type='text'
-                   value={lastName}
-                   placeholder='Last Name'
-                   onChange={(e) => setLastName(e.target.value)}
-                   className={styles.formInput} />
-        </div> */}
         <div className={styles.formInputContainer}>
             <input type='email'
+                   data-testid='email'
                    value={email}
                    placeholder='Email'
                    onChange={(e) => setEmail(e.target.value)}
@@ -39,12 +34,13 @@ const UserDetails = ({ user }) => {
         </div>
         <div className={styles.formInputContainer}>
             <input type='number'
+                   data-testid='phone-number'
                    value={phone}
                    placeholder='Phone Number'
                    onChange={(e) => setPhone(e.target.value)}
                    className={styles.formInput} />
         </div>
-        <button className={styles.btn}>Apple Changes</button>
+        <button className={styles.btn}>Apply Changes</button>
     </form>
     :
     <div className={styles.userDetailsContainer}>

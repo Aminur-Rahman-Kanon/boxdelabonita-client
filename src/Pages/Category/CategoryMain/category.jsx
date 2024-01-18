@@ -6,9 +6,9 @@ import Heading from '../Heading/heading';
 import Product from '../Product/product';
 import Loader from '../Loader/loader';
 import FilterProducts from '../FilterProducts/FilterProductsMain/filterProducts';
-import ProductSlider from '../../../Components/ProductSlider/productSlider';
 import { subCategory } from '../../../Data/data';
 import NotFound from '../../../Components/NotFound/notFound';
+import RelatedProduct from '../../../Components/DisplayProduct/RelatedProducts/RelatedProductMain/relatedProducts';
 
 const Category = () => {
 
@@ -24,7 +24,6 @@ const Category = () => {
 
     const [filteredProduct, setFilteredProduct] = useState([]);
 
-
     const [filter, setFilter] = useState({
         price: 'Please Select',
         color: 'Please Select',
@@ -33,31 +32,42 @@ const Category = () => {
         isFilter: false
     })
 
-    // const filterValue = {
-    //     price: filter.price,
-    //     color: filter.color,
-    //     discount: filter.discount,
-    //     specialOffer: filter.specialOffer
-    // }
-
     //this hook filter products according to the params.categoryId and store values to the product state variable
     //additionally, it scrolls to the top 
     useEffect(() => {
         window.scrollTo(0, 0);
         if (products.data && params.categoryId) {
+            const item = [];
+            const filteredItem = [];
             if (subCategory.includes(params.categoryId)){
-                console.log(params.categoryId);
                 if (params.categoryId === 'all bags'){
                     setProduct(products.data);
+                    setOtherProducts([]);
                 }
                 else {
-                    const filteredItem = products.data.filter(item => item.subCategory === params.categoryId);
-                    setProduct(filteredItem);
+                    products.data.forEach(prd => {
+                        if (prd.subCategory === params.categoryId){
+                            item.push(prd);
+                        }
+                        else {
+                            filteredItem.push(prd);
+                        }
+                    })
+                    setProduct(item);
+                    setOtherProducts(filteredItem);
                 }
             }
             else {
-                const filterdItem = products.data.filter(item => item.category === params.categoryId);
-                setProduct(filterdItem);
+                products.data.forEach(prd => {
+                    if (prd.category === params.categoryId){
+                        item.push(prd);
+                    }
+                    else {
+                        filteredItem.push(prd);
+                    }
+                })
+                setProduct(item);
+                setOtherProducts(filteredItem);
             }
         }
     }, [params.categoryId, products.data]);
@@ -123,8 +133,6 @@ const Category = () => {
 
     //declaring a variable with a value null so we can later use this variable to show the product to the display
     let displayProduct = null;
-    //declaring a variable with a value null so we can later use this variable to show the product to the display
-    let displayOtherProducts = null;
 
     //if products array contains item
     if (product.length){
@@ -155,11 +163,6 @@ const Category = () => {
         displayProduct = <NotFound text={"No Product Found"}/>
     }
 
-    //if otherProducts array contains data then show those to the display
-    if (otherProducts.length){
-        displayOtherProducts = otherProducts.map((item, idx) => <Product id={idx} product={item} relatedProduct={true} />)
-    }
-
     return (
         <div className={styles.categoryContainer}>
             <Heading heading={params.categoryId}/>
@@ -167,12 +170,7 @@ const Category = () => {
             <div className={styles.productDisplayContainer} style={!product.length ? {display: 'flex', justifyContent: 'center', alignItems: 'center'} : {display: 'grid'}}>
                 {displayProduct}
             </div>
-            <div className={styles.otherProductsContainer} style={otherProducts.length ? {display: 'flex'} : {display: 'none'}}>
-                <h2 className={styles.othersH2}>You May Also Like</h2>
-                <div className={styles.otherProducts}>
-                    <ProductSlider products={displayOtherProducts} />
-                </div>
-            </div>
+            <RelatedProduct header={'You may also like'} products={otherProducts} />
         </div>
     )
 }

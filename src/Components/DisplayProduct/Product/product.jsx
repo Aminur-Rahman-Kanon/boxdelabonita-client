@@ -1,24 +1,25 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faRotateLeft, faClock } from '@fortawesome/free-solid-svg-icons';
-import AddToBag from '../../AddToBagBtn/addToBag';
+import AddToBagBtn from '../../AddToBagBtn/addToBagBtn';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ColorContainer from '../ColorContainer/colorContainer';
 import QuickBuyBtn from '../../QuckBuyBtn/quickBuyBtn';
 import SoldOut from '../../SoldOut/soldOut';
 
+//this component render the product and all its related information
 const Product = ({ product }) => {
 
-    const [imgIdx, setImgIdx] = useState(null);
+    //each product has an image array containing all the images of the product
+    //whenever user click on an image we store that image index to this variable
+    //so we can display that image to the main image display
+    const [imgIdx, setImgIdx] = useState(0);
+    //this variable is for storing the color of the product that an user choose
     const [color, setColor] = useState('')
-
-    useEffect(() => {
-        setImgIdx(Object.keys(product.img)[0]);
-    }, [product])
-
+    //if there is no product then we dont render this component
     if (!product.title) return;
 
     return (
@@ -26,9 +27,9 @@ const Product = ({ product }) => {
         <ToastContainer autoClose={1800} hideProgressBar={true} pauseOnHover theme='colored' style={{fontSize: '13px'}} transition={Slide}/>
         <div className={styles.product}>
             <div className={styles.imageSliderContainer}>
-                {Object.keys(product.img).map(item => <div key={item} className={imgIdx === item ? `${styles.sliderImageContainer} ${styles.activeImg}` : styles.sliderImageContainer}
-                                                           onClick={() => setImgIdx(item)}>
-                    <img src={product.img[item]} alt={product.title} className={styles.sliderImage}/>
+                {product.img.map((item, idx) => <div key={item} className={imgIdx === idx ? `${styles.sliderImageContainer} ${styles.activeImg}` : styles.sliderImageContainer}
+                                                           onClick={() => setImgIdx(idx)}>
+                    <img src={item} alt={product.title} className={styles.sliderImage}/>
                 </div>)}
             </div>
             <div className={styles.section2}>
@@ -63,7 +64,7 @@ const Product = ({ product }) => {
                     </div>
                     <div className={styles.btnContainer}>
                         <div className={styles.btn1}>
-                            <AddToBag disable={product.stock} product={product} title={"Add to Cart"} color={color} />
+                            <AddToBagBtn disable={product.stock} product={product} title={"Add to Cart"} color={color} />
                         </div>
                         <div className={styles.btn2}>
                             <QuickBuyBtn disable={product.stock} product={product} color={color} />

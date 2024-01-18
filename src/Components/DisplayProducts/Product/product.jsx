@@ -4,6 +4,7 @@ import styles from './product.module.css';
 import SoldOut from '../../SoldOut/soldOut';
 import Rating from '../../DisplayProduct/Rating/rating';
 
+//this component takes the product as prop and display individual product
 const Product = ({product}) => {
     
     if (!product) return;

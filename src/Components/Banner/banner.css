@@ -350,8 +350,8 @@
     margin: 30px 0;
     border: 1px solid white;
     border-radius: 2px;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: #e37d00;
     cursor: pointer;
     opacity: 0;
     transform: translateY(100%);
@@ -359,11 +359,6 @@
 
 .banner-Item-Btn.animate-btn {
     animation: test3 0.5s ease-in forwards;
-}
-
-.banner-Item-Btn:hover {
-    background-color: white;
-    color: #FF8D00;
 }
 
 .banner-Item2-Btn:hover {
@@ -418,11 +413,16 @@
 }
 
 .banner2-link {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, 0);
     width: 100%;
-    height: 40px;
+    max-width: 450px;
+    height: 45px;
     border: 1px solid #F9B572;
-    background-color: #f9b57213;
-    color: #F9B572;
+    background-color: #f9b572;
+    color: white;
     margin: 15px auto;
     display: flex;
     justify-content: center;
@@ -435,8 +435,7 @@
 }
 
 .banner2-link:hover {
-    background-color: #F9B572;
-    color: white;
+    background-color: #fca956;
 }
 
 .banner2-link.animate-banner2-link {
@@ -585,8 +584,6 @@
         height: 40px;
         margin: auto;
         margin-top: 20px;
-        background-color: white;
-        color: #FF8D00;
     }
     
     .banner-Item1-Container, .banner-Item2-Container, .banner-Item3-Container, .banner-Item4-Container {
@@ -630,11 +627,6 @@
         transform: translateX(-150%);
     }
 
-    .banner2-link {
-        background-color: #F9B572;
-        color: white;
-    }
-
     .banner-Item3-Main {
         flex-direction: column-reverse;
     }
@@ -655,9 +647,14 @@
         align-items: center;
     }
 
-    /* .banner3-side-img-container {
-        width: 30%;
-    } */
+    .banner2-link {
+        position: static;
+        width: 100%;
+        transform: unset;
+        max-width: unset;
+        top: unset;
+        left: unset;
+    }
 }
 
 @media (max-width: 550px) {
@@ -671,6 +668,7 @@
         left: 50%;
         transform: translate(-50%, -2%);
         width: 95%;
+        height: 40px;
     }
 
     .banner3-main-img-container {

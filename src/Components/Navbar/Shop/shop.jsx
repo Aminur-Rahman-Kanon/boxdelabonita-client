@@ -17,7 +17,7 @@ const Shop = () => {
     return (
         <div className={styles.shopContainer}>
             <div className={styles.shopCategoryContainer}>
-                {shop.map(cat => <NavLink to={`/bag/${cat.route}`} key={cat.id} className={styles.category} onClick={switchSidedrawer}>
+                {shop.map(cat => <NavLink data-testid={`${cat.route}`} to={`/bag/${cat.route}`} key={cat.id} className={styles.category} onClick={switchSidedrawer}>
                     <div className={styles.imgContainer}>
                         <img src={cat.img} alt={cat.title} className={styles.img}/>
                     </div>

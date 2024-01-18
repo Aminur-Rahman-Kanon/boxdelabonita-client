@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import './checkout.css';
 import CheckoutItems from './CheckoutItems/checkoutItems';
-// import { cities } from './Checkout-data/data';
 import flag from '../../Assets/Others/flag.png';
 import Spinner from '../../Components/Spinner/spinner';
 import Backdrop from '../../Components/Backdrop/backdrop';
@@ -11,13 +10,15 @@ import Modal from '../../Components/Modal/modal';
 import { disableScroll } from '../../Utilities/utilities';
 import { fetchCartItem } from '../../Utilities/utilities';
 
+//this component fetch the products from contextApi
+//display the products
+//takes the user information and then finally place the order by making a http request
 function Checkout() {
-
+    
     const [products, setProducts] = useState({});
     const [spinner, setSpinner] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
     const [modal, setModal] = useState(false);
-
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
@@ -32,61 +33,71 @@ function Checkout() {
 
     const [placeOrderStatus, setPlaceOrderStatus] = useState('');
     const [placeOrderDetails, setPlaceOrderDetails] = useState(null);
-
+    //this hook execute on component mount and fetch the products from context
+    //calculate the total price and store the products in products variable
     useEffect(() => {
         const product = fetchCartItem();
         if (Object.keys(product).length){
             let itemTotalPrice = 0;
             Object.values(product).forEach(item => itemTotalPrice += (item.quantity * item.price))
-            setTotalPrice(totalPrice+ itemTotalPrice);
+            setTotalPrice(itemTotalPrice);
         }
         setProducts(product);
     }, []);
-
-    console.log(products);
-
+    //this hook validate the email from user input. if email is correct form then
+    //it set the emailValidity to true
     useEffect(() => {
         const timer = setTimeout(() => {
             if (email) {
+                //checking if input contains a '@'
                 const check1 = email.includes('@');
+                //checking if the user input contains a '.com'
                 const check2 = email.includes('.com');
-
+                //input contains both '@' and '.com'then we move forward to the domain validation
                 if (check1 && check2){
+                    //checking whether any letter is present between the '@' and '.com'
+                    //if any letter is present between '@' and '.com' then we know that there is a domain name
                     const domain = email.slice(email.indexOf('@') + 1, email.indexOf('.com'));
-
+                    //i domain is present then we set the emailValidity to true
                     if (domain.length > 0){
                         setEmailValidty(true);
                     }
                 }
+                //otherwise we set it to true
                 else {
                     setEmailValidty(false);
                 }
             }
+        //we delay the the validation after 1200ms so it does not execute immidiately
         }, 1200)
-
         //clearing the timeout
         return () => clearTimeout(timer);
     }, [email]);
-
+    //this hook validate the phone number form user input
     useEffect(() => {
+        //we validate the phone number by checking if the input length is equal to 11 
         const phoneTimer = setTimeout(() => {
             if (phone){
                 phone.length === 11 ? setPhoneValidity(true) : setPhoneValidity(false);
             }
+        //we delay it to 1200ms so it does not execute immidiately
         }, 1200)
-
+        //clearing the timer
         return () => clearTimeout(phoneTimer);
     }, [phone])
-
+    //this hook is the final validation process where if all input is correct then it enable the 'Order Now' button
+    //where user can actually place the orders
     useEffect(() => {
+        //setting the Order Now button enable
         if (name && address && phone && city !== 'Select Area' && paymentMethod && Object.keys(products).length){
             setBtnDisable(false);
         }
+        //setting the Order Now button disable
         else {
             setBtnDisable(true);
         }
     }, [name, address, email, city, emailValidity, phone, paymentMethod]);
-
+    //this hook toggle the scroll disability when backdrop is on/off respectively
     useEffect(() => {
         if (backdrop){
             disableScroll();
@@ -95,12 +106,15 @@ function Checkout() {
             window.onscroll = () => {}
         }
     }, [backdrop]);
-
+    
+    //this function handle the http request, send the informations to the server and get the reply
     const submitHandler = async (e) => {
+        //preventing reloading
         e.preventDefault();
+        //enabling the backdrop and spinner
         setBackdrop(true);
         setSpinner(true);
-
+        //make a http request and handle the response
         await fetch('https://boxdelabonita-server-13dd.onrender.com/place-order', {
             method: 'POST',
             headers: {
@@ -117,6 +131,7 @@ function Checkout() {
             setPlaceOrderStatus(data.status);
             setPlaceOrderDetails(data.data)
             setModal(true);
+            //if the return status is successfull then we clear the user cart item
             localStorage.removeItem('cart');
         })
         .catch(err => {
@@ -126,7 +141,7 @@ function Checkout() {
             setPlaceOrderStatus('server error');
         });
     }
-
+    //we store the status message in displayStatusMsg variable if there is any and display to te screen
     let displayStatusMsg = null;
 
     if (placeOrderStatus === 'success'){
@@ -182,6 +197,7 @@ function Checkout() {
                     <form className='payment-form' onSubmit={submitHandler}>
                         <fieldset className='payment-form-filedset'>
                             <input type='text'
+                                   data-testid='full-name'
                                    placeholder='Full Name'
                                    className='payment-form-input'
                                    value={name}
@@ -189,6 +205,7 @@ function Checkout() {
                         </fieldset>
                         <fieldset className='payment-form-filedset'>
                             <input type='text'
+                                   data-testid='full-address'
                                    placeholder='Full Address'
                                    className='payment-form-input'
                                    value={address}
@@ -196,6 +213,7 @@ function Checkout() {
                         </fieldset>
                         <fieldset className={emailValidity ? 'payment-form-filedset' : 'payment-form-filedset wrong-input'}>
                             <input type='email'
+                                   data-testid='email'
                                    placeholder='Email'
                                    className='payment-form-input'
                                    value={email}
@@ -207,13 +225,14 @@ function Checkout() {
                                 <span className='country-code'>+88</span>
                             </div>
                             <input type='number'
+                                   data-testid='phone-number'
                                    placeholder='Phone Number'
                                    className='payment-form-input phone'
                                    value={phone}
                                    onChange={(e) => setPhone(e.target.value)}/>
                         </fieldset>
                         <fieldset className='payment-form-filedset'>
-                            <select className='payment-select' value={city} onChange={(e) => {
+                            <select data-testid='delivery-location' className='payment-select' value={city} onChange={(e) => {
                                 if (e.target.value === 'Inside Dhaka ৳80'){
                                     setCity(e.target.value);
                                     setDeliveryCharge(80);
@@ -232,11 +251,11 @@ function Checkout() {
                             <h3 className='payment-h3'>Payment Method</h3>
                             <div className='payment-form-group'>
                                 <fieldset className='payment-form-filedset payment'>
-                                    <input id="cod" type='radio' name='payment-method' className='paymet-method' value='Cash on delivery' onChange={(e) => setPaymentMethod(e.target.value)}/>
+                                    <input data-testid='payment-method' id="cod" type='radio' name='payment-method' className='paymet-method' value='Cash on delivery' onChange={(e) => setPaymentMethod(e.target.value)}/>
                                     <label htmlFor='cod' className='payment-form-label'>Cash on Delivery</label>
                                 </fieldset>
                                 <fieldset className='payment-form-filedset payment'>
-                                    <input id='bkash' type='radio' name='payment-method' className='paymet-method' value='bkash' onChange={(e) => setPaymentMethod(e.target.value)}/>
+                                    <input data-testid='payment-method' id='bkash' type='radio' name='payment-method' className='paymet-method' value='bkash' onChange={(e) => setPaymentMethod(e.target.value)}/>
                                     <label htmlFor='bkash' className='payment-form-label'>Bkash</label>
                                 </fieldset>
                             </div>

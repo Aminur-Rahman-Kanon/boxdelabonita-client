@@ -20,7 +20,7 @@ const Filter = ({ filters, filterValues }) => {
             <div className={styles.filterDisplay}>
                 <div className={styles.filter}>
                     <label htmlFor='price' className={styles.label}>Price</label>
-                    <select className={styles.filterCategory} id='price' onChange={(e) => filters((filter) => ({...filter, price: e.target.value, isFilter: true}))} value={filterValues.price}>
+                    <select data-testid='price' className={styles.filterCategory} id='price' onChange={(e) => filters((filter) => ({...filter, price: e.target.value, isFilter: true}))} value={filterValues.price}>
                         <option disabled>Please Select</option>
                         {
                             prices.map((item, idx) => <option key={idx} className={styles.filterOption} value={item}>&#2547;{`${item}`}</option>)
@@ -29,7 +29,7 @@ const Filter = ({ filters, filterValues }) => {
                 </div>
                 <div className={styles.filter}>
                     <label htmlFor='color' className={styles.label}>Color</label>
-                    <select className={styles.filterCategory} id='color' onChange={(e) => filters((filter) => ({...filter, color: e.target.value, isFilter: true}))} value={filterValues.color}>
+                    <select data-testid='color' className={styles.filterCategory} id='color' onChange={(e) => filters((filter) => ({...filter, color: e.target.value, isFilter: true}))} value={filterValues.color}>
                     <option disabled>Please Select</option>
                         {
                             color.map((color, idx) => <option key={color} className={styles.filterOption}>{color}</option>)
@@ -39,6 +39,7 @@ const Filter = ({ filters, filterValues }) => {
                 <div className={styles.filter}>
                     <label htmlFor='discounted' className={styles.label}>Discounted</label>
                     <input type='checkbox'
+                           data-testid='discounted'
                            className={styles.discounted}
                            id="discounted"
                            value={filterValues.discount}
@@ -48,6 +49,7 @@ const Filter = ({ filters, filterValues }) => {
                 <div className={styles.filter}>
                     <label htmlFor='offer' className={styles.label}>Special Offer</label>
                     <input type='checkbox'
+                           data-testid='special-offer'
                            className={styles.discounted}
                            id='offer'
                            checked={filterValues.specialOffer}

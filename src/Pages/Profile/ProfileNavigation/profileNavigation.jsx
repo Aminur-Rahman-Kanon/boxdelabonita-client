@@ -15,7 +15,7 @@ const ProfileNavigation = ({ changeFormType }) => {
                 <FontAwesomeIcon icon={faLocationDot} className={styles.navigationIcon}/>
             </div>
             <div className={styles.profileNavigationItem} onClick={() => changeFormType('change-password')}>
-                <span className={styles.navigation}>Change Password</span>
+                <span data-testid='change-password-header' className={styles.navigation}>Change Password</span>
                 <FontAwesomeIcon icon={faShieldHalved} className={styles.navigationIcon}/>
             </div>
             <div className={styles.profileNavigationItem} onClick={() => changeFormType('orders')}>

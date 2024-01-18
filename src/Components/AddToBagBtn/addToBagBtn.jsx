@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ContextApi from '../ContextApi/contextApi';
-import styles from './addToBag.module.css';
+import styles from './addToBagBtn.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
@@ -11,13 +11,13 @@ import { addToCart } from '../../Utilities/utilities';
 //product: the product that need to add to the localStorage
 //title: the text of the button
 //color: the color of the item
-const AddToBag = ({ disable, product, title, color }) => {
+const AddToBagBtn = ({ disable, product, title, color }) => {
     //extracting the setAddItem from the context object because:
     //Since we store the user added item to localStorage and adding item to localStorage doesn't rerender.
     //that's why declare a counter variable "addItem" to App component and everytime user add or remove an item from the cart
     //we increment or decrement the value so the App component rerender and so its child and we get the latest value from localStorage
+    //see line 27 in App component for reference
     const setItemCount = useContext(ContextApi).setAddItem;
-
     //declaring a varibale with value false so the the button doesn't show the spinner initially
     //and when user click the "Add to Cart" button this variale value change to true so the button show the spinner
     const [isLoading, setIsLoading] = useState(false);
@@ -68,7 +68,7 @@ const AddToBag = ({ disable, product, title, color }) => {
         <button disabled={!disable} className={styles.addToBagBtn} onClick={submitHandler}>
             {
                 isLoading ?
-                <FontAwesomeIcon icon={faSpinner} spinPulse className={styles.loader}/>
+                <FontAwesomeIcon data-testid="spinner" icon={faSpinner} spinPulse className={styles.loader}/>
                 :
                 <span className={styles.btn}>{title}</span>
             }
@@ -77,4 +77,4 @@ const AddToBag = ({ disable, product, title, color }) => {
     )
 }
 
-export default AddToBag;
+export default AddToBagBtn;

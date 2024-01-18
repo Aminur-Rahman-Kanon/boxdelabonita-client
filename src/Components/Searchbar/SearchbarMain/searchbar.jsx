@@ -8,26 +8,36 @@ import { Link } from 'react-router-dom';
 import SearchResult from '../SearchResult/searchResult';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-
+//in this component we perform a search functionality based on user input
+//when user enter an input the input is stored in userInput variable
+//everytime userInput variable change we execute a function where
+//we introduce useTranstition so the search functionality doesn't affect the user expereience
+//if there is any result after executing the function we store that in filteredProducts variable
+//and if there is any products in filteredProducts variable then we display them to the sccreen
 const Searchbar = ({ searchbar, toggleSearchbar }) => {
-
+    //we are using useTransaction here so
+    //when user enter an input we let the immididate update to render before executing the search function
+    //so we have a smooth user experience
     const [isPending, startTransition] = useTransition();
-
+    //when the app component loads the products we get it here by ContextProvider
+    //so when there is products we store those in product variable
+    //and we perform the search functionality from the products store in this variable
     const [product, setProduct] = useState([]);
-
+    //after the search operation we store the filtered products in filteredProducts variable
     const [filteredProducts, setFilteredProducts] = useState([]);
-
+    //we store the user input in userInput variable
     const [userInput, setUserInput] = useState('');
-
+    //we fetch the products using ContextProvider it either return the products or []
     const context = useContext(ContextApi);
+    //navigating the product array from the context if there is any product
     const products = context.product;
-
+    //this hook runs every time when products.data id changed
     useEffect(() => {
         if (products.data){
             setProduct(products.data);
         }
     }, [products.data]);
-
+    //this is the function where we filter the products based on user inputs
     const searchHandler = () => {
         startTransition(() => {
             if (product.length && userInput){
@@ -36,7 +46,7 @@ const Searchbar = ({ searchbar, toggleSearchbar }) => {
             }
         })
     }
-
+    //this hook runs in every user input and run the searchHandler function
     useEffect(() => {
         searchHandler();
     }, [userInput]);
@@ -48,7 +58,7 @@ const Searchbar = ({ searchbar, toggleSearchbar }) => {
             </div>
             <div className={styles.searchbarContainer}>
                 <div className={styles.logoContainer}>
-                    <Logo />
+                    <Logo width={'150px'}/>
                 </div>
                 <div className={styles.search}>
                     <SearchInput isSearching={isPending} inputHandler={setUserInput}/>
@@ -72,4 +82,4 @@ const Searchbar = ({ searchbar, toggleSearchbar }) => {
     )
 }
 
-export default Searchbar
+export default Searchbar;

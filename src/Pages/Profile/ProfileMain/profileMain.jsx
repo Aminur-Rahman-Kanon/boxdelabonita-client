@@ -9,17 +9,22 @@ import Orders from "../Orders/orders";
 import { useParams } from 'react-router-dom';
 import { fetchUser } from "../../../Utilities/utilities";
 
+//this component display all the user information such as name, address and orders
+//this component renders on 2 routes: 1. where user visit the profile url and
+//2. where user place an order. in this case user are redirected here programmatically
 const ProfileMain = () => {
-
     const params = useParams();
-
     const [userData, setUserData] = useState([]);
-
     const [formType, setFormType] = useState('user-information');
 
+    //this hook execute on component mount and user are redirected here due to placing order
     useEffect(() => {
+        //when user's are redirected here then the url contains a track property and value in it 
+        //then this executes
         if (params.track && params.phone){
+            //navigate to the orders section of this page
             setFormType('orders')
+            //make a http request
             fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item/${params.phone}`)
             .then(res => res.json())
             .then(data => {
@@ -55,9 +60,6 @@ const ProfileMain = () => {
                     <div className={styles.details} style={formType === 'orders' ? {display: 'block'} : {display: 'none'}}>
                         <Orders user={userData} />
                     </div>
-                </div>
-                <div>
-                    
                 </div>
             </div>
         </div>

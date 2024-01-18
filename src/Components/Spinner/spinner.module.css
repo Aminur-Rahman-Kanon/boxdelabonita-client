@@ -5,13 +5,27 @@
     transform: translate(-50%, -50%);
     z-index: 700;
 }
+
+.logoContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 600;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .spinner {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
-    animation: animate 1.2s linear infinite;
+    background: linear-gradient(rgb(255, 255, 255), #4b7d37, rgb(255, 255, 255));
+    /* background: linear-gradient(#ffffff00, #4b7d37); */
+    /* background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd); */
+    animation: animate 3s linear infinite;
 }
 
 @keyframes animate {
@@ -28,23 +42,25 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+    border: 1px solid #4b7d37;
+    /* background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd); */
+    background: linear-gradient(rgb(255, 255, 255), #4b7d37, rgb(255, 255, 255));
 }
 
 .spinnerItem:nth-child(1) {
-    filter: blur(5px);
+    filter: blur(8px);
 }
 
 .spinnerItem:nth-child(2) {
-    filter: blur(10px);
+    filter: blur(8px);
 }
 
 .spinnerItem:nth-child(3) {
-    filter: blur(25px);
+    filter: blur(8px);
 }
 
 .spinnerItem:nth-child(4) {
-    filter: blur(50px);
+    filter: blur(8px);
 }
 
 .spinner:after {
@@ -54,7 +70,15 @@
     left: 10px;
     right: 10px;
     bottom: 10px;
-    background: #f1f1f1;
+    /* background: #f1f1f1; */
+    background: #ffffff;
     border: solid white 10px;
     border-radius: 50%;
+}
+
+@media (max-width: 375px) {
+    .spinner {
+        width: 180px;
+        height: 180px;
+    }
 }

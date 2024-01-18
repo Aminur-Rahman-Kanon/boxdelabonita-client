@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import CategoryContainer from '../CategoryContainer/categoryContainer';
 import SidePanel from '../SidePanel/sidePanel';
-import Backdrop from '../../../../Components/Backdrop/backdrop';
 import { disableScroll } from '../../../../Utilities/utilities';
 import Categories from '../Categories/categories';
 
@@ -13,27 +12,23 @@ const FilterProducts = ({ filters, filterValue }) => {
 
     const [sidePanel, setSidePanel] = useState(false);
 
-    const [backdrop, setBackdrop] = useState(false);
-
     useEffect(() => {
-        if (backdrop) {
+        if (sidePanel) {
             disableScroll();
         }
         else {
             window.onscroll = () => {};
         }
-    }, [backdrop])
+    }, [sidePanel])
 
     const toggleSidePanel = () => {
         if (window.innerWidth <= 800){
             setSidePanel(sidePanel => !sidePanel);
-            setBackdrop(backdrop => !backdrop);
         }
     }
 
     return (
         <>
-        <Backdrop backdrop={backdrop} closeBackdrop={toggleSidePanel}/>
         <div className={styles.filterPrducts}>
             <SidePanel sidePanel={sidePanel} switchSidePanel={toggleSidePanel}/>
             <div className={styles.menuIconContainer}>
@@ -53,4 +48,4 @@ const FilterProducts = ({ filters, filterValue }) => {
     )
 }
 
-export default FilterProducts
+export default FilterProducts;

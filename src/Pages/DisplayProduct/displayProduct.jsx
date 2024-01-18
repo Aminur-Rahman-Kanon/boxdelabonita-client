@@ -32,6 +32,9 @@ const DisplayProduct = () => {
                 }
             }
         }
+        else {
+            // return window.location.assign('/not-found');
+        }
     }, [categoryId, productId, products.data])
 
     let displayProduct = null;
@@ -45,14 +48,14 @@ const DisplayProduct = () => {
     else {
         displayProduct = <h2>Nothing to display</h2>
     }
-
+    
     return (
         <div className={styles.displayProduct}>
             <ProductsNavigation />
             {displayProduct}
-            <RelatedProducts category={categoryId} productId={productId} products={relatedProducts}/>
+            <RelatedProducts header={'Recommended for you'} products={relatedProducts}/>
         </div>
     )
 }
 
-export default DisplayProduct
+export default DisplayProduct;

@@ -3,11 +3,18 @@ import styles from './loader.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
+//this component render some spinner while the parent component loads the product
+//it renders some spinner for the top where other images of the product are displayed
+//and one big spinner where the first image of the product is displayed
+//finally some spinner for the bottom where some other related products are displayed
 const Loader = () => {
 
+    //when browser window inner width is resized we store that to this variable
+    //so we can control the number of spinner thst need to display in terms of pc, tablet and mobile display
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
     useEffect(() => {
+        //we are storing the size of the window inner width
         window.addEventListener('resize', () => {
             setInnerWidth(window.innerWidth)
         })

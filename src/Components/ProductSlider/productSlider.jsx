@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import './productSlider.css';
 
 const ProductSlider = ({ products }) => {
-
+    //settings for Slider component
+    //including screen breakpoint
     const settings = {
         dots: true,
         infinite: false,

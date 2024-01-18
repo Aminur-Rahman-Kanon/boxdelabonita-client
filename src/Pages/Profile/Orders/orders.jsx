@@ -29,9 +29,10 @@ const Orders = ({ user }) => {
             <div className={styles.productContainer}>
                 {Object.values(items.products).map(item => {
                     grandTotal += item.quantity * item.price;
-                    return <div key={item._id} className={styles.product}>
+                    return <div key={item.product._id} className={styles.product}>
                         <div className={styles.productImgContainer}>
-                            <img src={item.product.img} alt={item.title} className={styles.productImg}/>
+                            <img src={item.product.img} alt={item.product.title} className={styles.productImg}/>
+                            <span className={styles.details}>{item.product.title}</span>
                         </div>
                         <div className={styles.productDetailsContainer}>
                             <span className={styles.details}>{item.title}</span>
