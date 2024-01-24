@@ -19,6 +19,7 @@ const Cart = lazy(() => import('./Pages/Cart/cart'));
 const Checkout = lazy(() => import('./Pages/Checkout/checkout'));
 const Profile = lazy(() => import('./Pages/Profile/ProfileMain/profileMain'));
 const About = lazy(() => import('./Pages/About/about'));
+const LandingPage = lazy(() => import('./Pages/LandingPage/landingPage'));
 
 function App() {
 
@@ -91,6 +92,9 @@ function App() {
           </Suspense>} />
           <Route path='/about' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
+          </Suspense>}/>
+          <Route path='/promote/:productId' element={<Suspense fallback={<Spinner spinner={true}/>}>
+            <LandingPage />
           </Suspense>}/>
           <Route path='*' element={<DefaultRoute />} />
         </Routes>
