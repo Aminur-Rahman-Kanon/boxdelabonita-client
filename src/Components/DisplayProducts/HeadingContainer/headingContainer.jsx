@@ -4,25 +4,37 @@ import styles from './headingContainer.module.css';
 //this component the category name of the products
 const HeadingContainer = ({ type }) => {
 
-    let heading1 = null;
+    let heading = null;
 
     //conditionally display the name of the category
-    if (type === 'new arrivals'){
-        heading1 = "New Arrivals";
-    }
-    else if (type === 'trending products'){
-        heading1 = "Trending Products";
-    }
-    else if (type === 'hot deals'){
-        heading1 = "Hot Deals";
-    }
-    else if (type === 'popular products'){
-        heading1 = "Most Popular";
+    switch(type){
+        case 'new arrivals':
+            heading = 'New Arrivals';
+            break;
+            
+        case 'trending products':
+            heading = 'Trending Products';
+            break;
+
+        case 'hot deals':
+            heading = 'Hot Deals';
+            break;
+
+        case 'popular products':
+            heading = 'Popular Products';
+            break;
+
+        case 'all bags':
+            heading = 'All Bags';
+            break;
+
+        default:
+            break;
     }
 
     return (
         <div className={styles.headerContainer}>
-            <h2 className={styles.header2}>{heading1}</h2>
+            <h2 className={styles.header2}>{heading}</h2>
         </div>
     )
 }

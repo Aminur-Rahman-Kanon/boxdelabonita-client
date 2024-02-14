@@ -3,7 +3,6 @@ import './displayProductsMain.css';
 import Product from '../Product/product';
 import LoadingContainer from '../LoadingContainer/loadingContainer';
 import HeadingContainer from '../HeadingContainer/headingContainer';
-import ProductSlider from '../../ProductSlider/productSlider';
 import ContextApi from '../../ContextApi/contextApi';
 
 //this component renders a list of products
@@ -12,11 +11,12 @@ const DisplayProducts = ({ productsType }) => {
     const context = useContext(ContextApi);
     const products = context.product;
     const [product, setProduct] = useState([]);
+    console.log(products);
     
     useEffect(() => {
         if (productsType && products.data){
-            const filteredProducts = products.data.length ? products.data.filter(item => item.subCategory === productsType) : [];
-            setProduct(filteredProducts);
+            // const filteredProducts = products.data.length ? products.data.filter(item => item.subCategory === productsType) : [];
+            setProduct(products.data);
         }
     }, [products]);
 
@@ -42,7 +42,7 @@ const DisplayProducts = ({ productsType }) => {
             <div className="display-products-container">
                 <HeadingContainer type={productsType}/>
                 <div className="display-product">
-                    <ProductSlider products={displayProducts} />
+                    {displayProducts}
                 </div>
             </div>
         </div>

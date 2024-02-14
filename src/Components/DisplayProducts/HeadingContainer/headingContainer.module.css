@@ -11,8 +11,6 @@
     position: relative;
     margin: 5px 0;
     font-size: 1.5rem;
-    /* color: white; */
-    /* text-align: left; */
 }
 
 .header2::after {

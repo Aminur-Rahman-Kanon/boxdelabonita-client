@@ -42,7 +42,7 @@ function Banner() {
 
     return (
         <div className="banner-container">
-            <Swiper modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+            <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
                     autoplay={{ delay: 7000, disableOnInteraction: false }}
                     slidesPerView={1}
