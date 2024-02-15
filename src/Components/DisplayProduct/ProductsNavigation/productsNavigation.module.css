@@ -17,6 +17,11 @@
     margin: 5px;
     font-weight: 500;
     color: white;
+    max-width: 225px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
 }
 
 .path:hover {
