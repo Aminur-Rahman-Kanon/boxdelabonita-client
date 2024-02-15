@@ -19,7 +19,19 @@ const Product = ({ product }) => {
     //whenever user click on an image we store that image index to this variable
     //so we can display that image to the main image display
     //this variable is for storing the color of the product that an user choose
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState(() => {
+        if (product && product.color){
+            if (product.color.length){
+                return product.color[0];
+            }
+            else {
+                return '';
+            }
+        }
+        else {
+            return '';
+        }
+    })
     //if there is no product then we dont render this component
     if (!product.title) return;
 
