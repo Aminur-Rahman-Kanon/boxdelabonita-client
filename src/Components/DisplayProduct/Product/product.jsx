@@ -57,8 +57,7 @@ const Product = ({ product }) => {
                         <Rating rating={product.rating}/>
                     </div>
                     <div className={styles.productDetailsContainer}>
-                        {/* <div dangerouslySetInnerHTML={{__html: product.description}} /> */}
-                        <span>{product.description}</span>
+                        <div dangerouslySetInnerHTML={{__html: product.description}} />
                     </div>
                     <div className={styles.colorContainer}>
                         <span className={styles.colorHeader}>Select a Color</span>
