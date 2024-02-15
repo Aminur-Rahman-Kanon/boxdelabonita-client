@@ -83,7 +83,7 @@ const Product = ({ product }) => {
                                 </a>
                             </div>
                             <div className={styles.callToOrder}>
-                                <ReactWhatsapp number='008801911343436' className={styles.phone}>
+                                <ReactWhatsapp number='+8801911343436' className={styles.phone}>
                                     <FontAwesomeIcon icon={faWhatsapp} className={styles.callIcon} style={{fontSize: '25px'}}/>
                                     <span className={styles.number}>WhatsApp</span>
                                 </ReactWhatsapp>
