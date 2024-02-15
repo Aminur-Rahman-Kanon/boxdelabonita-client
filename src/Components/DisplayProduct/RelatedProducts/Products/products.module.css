@@ -27,13 +27,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .title {
-    font-size: 1rem;
+    max-width: 180px;
+    font-size: 15px;
     color: rgb(68, 68, 68);
     text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    
 }
 
 .price {
@@ -44,9 +50,16 @@
 @media (max-width: 767px) {
     .title {
         font-size: 0.9rem;
+        max-width: 120px;
     }
 
     .price {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .title {
+        max-width: 180px;
     }
 }

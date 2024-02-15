@@ -29,7 +29,7 @@ const RelatedProducts = ({ products, header }) => {
         <div className={styles.relatedProducts}>
             <h2 className={styles.header1}>{header}</h2>
             <div className={styles.productDisplay}>
-                <ProductSlider products={displayProduct} />
+                {displayProduct}
             </div>
         </div>
     )

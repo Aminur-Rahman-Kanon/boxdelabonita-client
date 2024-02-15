@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruck, faRotateLeft, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faTruck, faRotateLeft, faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import AddToBagBtn from '../../AddToBagBtn/addToBagBtn';
 import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ColorContainer from '../ColorContainer/colorContainer';
 import QuickBuyBtn from '../../QuckBuyBtn/quickBuyBtn';
 import SoldOut from '../../SoldOut/soldOut';
+import ReactWhatsapp from 'react-whatsapp';
 
 //this component render the product and all its related information
 const Product = ({ product }) => {
@@ -16,7 +18,6 @@ const Product = ({ product }) => {
     //each product has an image array containing all the images of the product
     //whenever user click on an image we store that image index to this variable
     //so we can display that image to the main image display
-    const [imgIdx, setImgIdx] = useState(0);
     //this variable is for storing the color of the product that an user choose
     const [color, setColor] = useState('')
     //if there is no product then we dont render this component
@@ -27,14 +28,16 @@ const Product = ({ product }) => {
         <ToastContainer autoClose={1800} hideProgressBar={true} pauseOnHover theme='colored' style={{fontSize: '13px'}} transition={Slide}/>
         <div className={styles.product}>
             <div className={styles.imageSliderContainer}>
-                {product.img.map((item, idx) => <div key={item} className={imgIdx === idx ? `${styles.sliderImageContainer} ${styles.activeImg}` : styles.sliderImageContainer}
-                                                           onClick={() => setImgIdx(idx)}>
-                    <img src={item} alt={product.title} className={styles.sliderImage}/>
-                </div>)}
+                <span className={styles.descriptionHeader}>Description</span>
+                <div className={styles.sliderImgContainer}>
+                    {product.img.map(item => <div key={item} className={styles.sliderImageContainer}>
+                        <img src={item} alt={product.title} className={styles.sliderImage}/>
+                    </div>)}
+                </div>
             </div>
             <div className={styles.section2}>
                 <div className={styles.mainImageContainer}>
-                    <img src={product.img[imgIdx]} alt={product.title} className={styles.mainImage}/>
+                    <img src={product.img[0]} alt={product.title} className={styles.mainImage}/>
                     <SoldOut show={!product.stock}/>
                 </div>
                 <div className={styles.detailsContainer}>
@@ -54,7 +57,8 @@ const Product = ({ product }) => {
                         <Rating rating={product.rating}/>
                     </div>
                     <div className={styles.productDetailsContainer}>
-                        <div dangerouslySetInnerHTML={{__html: product.description}} />
+                        {/* <div dangerouslySetInnerHTML={{__html: product.description}} /> */}
+                        <span>{product.description}</span>
                     </div>
                     <div className={styles.colorContainer}>
                         <span className={styles.colorHeader}>Select a Color</span>
@@ -69,6 +73,27 @@ const Product = ({ product }) => {
                         <div className={styles.btn2}>
                             <QuickBuyBtn disable={product.stock} product={product} color={color} />
                         </div>
+                    </div>
+                    <div className={styles.callToOrderContainer}>
+                        <h2 className={styles.callToOrderheading}>Order by Phone</h2>
+                        <div className={styles.callToOrders}>
+                            <div className={styles.callToOrder}>
+                                <a href='tel:+8801911343436' className={styles.phone}>
+                                    <FontAwesomeIcon icon={faPhone} className={styles.callIcon}/>
+                                    <span className={styles.number}>+8801911343436</span>
+                                </a>
+                            </div>
+                            <div className={styles.callToOrder}>
+                                <ReactWhatsapp number='008801911343436' className={styles.phone}>
+                                    <FontAwesomeIcon icon={faWhatsapp} className={styles.callIcon} style={{fontSize: '25px'}}/>
+                                    <span className={styles.number}>WhatsApp</span>
+                                </ReactWhatsapp>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.deliveryChargeContainer}>
+                        <span className={styles.charge}>Inside Dhaka: &#2547;80</span>
+                        <span className={styles.charge}>Outside Dhaka: &#2547;150</span>
                     </div>
                     <div className={styles.informationContainer}>
                         <div className={styles.information}>

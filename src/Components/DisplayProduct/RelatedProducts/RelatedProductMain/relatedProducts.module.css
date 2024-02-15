@@ -17,10 +17,36 @@
     width: 100%;
     margin: 20px auto;
     max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: start;
+}
+
+@media (max-width: 1050px) {
+    .productDisplay {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media (max-width: 767px) {
     .relatedProducts {
         margin: 35px auto;
+    }
+
+    .productDisplay {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 500px){
+    .productDisplay {
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+    }
+}
+
+@media(max-width: 500px){
+    .productDisplay {
+        grid-template-columns: 1fr;
     }
 }
