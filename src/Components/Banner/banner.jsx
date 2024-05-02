@@ -168,17 +168,17 @@ function Banner() {
     return (
         <div className='banner-container'>
             <div className='video-wrapper'>
-                <video src={bannerVideo} type='video/mp4' autoPlay loop muted className='video'></video>
+                <video src={bannerVideo} type='video/mp4' autoPlay loop muted playsInline className='video'></video>
             </div>
             <div className='banner-header'>
                 <h2 className='banner-h2'>Make your day with <span className='title'>Boxdelabonita</span></h2>
                 <p className='banner-p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat atque quam aperiam provident sed omnis quis</p>
                 <div className='btn-group'>
-                    <Link to={''} className='btn'>
+                    <Link to={'/bag/all bags'} className='btn'>
                         <span className='btn-slider'></span>
                         <span className='btn-text'>View All Bags</span>
                     </Link>
-                    <Link to={''} className='btn'>
+                    <Link to={'/about'} className='btn'>
                         <span className='btn-slider'></span>
                         <span className='btn-text'>About Us</span>
                     </Link>
