@@ -11,7 +11,6 @@ const DisplayProducts = ({ productsType }) => {
     const context = useContext(ContextApi);
     const products = context.product;
     const [product, setProduct] = useState([]);
-    console.log(products);
     
     useEffect(() => {
         if (productsType && products.data){

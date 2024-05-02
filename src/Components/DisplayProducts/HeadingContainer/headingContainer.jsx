@@ -25,7 +25,7 @@ const HeadingContainer = ({ type }) => {
             break;
 
         case 'all bags':
-            heading = 'All Bags';
+            heading = 'Shop With Confidence with Boxdelabonita';
             break;
 
         default:

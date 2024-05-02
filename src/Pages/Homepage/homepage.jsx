@@ -11,14 +11,8 @@ function Homepage() {
         <div className={styles.homapageContainer}>
             <Banner />
             <Category />
-            {/* <AdditionalBanner type={"newArrivals"}/> */}
+            <AdditionalBanner />
             <DisplayProducts productsType={"all bags"}/>
-            {/* <AdditionalBanner type={"casual"}/>
-            <DisplayProducts productsType={"popular products"}/>
-            <AdditionalBanner type={"mostPopular"}/>
-            <DisplayProducts productsType={"hot deals"}/>
-            <AdditionalBanner type={"trending"}/>
-            <DisplayProducts productsType={"trending products"}/> */}
             <Journal />
         </div>
     )
