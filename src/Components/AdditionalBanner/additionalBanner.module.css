@@ -1,11 +1,12 @@
 .bannerImgContainer {
     width: 100%;
     max-width: 1200px;
-    margin: 50px 150px;
+    margin: 50px auto;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .imgContainer {
