@@ -54,7 +54,7 @@
 
 @media (max-width: 1023px) {
     .journalContainer {
-        background-attachment: initial;
+        background-attachment: unset;
         height: 550px;
     }
 }
