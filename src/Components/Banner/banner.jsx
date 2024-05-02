@@ -172,7 +172,7 @@ function Banner() {
             </div>
             <div className='banner-header'>
                 <h2 className='banner-h2'>Make your day with <span className='title'>Boxdelabonita</span></h2>
-                <p className='banner-p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat atque quam aperiam provident sed omnis quis</p>
+                <p className='banner-p'>Boxdelabonita proud to presents you all categories of luxurious bag with a unbeatable price.</p>
                 <div className='btn-group'>
                     <Link to={'/bag/all bags'} className='btn'>
                         <span className='btn-slider'></span>
