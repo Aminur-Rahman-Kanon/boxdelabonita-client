@@ -8,12 +8,12 @@
 }
 
 .header2 {
-    position: relative;
+    /* position: relative; */
     margin: 5px 0;
     font-size: 1.5rem;
     text-align: center;
 }
-
+/* 
 .header2::after {
     position: absolute;
     bottom: -30%;
@@ -25,7 +25,7 @@
     border-radius: 10px;
     content: '';
 
-}
+} */
 
 .header3 {
     font-size: 1.1rem;
