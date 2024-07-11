@@ -95,8 +95,8 @@ function App() {
           </Suspense>}/>
           <Route path='/promote/:productId' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <LandingPage />
-          </Suspense>}/>
-          <Route path='*' element={<DefaultRoute />} />*/}
+          </Suspense>}/> */}
+          <Route path='*' element={<DefaultRoute />} />
         </Routes>
         {/* <Footer /> */}
       </ContextApi.Provider>
