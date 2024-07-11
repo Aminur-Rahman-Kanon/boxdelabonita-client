@@ -44,8 +44,6 @@ function App() {
       }).catch(err => [])
   })
 
-  console.log(data);
-
   //This hook disable scrolls when backdrop is true so user cant scroll in y direction
   useEffect(() => {
     if (backdrop) {
@@ -65,16 +63,16 @@ function App() {
   return (
     <div className="App">
       <ContextApi.Provider value={{ product: { isLoading, data }, addItem, setAddItem, toggleSidedrawer }}>
-        <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
+        {/* <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
         <Sidedrawer sidedrawer={sidedrawer} />
-        <Topbar toggleSidedrawer={toggleSidedrawer} />
+        <Topbar toggleSidedrawer={toggleSidedrawer} /> */}
         {/*this component should gives user ability to directly chat up with the admin through fb but not yet implemented*/}
         {/* <Messanger /> */}
         <Routes>
-          <Route path='/' element={<Homepage />} />
+          {/* <Route path='/' element={<Homepage />} /> */}
           {/*activate this route and disable all routes when needed undertaking major updates or critical works*/}
-          {/* <Route path='/' element={<UnderTesting />} /> */}
-          <Route path='/bag/:categoryId' element={<Suspense fallback={<Spinner spinner={true} />}>
+          <Route path='/' element={<UnderTesting />} />
+          {/* <Route path='/bag/:categoryId' element={<Suspense fallback={<Spinner spinner={true} />}>
             <Category />
           </Suspense>} />
           <Route path='/bag/:categoryId/:productId' element={<Suspense fallback={<Spinner spinner={true}/>}>
@@ -98,9 +96,9 @@ function App() {
           <Route path='/promote/:productId' element={<Suspense fallback={<Spinner spinner={true}/>}>
             <LandingPage />
           </Suspense>}/>
-          <Route path='*' element={<DefaultRoute />} />
+          <Route path='*' element={<DefaultRoute />} />*/}
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </ContextApi.Provider>
     </div>
   );
