@@ -12,6 +12,7 @@ const Orders = ({ user }) => {
     }, [user]);
 
     const displayOrders = orders.length ? orders.map((items, idx) => {
+        console.log(items);
         let grandTotal = 0;
         return <div key={idx} className={styles.displayOrderContainer}>
             <div className={styles.idContainer}>
@@ -31,7 +32,7 @@ const Orders = ({ user }) => {
                     grandTotal += item.quantity * item.price;
                     return <div key={item.product._id} className={styles.product}>
                         <div className={styles.productImgContainer}>
-                            <img src={item.product.img} alt={item.product.title} className={styles.productImg}/>
+                            <img src={Object.values(item.product.img)[0]} alt={item.product.title} className={styles.productImg}/>
                             <span className={styles.details}>{item.product.title}</span>
                         </div>
                         <div className={styles.productDetailsContainer}>

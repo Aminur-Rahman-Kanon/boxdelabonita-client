@@ -12,7 +12,7 @@ const CartContainer = ({ products, toggleAddItem }) => {
     if (Object.keys(products).length){
         displayCart = Object.values(products).map(item => <div key={item.product._id} className={styles.displayCartItem}>
             <div className={styles.displayCartImgContainer}>
-                <img src={item.product.img[0]} alt={item.product.title} className={styles.displayCartImg} />
+                <img src={Object.values(item.product.img)[0]} alt={item.product.title} className={styles.displayCartImg} />
             </div>
             <div className={styles.displayCartDetailsContainer}>
                 <h4 className={styles.heading}>{item.product.title}</h4>

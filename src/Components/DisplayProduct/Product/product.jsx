@@ -42,14 +42,14 @@ const Product = ({ product }) => {
             <div className={styles.imageSliderContainer}>
                 <span className={styles.descriptionHeader}>Description</span>
                 <div className={styles.sliderImgContainer}>
-                    {product.img.map(item => <div key={item} className={styles.sliderImageContainer}>
+                    {Object.values(product.img || {}).map(item => <div key={item} className={styles.sliderImageContainer}>
                         <img src={item} alt={product.title} className={styles.sliderImage}/>
                     </div>)}
                 </div>
             </div>
             <div className={styles.section2}>
                 <div className={styles.mainImageContainer}>
-                    <img src={product.img[0]} alt={product.title} className={styles.mainImage}/>
+                    <img src={Object.values(product.img)[0]} alt={product.title} className={styles.mainImage}/>
                     <SoldOut show={!product.stock}/>
                 </div>
                 <div className={styles.detailsContainer}>

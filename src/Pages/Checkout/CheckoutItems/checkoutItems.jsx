@@ -8,7 +8,7 @@ function CheckoutItems({ items, deliveryCharge, totalPrice }) {
         displayCheckoutItems = Object.values(items).map(item => {
             return <div key={item.product._id} className={styles.checkoutItem}>
                 <div className={styles.checkoutImgContainer}>
-                    <img src={item.product.img[0]} alt={item.product.title} className={styles.checkoutImg} />
+                    <img src={Object.values(item.product.img)[0]} alt={item.product.title} className={styles.checkoutImg} />
                 </div>
                 <div className={styles.checkoutDetailsContainer}>
                     <p className={styles.checkoutP}>{item.product.title}</p>

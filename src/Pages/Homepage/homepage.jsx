@@ -11,7 +11,7 @@ function Homepage() {
         <div className={styles.homapageContainer}>
             <Banner />
             <Category />
-            <AdditionalBanner />
+            {/* <AdditionalBanner /> */}
             <DisplayProducts productsType={"all bags"}/>
             <Journal />
         </div>

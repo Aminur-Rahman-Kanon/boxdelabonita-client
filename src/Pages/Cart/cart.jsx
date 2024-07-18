@@ -54,7 +54,7 @@ function Cart() {
             return <div key={item.product._id} className={styles.cartItem}>
                 <div className={styles.cartItemImgContainerMain}>
                     <div className={styles.cartImgContainer}>
-                        <img src={item.product.img[0]} alt={item.product.title} className={styles.cartImg} />
+                        <img src={Object.values(item.product.img)[0]} alt={item.product.title} className={styles.cartImg} />
                     </div>
                     <div className={styles.cartInfoContainer}>
                         <p className={styles.cartTitle}>{item.product.title}</p>
