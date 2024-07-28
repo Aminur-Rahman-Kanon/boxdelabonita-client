@@ -12,7 +12,7 @@ const client = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/build'>
       <QueryClientProvider client={client}>
         <App />
       </QueryClientProvider>
