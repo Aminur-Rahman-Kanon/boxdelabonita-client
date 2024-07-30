@@ -2,10 +2,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 80%;
     height: 100vh;
     min-width: 250px;
-    padding: 15px;
+    padding: 15px 15px 0 15px;
     box-sizing: border-box;
     background-color: white;
     border-radius: 0 5px 5px 0;
@@ -16,6 +16,19 @@
     transition: all 0.3s ease;
     transform: translate(-140%);
     z-index: 600;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.sidedrawerContainer::-webkit-scrollbar {
+    width: 8px;
+    background-color: white;
+}
+
+.sidedrawerContainer::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: #447c3d;
+    border-radius: 10px;
 }
 
 .sidedrawerContainer.show {

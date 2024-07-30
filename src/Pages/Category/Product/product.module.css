@@ -38,6 +38,11 @@
 }
 
 .title {
+    max-width: 200px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 10px auto;
     text-align: center;
     font-size: 1rem;

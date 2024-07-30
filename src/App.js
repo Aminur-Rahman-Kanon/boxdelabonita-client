@@ -44,8 +44,6 @@ function App() {
       }).catch(err => [])
   })
 
-  console.log(data);
-
   //This hook disable scrolls when backdrop is true so user cant scroll in y direction
   useEffect(() => {
     if (backdrop) {

@@ -64,4 +64,9 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .navbarLink {
+        font-size: 18px;
+        font-weight: 600;
+    }
 }
