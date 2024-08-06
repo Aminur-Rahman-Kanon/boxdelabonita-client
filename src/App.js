@@ -69,34 +69,34 @@ function App() {
         {/*this component should gives user ability to directly chat up with the admin through fb but not yet implemented*/}
         {/* <Messanger /> */}
         <Routes>
-          <Route path={`${process.env.PUBLIC_URL}/`} element={<Homepage />} />
+          <Route path={'/'} element={<Homepage />} />
           {/*activate this route and disable all routes when needed undertaking major updates or critical works*/}
           {/* <Route path='/' element={<UnderTesting />} /> */}
-          <Route path={`${process.env.PUBLIC_URL}/bag/:categoryId`} element={<Suspense fallback={<Spinner spinner={true} />}>
+          <Route path={'/bag/:categoryId'} element={<Suspense fallback={<Spinner spinner={true} />}>
             <Category />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/bag/:categoryId/:productId`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/bag/:categoryId/:productId'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <DisplayProduct />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/view-cart`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/view-cart'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Cart />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/checkout`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/checkout'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Checkout />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/profile`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/profile'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Profile />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/profile/:track/:phone`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/profile/:track/:phone'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <Profile />
           </Suspense>} />
-          <Route path={`${process.env.PUBLIC_URL}/about`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/about'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
           </Suspense>}/>
-          <Route path={`${process.env.PUBLIC_URL}/promote/:productId`} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/promote/:productId'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <LandingPage />
           </Suspense>}/>
-          <Route path={`${process.env.PUBLIC_URL}/*`} element={<DefaultRoute />} />
+          <Route path={'*'} element={<DefaultRoute />} />
         </Routes>
         <Footer />
       </ContextApi.Provider>
