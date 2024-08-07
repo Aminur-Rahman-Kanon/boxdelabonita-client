@@ -25,7 +25,7 @@ const ProfileMain = () => {
             //navigate to the orders section of this page
             setFormType('orders')
             //make a http request
-            fetch(`https://boxdelabonita-server-13dd.onrender.com/fetch-cart-item/${params.phone}`)
+            fetch(`${process.env.REACT_APP_BASE_URI}/fetch-cart-item/${params.phone}`)
             .then(res => res.json())
             .then(data => {
                 setUserData(data.data);

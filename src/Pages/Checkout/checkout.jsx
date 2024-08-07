@@ -115,7 +115,7 @@ function Checkout() {
         setBackdrop(true);
         setSpinner(true);
         //make a http request and handle the response
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/place-order', {
+        await fetch(`${process.env.REACT_APP_BASE_URI}/place-order`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

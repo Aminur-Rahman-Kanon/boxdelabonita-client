@@ -34,16 +34,19 @@ function App() {
   const { isLoading, error, data } = useQuery({
     queryKey: ['fetchData'],
     queryFn: () =>
-      fetch('https://boxdelabonita-server-13dd.onrender.com/fetch-all-products').then((res) => res.json()).then(data => {
+      fetch(`${process.env.REACT_APP_BASE_URI}/fetch-all-products`).then((res) => res.json()).then(data => {
+        console.log(data);
+        
         if (data.data){
           return data.data;
         }
         else {
           return [];
         }
-      }).catch(err => [])
+      }).catch(err => console.log(err))
   })
 
+  console.log(`${process.env.REACT_APP_BASE_URI}`);
   //This hook disable scrolls when backdrop is true so user cant scroll in y direction
   useEffect(() => {
     if (backdrop) {

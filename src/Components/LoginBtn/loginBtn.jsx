@@ -14,7 +14,7 @@ const LoginBtn = ({ btnDisable, userInput }) => {
         e.preventDefault();
         //display the spinner first while the http request is pending
         setIsLoading(true);
-        await fetch('https://boxdelabonita-server-13dd.onrender.com/login', {
+        await fetch(`${process.env.REACT_APP_BASE_URI}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
