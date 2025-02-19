@@ -159,6 +159,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
 }
 
 .productDetails {

@@ -25,6 +25,8 @@ function App() {
 
   const [sidedrawer, setSidedrawer] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
+  const [toggleCategory, setToggleCategory] = useState(false);
+  const [toggleShop, setToggleShop] = useState(false);
   //Since we store the user added products to the localStorage and adding item to localStorage doesn't rerender.
   //that's why declare a counter variable "addItem" and everytime user add or remove an item from the cart
   //we increment or decrement the value so the App component rerender and so its child and we get the latest value from localStorage
@@ -35,7 +37,6 @@ function App() {
     queryKey: ['fetchData'],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_BASE_URI}/fetch-all-products`).then((res) => res.json()).then(data => {
-        console.log(data);
         
         if (data.data){
           return data.data;
@@ -45,8 +46,6 @@ function App() {
         }
       }).catch(err => console.log(err))
   })
-
-  console.log(`${process.env.REACT_APP_BASE_URI}`);
   //This hook disable scrolls when backdrop is true so user cant scroll in y direction
   useEffect(() => {
     if (backdrop) {
@@ -60,15 +59,28 @@ function App() {
   //this function toggles the sidedrawer on/off so sidedrawer can be displayed or hidden
   const toggleSidedrawer = () => {
     setSidedrawer(sidedrawer => !sidedrawer);
-    setBackdrop(backdrop => !backdrop);
+    setToggleCategory(false);
+    setToggleShop(false);
+  }
+
+  const contextValue = {
+    product: {
+      isLoading, data
+    },
+    sidedrawer,
+    addItem,
+    setAddItem,
+    toggleSidedrawer,
+    toggleCategory, setToggleCategory,
+    toggleShop, setToggleShop
   }
 
   return (
     <div className="App">
-      <ContextApi.Provider value={{ product: { isLoading, data }, addItem, setAddItem, toggleSidedrawer }}>
-        <Backdrop backdrop={backdrop} closeBackdrop={toggleSidedrawer} />
-        <Sidedrawer sidedrawer={sidedrawer} />
-        <Topbar toggleSidedrawer={toggleSidedrawer} />
+      <ContextApi.Provider value={ contextValue }>
+        <Backdrop backdrop={backdrop} closeBackdrop={() => {}} />
+        <Sidedrawer />
+        <Topbar />
         {/*this component should gives user ability to directly chat up with the admin through fb but not yet implemented*/}
         {/* <Messanger /> */}
         <Routes>

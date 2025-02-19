@@ -184,6 +184,10 @@
     .imgContainer {
         height: 290px;
     }
+
+    .title {
+        max-width: 120px;
+    }
 }
 
 @media (max-width: 650px) {

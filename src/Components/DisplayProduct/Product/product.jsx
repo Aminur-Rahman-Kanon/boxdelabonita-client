@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './product.module.css';
 import Rating from '../Rating/rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,11 +25,11 @@ const Product = ({ product }) => {
                 return product.color[0];
             }
             else {
-                return '';
+                return 'dafault';
             }
         }
         else {
-            return '';
+            return 'default';
         }
     })
     //if there is no product then we dont render this component

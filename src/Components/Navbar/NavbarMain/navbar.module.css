@@ -7,6 +7,7 @@
 }
 
 .navbarItems {
+    position: relative;
     width: 100%;
     list-style: none;
     margin: 0;
@@ -40,11 +41,24 @@
 }
 
 .shop {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: calc(100vw - 100px);
+    max-width: 1200px;
     display: none;
+    z-index: 600;
 }
 
 .category {
     display: none;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: calc(100vw - 100px);
+    z-index: 600;
 }
 
 .navbarItem:nth-child(2):hover .shop {
@@ -52,7 +66,7 @@
 }
 
 .navbarItem:nth-child(3):hover .category {
-    display: block;
+    display: flex;
 }
 
 @media (max-width: 850px) {
@@ -68,5 +82,17 @@
     .navbarLink {
         font-size: 18px;
         font-weight: 600;
+    }
+
+    .shop, .category {
+        display: none;
+    }
+
+    .navbarItem:nth-child(2):hover .shop {
+        display: none;
+    }
+    
+    .navbarItem:nth-child(3):hover .category {
+        display: none;
     }
 }

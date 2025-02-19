@@ -6,19 +6,13 @@ import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg
 
 const BottomNavItem = () => {
 
-    const shopItem = shop.map(item => <a key={item.id} href={`/bag/${item.route}`} className={styles.itemContainer}>
-        <div className={styles.imgContainer}>
-            <img src={item.img} alt={item.title} className={styles.img}/>
-        </div>
-        <div className={styles.headerContainer}>
-            <span className={styles.header}>{item.title}</span>
-        </div>
-    </a>)
-
     return (
         <div className={styles.main}>
             <div className={styles.items}>
-                { shopItem }
+                <h3 className={styles.headingSmallBlack}>Contact us</h3>
+                <p className={styles.textSmallBlack}>Office: 82/12/1 North Jatrabari, Dhaka, 1204</p>
+                <p className={styles.textSmallBlack}>Email: boxdelabonita@gmail.com</p>
+                <p className={styles.textSmallBlack}>Phone: +8801911343436</p>
             </div>
             <div className={styles.socialLinks}>
                 <a data-testid="facebook" href="https://facebook.com/box.de.la.bonita" target="_blank" className={styles.socialLinkItem}><FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/></a>
