@@ -108,7 +108,7 @@ function App() {
           <Route path={'/about'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <About />
           </Suspense>}/>
-          <Route path={'/promote/:productId'} element={<Suspense fallback={<Spinner spinner={true}/>}>
+          <Route path={'/shop'} element={<Suspense fallback={<Spinner spinner={true}/>}>
             <LandingPage />
           </Suspense>}/>
           <Route path={'*'} element={<DefaultRoute />} />

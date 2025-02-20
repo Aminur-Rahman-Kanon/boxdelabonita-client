@@ -72,9 +72,6 @@ const Category = () => {
         }
     }, [params.categoryId, products.data]);
 
-    console.log(params, products);
-    
-
     useEffect(() => {
         //initialize empty array
         let filteredItem = [];

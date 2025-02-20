@@ -17,7 +17,6 @@ function Sidedrawer() {
         toggleCategory,
         setToggleCategory
      } = useContext(ContextApi);
-     console.log(sidedrawer);
      
 
     return (

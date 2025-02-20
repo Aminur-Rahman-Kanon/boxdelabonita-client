@@ -1,0 +1,190 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.left {
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.panelContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.headingSmallBlack {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(49, 49, 49);
+    margin: 10px 0;
+}
+
+.select {
+    width: 100%;
+    height: 30px;
+    border: 1px solid lightgray;
+    color: rgb(49, 49, 49);
+    padding-left: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    color: rgb(49, 49, 49);
+}
+
+.option {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(49, 49, 49);
+}
+
+.right {
+    width: 75%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.productContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.product {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bgContainer {
+    width: 100%;
+    height: calc(100% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.productHeading {
+    color: black;
+    margin: 5px 0;
+    max-width: 200px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 560;
+    color: rgb(82, 82, 82);
+}
+
+.priceContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.reducedPrice {
+    font-size: 1rem;
+    font-weight: 400;
+    color: gray;
+}
+
+.mainPrice {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(49, 49, 49);
+}
+
+@media (max-width: 1035px) {
+    .productHeading {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .panelContainer {
+        width: 33%;
+        align-items: center;
+    }
+
+    .select {
+        text-align-last: center;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .productContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
