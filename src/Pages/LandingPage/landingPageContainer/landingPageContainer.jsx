@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styles from './landingPageContainer.module.css';
 import { category, prices, color } from '../../../Data/data';
 import { Link } from 'react-router-dom';
+import banner from '../../../Assets/videos/land_banner.mp4';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSliders, faX } from '@fortawesome/free-solid-svg-icons';
+import Backdrop from '../../../Components/Backdrop/backdrop';
+import { disableScroll } from '../../../Utilities/utilities';
 
 const LandingPageContainer = ({ products }) => {
 
@@ -12,6 +19,21 @@ const LandingPageContainer = ({ products }) => {
 
     const [filteredPrd, setFilteredPrd] = useState([]);
     const [filterMode, setFilterMode] = useState(false);
+    const [displaySlider, setDisplaySlider] = useState(false);
+    const [backdrop, setBackdrop] = useState(false);
+
+    useEffect(() => {
+        Aos.init({ duration: '1800' })
+    }, [])
+
+    useEffect(() => {
+        if (backdrop){
+            disableScroll()
+        }
+        else {
+            window.onscroll = () => {}
+        }
+    }, [backdrop])
 
     useEffect(() => {
         if (prdCategory){
@@ -71,6 +93,11 @@ const LandingPageContainer = ({ products }) => {
     const price = prices.map(p => <option key={p} className={styles.option}>{p}</option>);
 
     const colors = color.map(clr => <option key={clr} className={styles.option}>{clr}</option>);
+    
+    const toggleSlider = () => {
+        setDisplaySlider((slider) => !slider);
+        setBackdrop((backdrop) => !backdrop);
+    }
 
     let displayProduct = <div className={styles.wrapper}>
         <h3 className={styles.headingSmallBlack}>Nothing found</h3>
@@ -101,6 +128,15 @@ const LandingPageContainer = ({ products }) => {
     }
     else {
         displayProduct = <div className={styles.wrapper}>
+            <div className={styles.bodyTop}>
+                <div className={styles.filterBtn} onClick={ toggleSlider }>
+                    <FontAwesomeIcon icon={ faSliders } className={styles.sliderIcon} />
+                    <span className={styles.sliderText}>Filters</span>
+                </div>
+                <div className={styles.statusContainer}>
+                    <span className={styles.sliderText}>Showing {filteredPrd.length ? filteredPrd.length : products.length} products</span>
+                </div>
+            </div>
             <div className={styles.productContainer}>
                 {
                     products.map(prd => <Link to={`/bag/${prd.category}/${prd.title}`} key={prd._id} className={styles.product}>
@@ -118,9 +154,18 @@ const LandingPageContainer = ({ products }) => {
         </div>
     }
 
+
     return (
+        <>
+        <Backdrop backdrop={backdrop}/>
         <div className={styles.container}>
-            <div className={styles.left}>
+            <div className={displaySlider ? `${styles.slider} ${styles.display}` : styles.slider}>
+                <div className={styles.sliderTop}>
+                    <h2 className={styles.headingLargeGreen} style={{fontSize: '1.5rem'}}>Filters</h2>
+                    <div className={styles.xBtn} onClick={ toggleSlider }>
+                        <FontAwesomeIcon icon={ faX } className={styles.xIcon} />
+                    </div>
+                </div>
                 <div className={styles.panelContainer}>
                     <h3 className={styles.headingSmallBlack}>Categories</h3>
                     <select defaultValue={'Please select a category'} className={styles.select} onChange={(e) => setPrdCategory(e.target.value)}>
@@ -144,10 +189,22 @@ const LandingPageContainer = ({ products }) => {
                 </div>
             </div>
 
-            <div className={styles.right}>
+            <div className={styles.top}>
+                <div className={styles.videoContainer}>
+                    <video src={banner} muted playsInline loop autoPlay className={styles.video}></video>
+                </div>
+                <div className={styles.mainBanner}>
+                    <h1 data-aos='fade-down' data-aos-delay='100' className={styles.headingLargeGreen}>Boxdelabonita</h1>
+                    <h2 data-aos='fade-up' data-aos-delay='300' className={styles.headingLargeWhite}>40% - 50% Off</h2>
+                    <h3 data-aos='fade-up' data-aos-delay='500' className={styles.headingMediumWhite}>Shop now</h3>
+                </div>
+            </div>
+
+            <div className={styles.body}>
                 {displayProduct}
             </div>
         </div>
+        </>
     )
 }
 
