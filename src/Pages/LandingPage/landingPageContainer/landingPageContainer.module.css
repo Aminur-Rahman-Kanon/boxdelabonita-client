@@ -155,9 +155,11 @@
 
 .body {
     width: 100%;
+    height: 100%;
     /* padding: 10px;
     box-sizing: border-box; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -298,12 +300,11 @@
     }
 
     .slider {
-        width: 100%;
-        flex-direction: row;
+        width: 80%;
     }
 
     .panelContainer {
-        width: 33%;
+        width: 100%;
         align-items: center;
     }
 

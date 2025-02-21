@@ -128,15 +128,6 @@ const LandingPageContainer = ({ products }) => {
     }
     else {
         displayProduct = <div className={styles.wrapper}>
-            <div className={styles.bodyTop}>
-                <div className={styles.filterBtn} onClick={ toggleSlider }>
-                    <FontAwesomeIcon icon={ faSliders } className={styles.sliderIcon} />
-                    <span className={styles.sliderText}>Filters</span>
-                </div>
-                <div className={styles.statusContainer}>
-                    <span className={styles.sliderText}>Showing {filteredPrd.length ? filteredPrd.length : products.length} products</span>
-                </div>
-            </div>
             <div className={styles.productContainer}>
                 {
                     products.map(prd => <Link to={`/bag/${prd.category}/${prd.title}`} key={prd._id} className={styles.product}>
@@ -201,7 +192,18 @@ const LandingPageContainer = ({ products }) => {
             </div>
 
             <div className={styles.body}>
-                {displayProduct}
+                <div className={styles.bodyTop}>
+                    <div className={styles.filterBtn} onClick={ toggleSlider }>
+                        <FontAwesomeIcon icon={ faSliders } className={styles.sliderIcon} />
+                        <span className={styles.sliderText}>Filters</span>
+                    </div>
+                    {/* <div className={styles.statusContainer}>
+                        <span className={styles.sliderText}>Showing {filteredPrd.length ? filteredPrd.length : products.length} products</span>
+                    </div> */}
+                </div>
+                <div className={styles.products}>
+                    {displayProduct}
+                </div>
             </div>
         </div>
         </>
