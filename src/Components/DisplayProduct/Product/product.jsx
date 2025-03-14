@@ -89,13 +89,13 @@ const Product = ({ product }) => {
                         <h2 className={styles.callToOrderheading}>Order by Phone</h2>
                         <div className={styles.callToOrders}>
                             <div className={styles.callToOrder}>
-                                <a href='tel:+8801911343436' className={styles.phone}>
+                                <a href='tel:+8801911390121' className={styles.phone}>
                                     <FontAwesomeIcon icon={faPhone} className={styles.callIcon}/>
-                                    <span className={styles.number}>+8801911343436</span>
+                                    <span className={styles.number}>+8801911390121</span>
                                 </a>
                             </div>
                             <div className={styles.callToOrder}>
-                                <ReactWhatsapp number='+8801911343436' className={styles.phone}>
+                                <ReactWhatsapp number='+8801911390121' className={styles.phone}>
                                     <FontAwesomeIcon icon={faWhatsapp} className={styles.callIcon} style={{fontSize: '25px'}}/>
                                     <span className={styles.number}>WhatsApp</span>
                                 </ReactWhatsapp>
